@@ -1,5 +1,6 @@
 package com.example.demo.pojo;
 
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -30,7 +31,7 @@ public class Doctor {
 	@Column
 	private String emailid;
 	@Column
-	private String timing;
+	private Time timing;
 	@Column
 	private int fees;
 	@Column
@@ -47,7 +48,7 @@ public class Doctor {
 
 
 	public Doctor(int id, String name, @Email String password, String location, String gender, String emailid,
-			String timing, int fees, long mobilenumber, String info, String experience) {
+			Time timing, int fees, long mobilenumber, String info, String experience) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -123,12 +124,12 @@ public class Doctor {
 	}
 
 
-	public String getTiming() {
+	public Time getTiming() {
 		return timing;
 	}
 
 
-	public void setTiming(String timing) {
+	public void setTiming(Time timing) {
 		this.timing = timing;
 	}
 
@@ -179,7 +180,8 @@ public class Doctor {
 				+ gender + ", emailid=" + emailid + ", timing=" + timing + ", fees=" + fees + ", mobilenumber="
 				+ mobilenumber + ", info=" + info + ", experience=" + experience + "]";
 	}
-	
+
+
 	
 		
 

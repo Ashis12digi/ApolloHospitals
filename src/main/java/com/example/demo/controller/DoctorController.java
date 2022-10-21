@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class DoctorController {
 				@RequestParam("gender")  String gender,
 				@RequestParam("emailid")  String emailid,
 			
-				@RequestParam("timing")  String timing,
+				@RequestParam("timing")  Time timing,
 				@RequestParam("fees")  int fees,
 				@RequestParam("mobilenumber")  long mobilenumber,
 				@RequestParam("info")  String info,

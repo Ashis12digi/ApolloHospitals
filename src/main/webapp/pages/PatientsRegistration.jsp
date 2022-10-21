@@ -25,7 +25,11 @@
  NAME:<input type="text" name="name" required="required">
 
  <br><br>
- 
+ <tr>
+ USERNAME:
+<input type="text" name="username" required="required">
+</tr>
+  <br><br>
  <tr>
  PASSWORD:
 <input type="text" name="password" required="required">
@@ -40,7 +44,7 @@
 
 <tr>
 DATE OF BIRTH:
-<input type="text" name="dateofbirth" placeholder=" mm/dd/yyyy " required="required">
+<input type="date" name="dateofbirth" placeholder=" mm/dd/yyyy " required="required">
 </tr>
 
 

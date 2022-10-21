@@ -30,6 +30,16 @@ public class PatientsController {
 	@Autowired
 	PatientsRepository patientsRepository;
 	
+	
+	
+	public PatientsController(PatientsRepository patientsRepository,PatientsService patientsService) {
+		this.patientsRepository = patientsRepository;
+		this.patientsService = patientsService;
+	}
+	
+	
+	
+
 	  @RequestMapping("/") 
 	  public String Entry() 
 	  {
@@ -59,32 +69,56 @@ public class PatientsController {
 	public String viewDetails(
 			
 			@RequestParam("name") String name,
+			@RequestParam("username")String username,
 			@RequestParam("password")String password,
 			@RequestParam("emailid")  String emailid,
-			@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
-		
+			//@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
+	//	@RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date dateofbirth,
+			@RequestParam("Date") Date dateofbirth,
 			@RequestParam("gender")  String gender,
 			@RequestParam("bloodgroup")  String bloodgroup,
 			@RequestParam("mobilenumber")  long mobilenumber,
 			@RequestParam("address")  String address,
 			
-			
-			ModelMap modelMap
-			
-			)
+			ModelMap modelMap)
+		
+		
 	{
-		return patientsService.viewDetails(name, password, emailid, dateofbirth, gender, bloodgroup, mobilenumber, address, modelMap);
+		return patientsService.viewDetails(name, username, password, emailid, dateofbirth, gender, bloodgroup, mobilenumber, address, modelMap);
 	}
 	
 
-	  @RequestMapping("/plogin")
-	  public String PatientHome() {
-	   return patientsService.PatientHome();
-	  }
-	 
+	/*
+	 * @RequestMapping("/plogin") public String PatientHome() { return
+	 * patientsService.PatientHome(); }
+	 */ 
 
-	  
 	
+	 @PostMapping("/plogin")
+//@RequestMapping(value="/plogin", method= RequestMethod.POST)
+		public String PatientHome(@RequestParam("username") String name, @RequestParam("password") String password,
+				ModelMap modelMap) {
+       Patients patients= new Patients();
+	
+       patients.setName(name);
+       patients.setPassword(password);
+			
+			modelMap.put("username", name);
+			modelMap.put("password", password);
+
+
+			
+		//	patients=patientsRepository.findPatientsByNameAndPassword(name).get(1);
+			
+			if(patients.getName().equals(password)) {
+		
+				 return "patientHome";
+						  
+			} else {
+				return "loginerror";
+			}
+	  
+	  }
 	
 	}
 

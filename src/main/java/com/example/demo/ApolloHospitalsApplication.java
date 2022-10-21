@@ -14,5 +14,7 @@ public class ApolloHospitalsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApolloHospitalsApplication.class, args);
 	}
+	
+	
 
 }

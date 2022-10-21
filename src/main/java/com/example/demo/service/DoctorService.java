@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -38,7 +39,7 @@ public class DoctorService {
 				@RequestParam("gender")  String gender,
 				@RequestParam("emailid")  String emailid,
 		//		@RequestParam @DateTimeFormat(pattern = "MM:ss") Date timing;
-				@RequestParam("timing")  String timing,
+				@RequestParam("timing")  Time timing,
 				@RequestParam("fees")  int fees,
 				@RequestParam("mobilenumber")  long mobilenumber,
 				@RequestParam("info")  String info,

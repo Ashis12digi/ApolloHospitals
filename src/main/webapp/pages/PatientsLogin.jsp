@@ -14,7 +14,7 @@
 
 <h1>Patients Login</h1>
 <fieldset style="width:600px">
-<form action="plogin" >
+<form action="plogin" method="post" >
  USER NAME:<input type="text" name="username" placeholder="Enter UserName" >
 
  <br><br>

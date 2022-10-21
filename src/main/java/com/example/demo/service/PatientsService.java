@@ -32,11 +32,13 @@ public class PatientsService {
 
 	public String viewDetails(
 			@RequestParam("name") String name,
-			
+			@RequestParam("username") String username,
 			@RequestParam("password")String password,
 			@RequestParam("emailid")  String emailid,
-			@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
+			//@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
 		
+			//@RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date dateofbirth,
+			@RequestParam("Date") Date dateofbirth,
 			@RequestParam("gender")  String gender,
 			@RequestParam("bloodgroup")  String bloodgroup,
 			@RequestParam("mobilenumber")  long mobilenumber,
@@ -52,6 +54,8 @@ public class PatientsService {
 		Patients patients=new Patients();
 		patients.setId(patients.getId());
 		patients.setName(name);
+		patients.setUsername(username);
+	
 		patients.setPassword(password);
 		patients.setEmailid(emailid);
 		patients.setDateofbirth(dateofbirth);
@@ -66,6 +70,7 @@ public class PatientsService {
 
   	modelMap.put("id", patients.getId());
 	modelMap.put("name",name);
+	modelMap.put("username",username);
 	modelMap.put("password", password);
 	modelMap.put("emailid", emailid);
 	modelMap.put("dateofbirth", dateofbirth);
@@ -79,10 +84,11 @@ public class PatientsService {
 	
 	}
 
-	public String PatientHome() {
-		
-		return "patientHome";
-	}
+
+//	public String PatientHome() {
+//		
+//		return "patientHome";
+//	}
 
 	
  
