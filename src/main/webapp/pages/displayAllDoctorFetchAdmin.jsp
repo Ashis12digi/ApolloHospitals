@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-  
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
     
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,8 +45,7 @@
 </head>
 <body>
 
-
-  <div class="topnav">
+<div class="topnav">
   <a class="active" href="/">Home</a>
 </div> 
 
@@ -67,16 +64,18 @@
 <tr>
 <th >Doctor Id</th>
 <th>Name</th>
+<th>UserName</th>
 
+<th>Password</th>
 <th>Location</th>
 <th>Gender</th>
-
+<th>EmailId</th>
 <th>Timing</th>
 <th>Fees</th>
-
+<th>MobileNumber</th>
 <th>Info</th>
 <th>Experience</th>
-
+<th>Action</th>
 
 </tr>
 </thead>
@@ -88,15 +87,30 @@
   <tr>
     <td>${x.id}</td>
     <td>${x.name}</td>  
- 
+   <td>${x.username}</td> 
+   <td>${x.password}</td> 
     <td>${x.location}</td>
     <td>${x.gender}</td>
+    <td>${x.emailid}</td> 
    
     <td>${x.timing}</td>
     <td>${x.fees}</td>
+    <td>${x.mobilenumber}</td> 
  
     <td>${x.info}</td>
       <td>${x.experience}</td>
+      
+      <td>
+      <form action="deletedoctor">
+      <input type="submit" value="Delete">
+      </form>
+      </td>
+      
+       <td>
+      <form action="updatedoctor">
+      <input type="submit" value="Update">
+      </form>
+      </td>
      
     
 </c:forEach>

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -26,37 +30,32 @@ public class PrescriptionController {
 	@Autowired
 	private PrescriptionService prescriptionService;
 	
-	/*
-	 * @Autowired private AppointmentService service1;
-	 */
-	
-	@GetMapping("/viewPrescription")
-	public String viewPrescription(Model model) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String patientName = auth.getName();
-		
-		List<Prescription> prescriptions = prescriptionService.findByPatientName(patientName);
-		model.addAttribute("prescriptions",prescriptions);
-		return"viewPrescription";
-	}
-	
-	@GetMapping("/savePrescription")
-	public String saveProduct(@ModelAttribute("prescription") Prescription prescription,
-			BindingResult result, ModelMap model,
-			RedirectAttributes redirectAttributes
-			) {
-		Integer id= prescription.getAppointmentID();
-	//	service1.setPrescription("prescribed", id);
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String doctorName = auth.getName();
-		prescription.setDoctorName(doctorName);
-		prescriptionService.save(prescription);
-	   String message = "Prescription was successfully saved ";
-	   redirectAttributes.addFlashAttribute("message", message);
-	   redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-	   return "redirect:/doctorAppointments";
-}
 
+	  @RequestMapping("/Prescriptionform")
+	  public String PrescriptionForm() {
+	  return prescriptionService.PrescriptionForm();
+	  }
+	  
+		@PostMapping("/displayPrescription")
+		public String viewPrescription(
+			
+				@RequestParam("patientname") String patientname,
+
+				@RequestParam("appointmentid") Integer appointmentid,
+
+				@RequestParam("description") String description,
+				
+			
+				ModelMap modelMap)
+			
+			
+		{
+			return prescriptionService.viewPrescription(patientname, appointmentid, description, modelMap);
+			}
+		
+
+	
+	
 	
 
 }

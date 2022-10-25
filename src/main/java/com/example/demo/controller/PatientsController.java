@@ -114,8 +114,20 @@ public class PatientsController {
 	    	
 	    }
     	
+	    @RequestMapping("alllogin") 
+		  public String AllLogin() 
+		  {
+			return patientsService.AllLogin();
+		  
+		  }
     
-	   
+	    @GetMapping("/fetchpatient")
+		  public String Patient(ModelMap model) {
+			
+			
+			return patientsService.Patient(model);
+			  
+		  }
 	    
 	
 	

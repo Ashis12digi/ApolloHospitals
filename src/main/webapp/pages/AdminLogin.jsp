@@ -11,7 +11,7 @@
 
 <center>
 
-<h1>Admiin Login</h1>
+<h1>Admin Login</h1>
 <fieldset style="width:600px">
 <form action="adminloginusername" >
  USER NAME:<input type="text" name="username" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
@@ -29,7 +29,7 @@
  
 <hr>
 </form>
-  <a  href="aregist"><button>Create new Account</button></a>
+  
 </fieldset>
 </center>
 

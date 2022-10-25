@@ -2,9 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Index</title>
 
 <style >
 .topnav {
@@ -40,32 +37,22 @@
 
 </style>
 
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
 </head>
 <body>
-<center>
-<h1>Online Hospital Booking</h1>
-
 <form action="">
 
+<div class="topnav">
+  <a class="active" href="/">HOME</a>
   
-  <div class="topnav">
-  <a class="active" href="#home">Home</a>
- 
-   <a href="fetchalldoctor">DOCTORS</a>
-   <a href="Appointmentform">BOOK APPOINTMENT</a>
-     <a href="Service">SERVICES</a>
-  
-     <a href="contactus">CONTACT US</a>
-  
-   <a href="alllogin" >LOGIN</a>
-           
+ <a href="loginn">PATIENTS LOGIN</a>
+  <a href="doctorlogin">DOCTOR LOGIN</a>
+   <a href="alogin">ADMIN LOGIN</a>
 
-   
-</div>
-  
-          
-  
-  </form>
-  </center>
+
+</form>
 </body>
 </html>

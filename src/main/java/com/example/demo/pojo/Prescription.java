@@ -14,61 +14,66 @@ public class Prescription {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer prescriptionID;
+	private int prescriptionid;
 
 	@Column
-	private String patientName;
+	private String patientname;
 	@Column 
-	private Integer appointmentID;
+	private Integer appointmentid;
 	@Column
 	private String description;
-	@Column
-	private String doctorName;
-	
+
 	public Prescription() {
 		
 	}
-	
-	public Prescription(Integer prescriptionID, String patientName, Integer appointmentID, String description,
-			String doctorName) {
+
+	public Prescription(int prescriptionid, String patientname, Integer appointmentid, String description) {
 		super();
-		this.prescriptionID = prescriptionID;
-		this.patientName = patientName;
-		this.appointmentID = appointmentID;
+		this.prescriptionid = prescriptionid;
+		this.patientname = patientname;
+		this.appointmentid = appointmentid;
 		this.description = description;
-		this.doctorName = doctorName;
 	}
 
-	public Integer getPrescriptionID() {
-		return prescriptionID;
+	public int getPrescriptionid() {
+		return prescriptionid;
 	}
-	public void setPrescriptionID(Integer prescriptionID) {
-		this.prescriptionID = prescriptionID;
+
+	public void setPrescriptionid(int prescriptionid) {
+		this.prescriptionid = prescriptionid;
 	}
-	public String getPatientName() {
-		return patientName;
+
+	public String getPatientname() {
+		return patientname;
 	}
-	public void setPatientName(String patientName) {
-		this.patientName = patientName;
+
+	public void setPatientname(String patientname) {
+		this.patientname = patientname;
 	}
-	public Integer getAppointmentID() {
-		return appointmentID;
+
+	public Integer getAppointmentid() {
+		return appointmentid;
 	}
-	public void setAppointmentID(Integer appointmentID) {
-		this.appointmentID = appointmentID;
+
+	public void setAppointmentid(Integer appointmentid) {
+		this.appointmentid = appointmentid;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getDoctorName() {
-		return doctorName;
+
+	@Override
+	public String toString() {
+		return "Prescription [prescriptionid=" + prescriptionid + ", patientname=" + patientname + ", appointmentid="
+				+ appointmentid + ", description=" + description + "]";
 	}
-	public void setDoctorName(String doctorName) {
-		this.doctorName = doctorName;
-	}
+
+	
 	
 	
 

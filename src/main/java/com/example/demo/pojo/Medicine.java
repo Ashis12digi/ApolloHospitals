@@ -5,85 +5,62 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table
 public class Medicine {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int medicineId;
-	private String medicineName;
-	private double medicineCost;
+	private int patientid;
+	private String patientname;
+	private String medicinename;
+	private String medicinetype;
 	private int quantity;
-	private String medicineType;
-	private String medicineDescription;
-
-	public Medicine(int medicineId, String medicineName, double medicineCost, int quantity, String medicineType,
-			String medicineDescription) {
-
-		this.medicineId = medicineId;
-		this.medicineName = medicineName;
-		this.medicineCost = medicineCost;
-		this.quantity = quantity;
-		this.medicineType = medicineType;
-		this.medicineDescription = medicineDescription;
+	private double medicinecost;
+	public int getPatientid() {
+		return patientid;
 	}
-
-	public int getMedicineId() {
-		return medicineId;
+	public void setPatientid(int patientid) {
+		this.patientid = patientid;
 	}
-
-	public void setMedicineId(int medicineId) {
-		this.medicineId = medicineId;
+	public String getPatientname() {
+		return patientname;
 	}
-
-	public String getMedicineName() {
-		return medicineName;
+	public void setPatientname(String patientname) {
+		this.patientname = patientname;
 	}
-
-	public void setMedicineName(String medicineName) {
-		this.medicineName = medicineName;
+	public String getMedicinename() {
+		return medicinename;
 	}
-
-	public double getMedicineCost() {
-		return medicineCost;
+	public void setMedicinename(String medicinename) {
+		this.medicinename = medicinename;
 	}
-
-	public void setMedicineCost(double medicineCost) {
-		this.medicineCost = medicineCost;
+	public String getMedicinetype() {
+		return medicinetype;
 	}
-
+	public void setMedicinetype(String medicinetype) {
+		this.medicinetype = medicinetype;
+	}
 	public int getQuantity() {
 		return quantity;
 	}
-
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
-	public String getMedicineType() {
-		return medicineType;
+	public double getMedicinecost() {
+		return medicinecost;
 	}
-
-	public void setMedicineType(String medicineType) {
-		this.medicineType = medicineType;
+	public void setMedicinecost(double medicinecost) {
+		this.medicinecost = medicinecost;
 	}
-
-	public String getMedicineDescription() {
-		return medicineDescription;
-	}
-
-	public void setMedicineDescription(String medicineDescription) {
-		this.medicineDescription = medicineDescription;
-	}
-
 	@Override
 	public String toString() {
-
-		return "\nMedicine Details => Id : " + medicineId + ", Name : " + medicineName + ", Cost : "
-				+ medicineCost + ", Quantity : " + quantity + ", Type : " + medicineType + ", Description : "
-				+ medicineDescription + "\n";
+		return "Medicine [patientid=" + patientid + ", patientname=" + patientname + ", medicinename=" + medicinename
+				+ ", medicinetype=" + medicinetype + ", quantity=" + quantity + ", medicinecost=" + medicinecost + "]";
 	}
+	 
 
 
 }

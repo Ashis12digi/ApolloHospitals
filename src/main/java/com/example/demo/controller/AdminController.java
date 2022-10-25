@@ -19,6 +19,7 @@ import com.example.demo.pojo.Doctor;
 import com.example.demo.pojo.Patients;
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.service.AdminService;
+import com.example.demo.service.DoctorService;
 
 @Controller
 @Component
@@ -86,5 +87,6 @@ public class AdminController {
       return  adminService.ContactUs();
     }
 	
-
+    
+   
 }

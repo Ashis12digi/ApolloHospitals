@@ -198,10 +198,7 @@ public class Doctor {
 				+ "]";
 	}
 
-	/*
-	 * @OneToMany(mappedBy = "doctors", cascade = CascadeType.ALL, fetch =
-	 * FetchType.LAZY) private List<Appointment> appointments;
-	 */
+	
 		
 
 }

@@ -50,13 +50,12 @@
 
   <div class="topnav">
   <a class="active" href="/">Home</a>
- <a href="fetchallpatients">Manage Patients</a>
-   <a href="">Bill generate</a>
-     <a href="">Confirm Booking</a>
-   <a href="fetchAllDoctor">Manage Doctor</a>
-   <a href="patientList">Patients</a>
-  <a href="/">Logout</a>
- 
+ <a href="fetchpatient">Patients Details</a>
+  
+   <a href="medicineform">Medicine</a>
+   <a href=fetch>Doctor Details</a>
+  
+   
 </div>
 
 </form>

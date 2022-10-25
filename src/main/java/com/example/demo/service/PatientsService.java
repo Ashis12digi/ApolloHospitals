@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.controller.PatientsController;
 import com.example.demo.pojo.Admin;
+import com.example.demo.pojo.Doctor;
 import com.example.demo.pojo.Patients;
 import com.example.demo.repository.PatientsRepository;
 @Component
@@ -93,6 +95,20 @@ public class PatientsService {
 		
 	}
 
+	public String AllLogin() {
+		// TODO Auto-generated method stub
+		return "allLogin";
+	}
+
+
+public String Patient(ModelMap model) {
+	
+	  List<Patients>patient=new ArrayList<Patients>();
+	  patientsRepository.findAll().forEach(i->patient.add(i));
+	 model.addAttribute("result", patient);
+	
+	 return "displayAllPatient";
+}
 	
 
 

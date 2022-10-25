@@ -50,11 +50,11 @@
 
  <div class="topnav">
   <a class="active" href="/">Home</a>
- <a href="">Search Patients</a>
-   <a href="">Appointmentments</a>
-     <a href="createPrescription">Precription</a>
+
+  
+     <a href="Prescriptionform">Precription</a>
  
-  <a href="">Logout</a>
+ 
  
  
 </div>

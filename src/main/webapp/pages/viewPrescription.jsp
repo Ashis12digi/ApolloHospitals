@@ -9,42 +9,44 @@
 <body>
 
 
-<body style="background-color:powderblue;">
-<style>
-table,th,td{
-border: 1px solid black;
-padding: 3px;
-text-align: center;
-}
-table{
-border-spacing: 5px;
-}
-</style>
 
-<hr> <hr>
+<center>
+<h1> Welcome to our Hospital</h1>
 
-<H1 align="center">HOSPITAL SWERSIE</H1>
-	<hr>
-	<a th:href="/ ">Home</a>
-	 <hr>
-	<br>
-	<br>
-       
-        <table style="width:100%">
-        <caption>Your appointments</caption>
-        <tr>
-            <th>AppointmentID</th>
-            <th>Patient Name</th>
-            <th>Prescription</th>
-           
-        </tr>
-        <tr th:each="prescription : ${prescriptions}">
-            <td th:text="${prescription.appointmentID}"></td>
-          	<td th:text="${prescription.patientName}"></td>
-          	<td th:text="${prescription.description}"></td>
-          
-        </tr>
-    </table>
+
+
+<h1> The Prescription Details are:</h1>
+<fieldset style="width: 1000px">
+
+
+
+<table border = "1" width = "100%">
+<thead>
+<tr>
+<th >Patient Name</th>
+<th>Appointment Id</th>
+
+<th>Prescription Details</th>
+
+
+</tr>
+</thead>
+<tbody>
+
+
+
+
+  <tr>
+    <td>${patientname}</td>
+    <td>${appointmentid}</td>  
+ 
+    <td>${description}</td>
+    
+    
+
+
+
 
 </body>
 </html>
+

@@ -129,5 +129,19 @@ public class DoctorController {
 			return doctorService.displayDoctor(model);
 			  
 		  }
+	   
+	   @GetMapping("/deletedoctor")
+	   public String deleteDoctor() {
+		return "deleteDoctor";
+		   
+	   }
+	   
+	   @GetMapping("/fetch")
+		  public String Doctor(ModelMap model) {
+			
+			
+			return doctorService.Doctor(model);
+			  
+		  }
 		
 }

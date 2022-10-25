@@ -51,13 +51,10 @@
   <div class="topnav">
   <a class="active" href="/">Home</a>
  
- <a href="">View Patients</a>
-   <a href="Appointmentform">Book Appointmentments</a>
-    <a href="">Madicine</a>
-     <a href="">Pay Bill</a>
-     
+ <a href="">Patients History</a>
+  
   <a href="">Feedback</a>
-  <a href="/">Logout</a>
+ 
   
   
 </div>

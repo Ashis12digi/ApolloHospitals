@@ -143,7 +143,7 @@ public Doctor getdoctorlogin(String username, String password) {
  */
 
 public String displayDoctor(ModelMap model) {
-	// TODO Auto-generated method stub
+	
 	  List<Doctor>doctor=new ArrayList<Doctor>();
 	 doctorRepository.findAll().forEach(i->doctor.add(i));
 	 model.addAttribute("result", doctor);
@@ -151,6 +151,15 @@ public String displayDoctor(ModelMap model) {
 	 return "displayAllDoctor";
 }
 
+
+public String Doctor(ModelMap model) {
+	
+	  List<Doctor>doctor=new ArrayList<Doctor>();
+	 doctorRepository.findAll().forEach(i->doctor.add(i));
+	 model.addAttribute("result", doctor);
+	
+	 return "displayAllDoctorFetchAdmin";
+}
 	
 	
  
