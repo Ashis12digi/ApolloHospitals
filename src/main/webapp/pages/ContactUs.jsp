@@ -43,31 +43,25 @@
 </head>
 <body>
 
+
 <center>
-<form action=>
 
-
+<h1>About Us</h1>
  
   <div class="topnav">
   <a class="active" href="/">Home</a>
- 
- <a href="">View Patients</a>
-   <a href="Appointmentform">Book Appointmentments</a>
-    <a href="">Madicine</a>
-     <a href="">Pay Bill</a>
-     
-  <a href="">Feedback</a>
-  <a href="/">Logout</a>
-  
-  
-</div>
+  </div>
 
+<p>Apollo Hospitals is always looking to make things easier for you. 
+Our aim is to provide our customers with the best medical facilities, constant care, and reliable support.
+ If you would like to get in touch with a doctor from a specific department, would like some specific information about the services we provide,
+ or just have a question for us.</p>
 
-
-
-</form>
-
+<p>You can also write to us at info@apollohospitals.com</p>
+<p>Emergency 1066</p>
+<p>Apollo Lifeline :1860-500-1066</p>
 </center>
+
 
 </body>
 </html>

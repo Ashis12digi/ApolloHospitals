@@ -34,6 +34,7 @@ public class DoctorService {
 	
 	public String viewDetails(
 			   @RequestParam("name") String name,
+			   @RequestParam("username") String username,
 				@RequestParam("password")String password,
 				@RequestParam("location")  String location,
 				@RequestParam("gender")  String gender,
@@ -54,6 +55,7 @@ public class DoctorService {
 	
       doctor.setId(doctor.getId());
       doctor.setName(name);
+      doctor.setUsername(username);
       doctor.setPassword(password);
       doctor.setLocation(location);
       doctor.setGender(gender);
@@ -69,6 +71,7 @@ public class DoctorService {
 
   	modelMap.put("id", doctor.getId());
 	modelMap.put("name",name);
+	modelMap.put("username", username);
 	modelMap.put("password", password);
 	modelMap.put("location", location);
 	modelMap.put("gender", gender);
@@ -85,22 +88,21 @@ public class DoctorService {
 	
 	
 	}
-	
-	public void Gret() {
-		System.out.println("Comming");
-		doctorRepository.findAll();
-	}
-	
-	  public List<Doctor> getAllDoctors() { List<Doctor> doctors = new
-	  ArrayList<Doctor>(); doctorRepository.findAll().forEach(i -> doctors.add(i));
-	  ModelMap mm=new ModelMap(); for(Doctor d:doctors) {
-	  
-	  mm.put("d",d.getName()); }
-	  
-	  
-	  return doctors;
-	  
-	  }
+	/*
+	 * public void Gret() { System.out.println("Comming");
+	 * doctorRepository.findAll(); }
+	 * 
+	 * public List<Doctor> getAllDoctors() { List<Doctor> doctors = new
+	 * ArrayList<Doctor>(); doctorRepository.findAll().forEach(i -> doctors.add(i));
+	 * ModelMap mm=new ModelMap(); for(Doctor d:doctors) {
+	 * 
+	 * mm.put("d",d.getName()); }
+	 * 
+	 * 
+	 * return doctors;
+	 * 
+	 * }
+	 */
 	 
 	
 	
@@ -118,6 +120,37 @@ public String DoctorHome() {
 	 * 
 	 * }
 	 */
+	
+	  public List<Doctor> allDoctor() 
+	  {
+		  List<Doctor>doctor=new ArrayList<>();
+	  doctorRepository.findAll().forEach(i->doctor.add(i));
+	  
+	  return doctor;
+	  }
+	 
+ 
+
+public Doctor getdoctorlogin(String username, String password) {
+	Doctor doc=doctorRepository.findByUsernameAndPassword(username,password);
+	return doc;
+	
+}
+/*
+ * public List<Doctor> getAllDoctor() {
+ * 
+ * return doctorRepository.findAll(); }
+ */
+
+public String displayDoctor(ModelMap model) {
+	// TODO Auto-generated method stub
+	  List<Doctor>doctor=new ArrayList<Doctor>();
+	 doctorRepository.findAll().forEach(i->doctor.add(i));
+	 model.addAttribute("result", doctor);
+	
+	 return "displayAllDoctor";
+}
+
 	
 	
  

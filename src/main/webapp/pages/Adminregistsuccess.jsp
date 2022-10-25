@@ -15,10 +15,11 @@
 
 <h4> Admin ID  :${id }</h4>
 <h4> Admin NAME  :${name }</h4>
+<h4> Admin USERNAME  :${username }</h4>
 <h4> Admin PASSWORD  :${password }</h4>
 <h4> Admin Email ID  :${emailid}</h4>
-<h4> Patients GENDER  :${gender }</h4>
-<h4> Patients MOBILE NUMBER  :${mobilenumber }</h4>
+<h4> Admin GENDER  :${gender }</h4>
+<h4> Admin MOBILE NUMBER  :${mobilenumber }</h4>
 <h2> <a href="alogin">Click Here</a> to go for login page</h2>
 
 </center>

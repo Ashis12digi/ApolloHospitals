@@ -1,12 +1,16 @@
 package com.example.demo.pojo;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,11 +22,12 @@ public class Patients {
 	private int id;
 	@Column
 	private String name;
-	@Column
+	
+	@Column(name = "username", unique = true)
 	private String username;
 	@Column
 	private String password;
-	@Column
+	@Column(name = "emailid", unique = true)
 	private String emailid;
 	@Column
 	private Date dateofbirth;
@@ -115,7 +120,7 @@ public class Patients {
 	}
 
 	public void setBloodgroup(String bloodgroup) {
-		this.bloodgroup = bloodgroup;
+ 		this.bloodgroup = bloodgroup;
 	}
 
 	public long getMobilenumber() {
@@ -141,8 +146,10 @@ public class Patients {
 				+ bloodgroup + ", mobilenumber=" + mobilenumber + ", address=" + address + "]";
 	}
 
-	
-	
-	
+	/*
+	 * @OneToMany(mappedBy = "patients", cascade = CascadeType.ALL, fetch =
+	 * FetchType.LAZY) private List<Appointment> appointments;
+	 * 
+	 */
 
 }

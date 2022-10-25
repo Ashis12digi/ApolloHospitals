@@ -2,12 +2,16 @@ package com.example.demo.pojo;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -21,14 +25,15 @@ public class Doctor {
 	private int id;
 	@Column
 	private String name;
+	@Column(name = "username", unique = true)
+   private String username;
 	@Column
-	@Email
 	private String password;
 	@Column
 	private String location;
 	@Column
 	private String gender;
-	@Column
+	@Column(name = "emailid", unique = true)
 	private String emailid;
 	@Column
 	private Time timing;
@@ -47,11 +52,12 @@ public class Doctor {
 	}
 
 
-	public Doctor(int id, String name, @Email String password, String location, String gender, String emailid,
+	public Doctor(int id, String name, String username, String password, String location, String gender, String emailid,
 			Time timing, int fees, long mobilenumber, String info, String experience) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.username = username;
 		this.password = password;
 		this.location = location;
 		this.gender = gender;
@@ -81,6 +87,16 @@ public class Doctor {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 
@@ -176,13 +192,16 @@ public class Doctor {
 
 	@Override
 	public String toString() {
-		return "Doctor [id=" + id + ", name=" + name + ", password=" + password + ", location=" + location + ", gender="
-				+ gender + ", emailid=" + emailid + ", timing=" + timing + ", fees=" + fees + ", mobilenumber="
-				+ mobilenumber + ", info=" + info + ", experience=" + experience + "]";
+		return "Doctor [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
+				+ ", location=" + location + ", gender=" + gender + ", emailid=" + emailid + ", timing=" + timing
+				+ ", fees=" + fees + ", mobilenumber=" + mobilenumber + ", info=" + info + ", experience=" + experience
+				+ "]";
 	}
 
-
-	
+	/*
+	 * @OneToMany(mappedBy = "doctors", cascade = CascadeType.ALL, fetch =
+	 * FetchType.LAZY) private List<Appointment> appointments;
+	 */
 		
 
 }

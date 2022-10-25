@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> List of Doctors</h1>
-
-
-
-
+<center>
+<h1>Please enter correct Username or Password</h1>
+<a href="/">HOME</a>
+</center>
 </body>
 </html>

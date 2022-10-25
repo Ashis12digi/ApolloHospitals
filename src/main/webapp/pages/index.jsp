@@ -50,9 +50,9 @@
   
   <div class="topnav">
   <a class="active" href="#home">Home</a>
-  <a href="">SERVICE</a>
-   <a href="/listdoctor">DOCTORS</a>
-     <a href="">CONTACT US</a>
+ 
+   <a href="fetchalldoctor">DOCTORS</a>
+     <a href="contactus">CONTACT US</a>
   <a href="loginn">PATIENTS LOGIN</a>
   <a href="doctorlogin">DOCTOR LOGIN</a>
    <a href="alogin">ADMIN LOGIN</a>

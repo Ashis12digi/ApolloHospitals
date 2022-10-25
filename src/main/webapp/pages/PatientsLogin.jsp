@@ -14,8 +14,8 @@
 
 <h1>Patients Login</h1>
 <fieldset style="width:600px">
-<form action="plogin" method="post" >
- USER NAME:<input type="text" name="username" placeholder="Enter UserName" >
+<form action="patientloginusername" method="post" >
+ USER NAME:<input type="text" name="username" placeholder="Enter UserName" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
 
  <br><br>
  

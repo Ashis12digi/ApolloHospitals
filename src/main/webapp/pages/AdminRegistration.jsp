@@ -18,6 +18,17 @@
 
  <br><br>
  
+ 
+ <tr>
+ USERNAME:
+<input type="text" name="username"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+</tr>
+
+ <br><br>
+ 
+ 
+ 
+ 
  <tr>
  PASSWORD:
 <input type="text" name="password" required="required">

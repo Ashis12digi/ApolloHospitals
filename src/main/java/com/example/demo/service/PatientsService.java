@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.controller.PatientsController;
+import com.example.demo.pojo.Admin;
 import com.example.demo.pojo.Patients;
 import com.example.demo.repository.PatientsRepository;
 @Component
@@ -35,10 +37,11 @@ public class PatientsService {
 			@RequestParam("username") String username,
 			@RequestParam("password")String password,
 			@RequestParam("emailid")  String emailid,
-			//@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
+			@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
 		
+		//	@RequestParam @DateTimeFormat(pattern=" MM/dd/yyyy ")  Date dateofbirth,
 			//@RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date dateofbirth,
-			@RequestParam("Date") Date dateofbirth,
+		//	@RequestParam("Date") Date dateofbirth,
 			@RequestParam("gender")  String gender,
 			@RequestParam("bloodgroup")  String bloodgroup,
 			@RequestParam("mobilenumber")  long mobilenumber,
@@ -84,14 +87,16 @@ public class PatientsService {
 	
 	}
 
-
-//	public String PatientHome() {
-//		
-//		return "patientHome";
-//	}
+	public Patients getpatientlogin(String username, String password) {
+		Patients patient=patientsRepository.findByUsernameAndPassword(username,password);
+		return patient;
+		
+	}
 
 	
- 
+
+
+
 	
 
 }

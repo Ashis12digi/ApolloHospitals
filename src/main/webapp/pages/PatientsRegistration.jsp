@@ -27,7 +27,7 @@
  <br><br>
  <tr>
  USERNAME:
-<input type="text" name="username" required="required">
+<input type="text" name="username" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 </tr>
   <br><br>
  <tr>
@@ -44,7 +44,7 @@
 
 <tr>
 DATE OF BIRTH:
-<input type="date" name="dateofbirth" placeholder=" mm/dd/yyyy " required="required">
+<input type="text" name="dateofbirth" placeholder=" MM/dd/yyyy " required="required">
 </tr>
 
 

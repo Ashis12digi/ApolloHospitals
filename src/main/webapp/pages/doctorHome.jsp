@@ -52,7 +52,7 @@
   <a class="active" href="/">Home</a>
  <a href="">Search Patients</a>
    <a href="">Appointmentments</a>
-     <a href="">Precription</a>
+     <a href="createPrescription">Precription</a>
  
   <a href="">Logout</a>
  

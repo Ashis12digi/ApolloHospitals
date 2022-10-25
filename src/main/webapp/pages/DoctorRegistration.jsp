@@ -26,6 +26,13 @@
  <br><br>
  
  <tr>
+ USERNAME:
+<input type="text" name="username" placeholder="Enter username " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+</tr>
+ 
+ <br><br>
+ 
+ <tr>
  PASSWORD:
 <input type="text" name="password" placeholder="Enter Password " required="required">
 </tr>
@@ -52,7 +59,7 @@ EMAIL  ID:
  <br><br>
  <tr>
 TIMING:
-<input type="text" name="timing" placeholder="Enter Time__:__ ">
+<input type="text" name="timing" placeholder="mm:ss:ss ">
 </tr>
  <br><br>
   <tr>
@@ -62,7 +69,10 @@ FEES:
   <br><br>
   <tr>
  MOBILE NUMBER:
-<input type="text" name="mobilenumber" placeholder="Enter Moboile Number" >
+<input type="text" name="mobilenumber" placeholder="Enter Moboile Number"  pattern("^((\\+91-?) |0)?[0-9]{10}$")
+pattern="[789][0-9]{9}"
+ title="Phone number with 7-9 and remaing 9 digit with 0-9"
+ required="required">
 </tr>
  <br><br>
   <tr>

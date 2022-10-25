@@ -13,8 +13,8 @@
   <fieldset>
     <legend>For Patient</legend>
     <label>
-      Name
-      <input type="text" name="name" required>
+    Patient Name
+      <input type="text" name="patientName" required>
     </label>
     <div class="two-cols">
       <label>
@@ -25,6 +25,12 @@
         Phone number
         <input type="tel" name="phone">
       </label>
+      
+      <label>
+      Doctor Name
+        <input type="text" name="doctorname">
+      </label>
+      
     </div>
   </fieldset>
   <fieldset>
