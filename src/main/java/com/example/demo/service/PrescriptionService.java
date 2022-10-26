@@ -27,18 +27,20 @@ public class PrescriptionService {
 	}
 
 
-	  public String viewPrescription(
-				@RequestParam("patientname") String  patientname,
-				@RequestParam("appointmentid") int appointmentid,
-				@RequestParam("description") String description,
-				
+
+
+	public String viewPrescription(
+			@RequestParam("patientname") String  patientname,
+			@RequestParam("appointmentid") int appointmentid,
+			@RequestParam("description") String description,
 			
-				ModelMap modelMap
-				
-				
-				
-				) {
-		  
+		
+			ModelMap modelMap
+			
+			
+			
+			) {
+		
 		  Prescription prescription= new Prescription();
 		  prescription.setPatientname(patientname);
 		  prescription.setAppointmentid(appointmentid);
@@ -55,7 +57,8 @@ public class PrescriptionService {
 		return "viewPrescription";
 		
 		
-		}
+		
+	}
 
 	
 	

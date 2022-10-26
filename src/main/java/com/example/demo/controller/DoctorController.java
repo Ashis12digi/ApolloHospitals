@@ -15,12 +15,15 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
- //import com.example.demo.pojo.Appointment;
+//import com.example.demo.pojo.Appointment;
 import com.example.demo.pojo.Doctor;
 import com.example.demo.pojo.Patients;
 import com.example.demo.repository.DoctorRepository;
@@ -69,7 +72,7 @@ public class DoctorController {
 		}
 		
 	//	@GetMapping("/alldoctor")
-		@GetMapping("/listdoctor")
+//		@GetMapping("/listdoctor")
 	//	@PostMapping("/listdoctor")
 	
 		/*
@@ -143,5 +146,15 @@ public class DoctorController {
 			return doctorService.Doctor(model);
 			  
 		  }
+	   
+	   @RequestMapping(value="/doctor/deleteDoctor/{id}", method=RequestMethod.GET)
+	     public ModelAndView delete(@PathVariable("id") int id) {
+	         
+	      doctorService.DeleteDoctor(id);
+	     
+	      return new ModelAndView("/deleteDoctor");
+	      
+	     }
+	   
 		
 }

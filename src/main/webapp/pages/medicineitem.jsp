@@ -4,24 +4,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Medicine Item</title>
 </head>
 <body>
-<center>
-<h1>Medical Shop</h1>
 
 <center>
-<form action="medicine" id="ft-form" method="POST" accept-charset="UTF-8">
+<h1>Medicine Details</h1>
+
+<center>
+<form action="medicineitems" id="ft-form" method="POST" accept-charset="UTF-8">
   <fieldset>
     <legend>Medicine Details</legend>
     <label>
-    Patient Id
-      <input type="text" name=patientid required>
-    </label>
-    <br><br>
-    <label>
-    Patient Name:
-      <input type="text" name="patientname" required>
+    Medicine Id
+      <input type="text" name=medicineid required>
     </label>
     <br><br>
     <label>
@@ -30,8 +26,13 @@
     </label>
     <br><br>
     <label>
-      Medicine Type:
-      <input type="text" name="medicinetype" required>
+    Brand Name:
+      <input type="text" name="brand" required>
+    </label>
+    <br><br>
+    <label>
+    Made in:
+      <input type="text" name="madein" required>
     </label>
     <br><br>
     <label>
@@ -61,7 +62,6 @@
 </form>
 
 </center>
-
 
 </body>
 </html>

@@ -54,12 +54,13 @@
    <a href="fetchalldoctor">DOCTORS</a>
    <a href="Appointmentform">BOOK APPOINTMENT</a>
      <a href="Service">SERVICES</a>
+       <a href="medicineform">STORE</a>
   
      <a href="contactus">CONTACT US</a>
   
    <a href="alllogin" >LOGIN</a>
            
-
+  
    
 </div>
   

@@ -35,9 +35,9 @@ public class ServicesService {
 	 * return "displayServices"; }
 	 */
 	
-public String Services(
-		@RequestParam("serviceid") int  serviceid,
-		@RequestParam("patientid") int patientid,
+public void Services(
+	//	@RequestParam("serviceid") int  serviceid,
+		@RequestParam("patientid") Integer patientid,
 		@RequestParam("patientname") String patientname,
 		@RequestParam("servicedetails") String servicedetails,
 		
@@ -50,7 +50,7 @@ public String Services(
   
 	Services services= new Services();
 	
-	services.setServiceid(serviceid);
+	services.setServiceid(services.getServiceid());
 	services.setPatientid(patientid);
 	services.setPatientname(patientname);
 	services.setServicedetails(servicedetails);
@@ -59,14 +59,14 @@ public String Services(
  
 	this.serviceRepository.save(services);
 	
-	modelMap.put("serviceid", serviceid);
+	modelMap.put("serviceid",services.getServiceid() );
 
 modelMap.put("patientid", patientid);
 modelMap.put("patientname", patientname);
 modelMap.put("servicedetails", servicedetails);
 
 
-return "displayServices";
+//return "displayServices";
 
 
 }

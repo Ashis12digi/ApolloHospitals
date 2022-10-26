@@ -15,10 +15,16 @@ import com.example.demo.service.ServicesService;
 @Controller
 @Component
 public class ServicesController {
-	@Autowired
+	
 	ServicesService servicesService;
+	
 	 
-	  @RequestMapping("/Service")
+	  public ServicesController(ServicesService servicesService) {
+		super();
+		this.servicesService = servicesService;
+	}
+
+	@RequestMapping("/Service")
 	  public String Servicedetails() {
 	  return servicesService.Servicedetails();
 	  }
@@ -32,11 +38,11 @@ public class ServicesController {
 		 * }
 		 */
 	  
-	  @GetMapping("/fetchServices")
+	 @GetMapping("/fetchServices")
 		//@PostMapping("/fetchServices")
 		public String Services(
 			
-				@RequestParam(required=false,name="serviceid") Integer  serviceid,
+			//	@RequestParam(required=false,name="serviceid") Integer  serviceid,
 				@RequestParam(required=false,name="patientid") Integer patientid,
 				@RequestParam(required=false,name="patientname") String patientname,
 				@RequestParam(required=false,name= "servicedetails") String servicedetails,
@@ -46,7 +52,8 @@ public class ServicesController {
 			
 			
 		{
-			return servicesService.Services(serviceid, patientid, patientname,servicedetails, modelMap);
+			servicesService.Services( patientid, patientname,servicedetails, modelMap);
+			return "displayServices";
 			}
 		
 }

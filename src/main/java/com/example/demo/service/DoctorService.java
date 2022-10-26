@@ -19,7 +19,7 @@ import com.example.demo.pojo.Patients;
 import com.example.demo.repository.DoctorRepository;
 @Component
 @Service
-public class DoctorService {
+public class DoctorService implements doctorService1{
 	@Autowired
 	DoctorRepository doctorRepository;
 	
@@ -160,7 +160,13 @@ public String Doctor(ModelMap model) {
 	
 	 return "displayAllDoctorFetchAdmin";
 }
-	
+
+
+
+@Override
+public void DeleteDoctor(int id) {
+    doctorRepository.deleteById(id);
+}
 	
  
 }

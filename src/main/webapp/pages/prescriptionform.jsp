@@ -16,17 +16,21 @@
     Patient Name:
       <input type="text" name="patientname" required>
     </label>
+    <br><br>
     <div class="two-cols">
       <label>
      Appointment ID:
         <input type="text" name="appointmentid">
       </label>
-      
+       <br><br>
        <label>
     Prescription Details:
-        <input type="text" name="description">
-      </label>
       
+        <textarea cols="80" rows="5" name="description">  
+</textarea> 
+        
+      </label>
+       <br><br>
     </div>
   </fieldset>
 

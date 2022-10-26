@@ -7,12 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Deleted Successfully</h1>
-
-<a href="/">Home</a>
-
-
-
+<h4>Deleted Successfully</h4>
+<a href="/">Go to Home Page</a>
 
 </body>
 </html>

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>List of Dector</title>
+<title>Display Medicine</title>
 <link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
@@ -46,19 +46,22 @@
 
 
 </style>
+
+
 </head>
 <body>
+
 
 <div class="topnav">
   <a class="active" href="/">Home</a>
 </div> 
 
 <center>
-<h1> Welcome to our Hospital</h1>
 
 
 
-<h1> The Doctor Details are:</h1>
+
+<h1> The Medicine Details are:</h1>
 <fieldset style="width: 1000px">
 
 
@@ -66,19 +69,14 @@
 <table border = "1" width = "100%">
 <thead>
 <tr>
-<th >Doctor Id</th>
-<th>Name</th>
-<th>UserName</th>
+<th >Medicine Id</th>
+<th>Medicine Name</th>
+<th>Brand</th>
 
-<th>Password</th>
-<th>Location</th>
-<th>Gender</th>
-<th>EmailId</th>
-<th>Timing</th>
-<th>Fees</th>
-<th>MobileNumber</th>
-<th>Info</th>
-<th>Experience</th>
+<th>Made In</th>
+<th>Quantity</th>
+<th>Medicine Cost</th>
+>
 <th>Action</th>
 
 </tr>
@@ -89,24 +87,25 @@
 
 <c:forEach items="${result}" var="x">  
   <tr>
-    <td>${x.id}</td>
-    <td>${x.name}</td>  
-   <td>${x.username}</td> 
-   <td>${x.password}</td> 
-    <td>${x.location}</td>
-    <td>${x.gender}</td>
-    <td>${x.emailid}</td> 
-   
-    <td>${x.timing}</td>
-    <td>${x.fees}</td>
-    <td>${x.mobilenumber}</td> 
- 
-    <td>${x.info}</td>
-      <td>${x.experience}</td>
+    <td>${x.medicineid}</td>
+    <td>${x.medicinename}</td>  
+   <td>${x.brand}</td> 
+   <td>${x.madein}</td> 
+    <td>${x.quantity}</td>
+    <td>${x.medicinecost}</td>
+    
+      
+     
+      <td>
+      <form action="medicineitems">
+      <input type="submit" value="Add">
+      </form>
+      </td>
       
       
+       
      <td>
-       <spring:url value="/doctor/deleteDoctor/${x.id}" var="deleteURL" />
+       <spring:url value="/doctor/deleteMedicine/${x.medicineid}" var="deleteURL" />
        <a class="btn btn-danger" href="${deleteURL}" role="button" >Delete</a>
       </td>
      
@@ -118,6 +117,7 @@
 
 </tbody>
 </table>
+
 
 </body>
 </html>

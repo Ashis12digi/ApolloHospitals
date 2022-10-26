@@ -51,9 +51,9 @@
   <div class="topnav">
   <a class="active" href="/">Home</a>
  
- <a href="">Patients History</a>
+ <a href=""></a>
   
-  <a href="">Feedback</a>
+  <a href="feedback">FeedBack</a>
  
   
   

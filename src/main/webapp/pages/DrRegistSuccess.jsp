@@ -17,7 +17,7 @@
 
 <h4> Doctor ID  :${id }</h4>
 <h4> Doctor NAME  :${name }</h4>
-<h4> Doctor NAME  :${username }</h4>
+<h4> Doctor UserName  :${username }</h4>
 <h4> Doctor PASSWORD  :${password }</h4>
 <h4> Doctor LOCATION  :${location}</h4>
 <h4> Doctor GENDER  :${gender }</h4>

@@ -13,23 +13,31 @@ public class Medicine {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int patientid;
-	private String patientname;
+	private int medicineid;
 	private String medicinename;
-	private String medicinetype;
+	private String brand;
+	private String madein;
 	private int quantity;
 	private double medicinecost;
-	public int getPatientid() {
-		return patientid;
+	public Medicine(int medicineid, String medicinename, String brand, String madein, int quantity,
+			double medicinecost) {
+		super();
+		this.medicineid = medicineid;
+		this.medicinename = medicinename;
+		this.brand = brand;
+		this.madein = madein;
+		this.quantity = quantity;
+		this.medicinecost = medicinecost;
 	}
-	public void setPatientid(int patientid) {
-		this.patientid = patientid;
+	
+	public Medicine() {
+		// TODO Auto-generated constructor stub
 	}
-	public String getPatientname() {
-		return patientname;
+	public int getMedicineid() {
+		return medicineid;
 	}
-	public void setPatientname(String patientname) {
-		this.patientname = patientname;
+	public void setMedicineid(int medicineid) {
+		this.medicineid = medicineid;
 	}
 	public String getMedicinename() {
 		return medicinename;
@@ -37,11 +45,17 @@ public class Medicine {
 	public void setMedicinename(String medicinename) {
 		this.medicinename = medicinename;
 	}
-	public String getMedicinetype() {
-		return medicinetype;
+	public String getBrand() {
+		return brand;
 	}
-	public void setMedicinetype(String medicinetype) {
-		this.medicinetype = medicinetype;
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+	public String getMadein() {
+		return madein;
+	}
+	public void setMadein(String madein) {
+		this.madein = madein;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -57,10 +71,11 @@ public class Medicine {
 	}
 	@Override
 	public String toString() {
-		return "Medicine [patientid=" + patientid + ", patientname=" + patientname + ", medicinename=" + medicinename
-				+ ", medicinetype=" + medicinetype + ", quantity=" + quantity + ", medicinecost=" + medicinecost + "]";
+		return "Medicine [medicineid=" + medicineid + ", medicinename=" + medicinename + ", brand=" + brand
+				+ ", madein=" + madein + ", quantity=" + quantity + ", medicinecost=" + medicinecost + "]";
 	}
-	 
+	
+	
 
 
 }

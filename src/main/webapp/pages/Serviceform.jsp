@@ -14,7 +14,7 @@
  <h2>Service Details</h2>
 <fieldset style="width:600px">
 <form action="fetchServices"  >
- Patient Id:<input type="text" name="id" placeholder="Enter id " required="required" >
+ Patient Id:<input type="text" name="patientid" placeholder="Enter id " required="required" >
 
  <br><br>
  
@@ -25,13 +25,12 @@
  
  <br><br>
  
- <select  style="width: 150px;margin:20px">
-                    <option value="">Service details</option>
-                    <option value="">Xray </option>
-                    <option value="">ECG</option>
-                    <option value="">TEST</option>
-                    
-                </select>
+  Services details
+          <input type="radio"  name="servicedetails" value="Xray">Xray</input>
+         <input type="radio" name="servicedetails" value="ECG">ECG</input>
+          <input type="radio"  name="servicedetails" value="TEST">TEST</input>
+ <br><br>
+ 
  
  
     <input type="submit" value="Submit Request">
