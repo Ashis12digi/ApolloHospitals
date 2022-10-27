@@ -7,17 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center>
-<h1>Medical Shop</h1>
 
 <center>
-<form action="update/medicineInventory" id="ft-form" method="POST" accept-charset="UTF-8">
+<form action="" id="ft-form" method="POST" accept-charset="UTF-8">
   <fieldset>
     <legend>Medicine Details</legend>
-   
     <label>
-    Patient Name:
-      <input type="text" name="patientname" required>
+    Medicine Id
+      <input type="text" name=medicineid required>
     </label>
     <br><br>
     <label>
@@ -25,7 +22,8 @@
       <input type="text" name="medicinename" required>
     </label>
     <br><br>
-    
+   
+   
     <label>
     Quantity:
       <input type="text" name="quantity" required>
@@ -48,12 +46,11 @@
   </fieldset>
   <div class="btns">
     <input type="text" name="_gotcha" value="" style="display:none;">
-    <input type="submit" value="Submit request">
+    <input type="submit" value="Submit ">
   </div>
 </form>
 
 </center>
-
 
 </body>
 </html>

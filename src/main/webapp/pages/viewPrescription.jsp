@@ -24,7 +24,7 @@
 <thead>
 <tr>
 <th >Patient Name</th>
-<th>Appointment Id</th>
+
 
 <th>Prescription Details</th>
 
@@ -38,7 +38,7 @@
 
   <tr>
     <td>${patientname}</td>
-    <td>${appointmentid}</td>  
+   
  
     <td>${description}</td>
     

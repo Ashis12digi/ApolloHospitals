@@ -1,7 +1,7 @@
 
   package com.example.demo.controller;
   
-//  import java.util.Date;
+  import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.repository.AppointmentRepository;
 import com.example.demo.service.AppointmentService;
-  import java.sql.Date;
+ 
  
   
   @Controller
@@ -39,8 +39,8 @@ import com.example.demo.service.AppointmentService;
 	public String viewAppointment(
 			
 			
-			@RequestParam(required=false,name="patientid") Integer patientid,
-		 @RequestParam (required=false,name="date") Date date,
+		//	@RequestParam(required=false,name="patientid") Integer patientid,
+		 @RequestParam (required=false,name="date") java.sql.Date date,
 			@RequestParam( required=false,name="doctorname")  String doctorname,
 		
 			
@@ -48,7 +48,7 @@ import com.example.demo.service.AppointmentService;
 		
 		
 	{
-		return appointmentService.viewAppointment(patientid, date, doctorname, modelMap);
+		return appointmentService.viewAppointment( date, doctorname, modelMap);
 		}
 	
   

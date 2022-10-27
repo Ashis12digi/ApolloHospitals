@@ -43,7 +43,7 @@ public class ServicesController {
 		public String Services(
 			
 			//	@RequestParam(required=false,name="serviceid") Integer  serviceid,
-				@RequestParam(required=false,name="patientid") Integer patientid,
+			//	@RequestParam(required=false,name="patientid") Integer patientid,
 				@RequestParam(required=false,name="patientname") String patientname,
 				@RequestParam(required=false,name= "servicedetails") String servicedetails,
 				
@@ -52,7 +52,7 @@ public class ServicesController {
 			
 			
 		{
-			servicesService.Services( patientid, patientname,servicedetails, modelMap);
+			servicesService.Services(  patientname,servicedetails, modelMap);
 			return "displayServices";
 			}
 		

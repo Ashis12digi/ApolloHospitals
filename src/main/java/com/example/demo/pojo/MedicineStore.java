@@ -10,25 +10,32 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-
 public class MedicineStore {
-
-
+	
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int patientid;
+	private int medicineid;
+	@Column
 	private String patientname;
+	@Column
 	private String medicinename;
-	private String medicinetype;
+	@Column
 	private int quantity;
+	@Column
 	private double medicinecost;
-	public int getPatientid() {
-		return patientid;
+	
+	public MedicineStore(String patientname, String medicinename, int quantity, double medicinecost) {
+		super();
+		this.patientname = patientname;
+		this.medicinename = medicinename;
+		this.quantity = quantity;
+		this.medicinecost = medicinecost;
 	}
-	public void setPatientid(int patientid) {
-		this.patientid = patientid;
+	public MedicineStore() {
+		// TODO Auto-generated constructor stub
 	}
+	
 	public String getPatientname() {
 		return patientname;
 	}
@@ -40,12 +47,6 @@ public class MedicineStore {
 	}
 	public void setMedicinename(String medicinename) {
 		this.medicinename = medicinename;
-	}
-	public String getMedicinetype() {
-		return medicinetype;
-	}
-	public void setMedicinetype(String medicinetype) {
-		this.medicinetype = medicinetype;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -61,10 +62,11 @@ public class MedicineStore {
 	}
 	@Override
 	public String toString() {
-		return "Medicine [patientid=" + patientid + ", patientname=" + patientname + ", medicinename=" + medicinename
-				+ ", medicinetype=" + medicinetype + ", quantity=" + quantity + ", medicinecost=" + medicinecost + "]";
+		return "MedicineStore [patientname=" + patientname + ", medicinename=" + medicinename + ", quantity=" + quantity
+				+ ", medicinecost=" + medicinecost + "]";
 	}
-	 
+	
+	
 
 	
 	

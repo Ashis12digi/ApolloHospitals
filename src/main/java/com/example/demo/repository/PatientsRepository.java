@@ -14,12 +14,6 @@ import com.example.demo.pojo.Patients;
 public interface PatientsRepository extends JpaRepository<Patients, Integer>{
 
 	Patients findByUsernameAndPassword(String username, String password);
-  
-//	@Query(value="select username,password from Patients", nativeQuery= true)
-	//@Query("select * from Patients  where name = :name and password = :password")
-	//public List<Patients> findPatientsByNameAndPassword(String username);
-	
-	//Patients findByPatientnameAndPassword(String username,String password);
-
+    Patients findByusername(String username);
 	
 }

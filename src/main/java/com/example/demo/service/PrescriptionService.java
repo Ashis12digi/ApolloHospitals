@@ -31,7 +31,7 @@ public class PrescriptionService {
 
 	public String viewPrescription(
 			@RequestParam("patientname") String  patientname,
-			@RequestParam("appointmentid") int appointmentid,
+		//	@RequestParam("appointmentid") int appointmentid,
 			@RequestParam("description") String description,
 			
 		
@@ -43,14 +43,14 @@ public class PrescriptionService {
 		
 		  Prescription prescription= new Prescription();
 		  prescription.setPatientname(patientname);
-		  prescription.setAppointmentid(appointmentid);
+		//  prescription.setAppointmentid(appointmentid);
 		  prescription.setDescription(description);
 		
 			this.prescriptionRepository.save(prescription);
 			
 			modelMap.put("patientname", patientname);
    
-     modelMap.put("appointmentid", appointmentid);
+ //    modelMap.put("appointmentid", appointmentid);
      modelMap.put("description", description);
     
 		

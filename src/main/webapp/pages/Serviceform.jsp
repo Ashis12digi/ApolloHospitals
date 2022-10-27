@@ -14,9 +14,7 @@
  <h2>Service Details</h2>
 <fieldset style="width:600px">
 <form action="fetchServices"  >
- Patient Id:<input type="text" name="patientid" placeholder="Enter id " required="required" >
 
- <br><br>
  
  <tr>
  Patient Name:
@@ -25,13 +23,30 @@
  
  <br><br>
  
-  Services details
-          <input type="radio"  name="servicedetails" value="Xray">Xray</input>
-         <input type="radio" name="servicedetails" value="ECG">ECG</input>
-          <input type="radio"  name="servicedetails" value="TEST">TEST</input>
- <br><br>
+<select name="servicedetails"  id="data">
+  <option value="">Lab Tests </option>
+  <option value="Blood">Blood enzyme tests</option>
+  <option value="liver">liver function test</option>
+   <option value="Xray">Xray</option>
+    <option value="gastric">gastric fluid analysis</option>
+     <option value="malabsorption">malabsorption test</option>
+      <option value="Ecg">ECG</option>
+       <option value="enzyme">Blood enzyme tests</option>
+        <option value="metabolic">Basic metabolic panel</option>
+         <option value="Liver">Liver Panel</option>
+          <option value="Thyroid">Thyroid Stimulating Hormone</option>
+           <option value="Hemoglobin">Hemoglobin A1C</option>
+            <option value="Complete blood count">Complete blood count</option>
+             <option value="Organ function tests">Organ function tests</option>
+              <option value=" Infectious disease tests"> Infectious disease tests</option>
+              
+          
+          
+          
+          
  
- 
+</select>
+<br><br>
  
     <input type="submit" value="Submit Request">
  

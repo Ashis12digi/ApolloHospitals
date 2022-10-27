@@ -13,14 +13,13 @@
 
 <h3>Medicine Details: </h3>
 
-
-<h4>  Patient ID  :${patientid }</h4>
+	
 
 <h4>  Patient Name  :${patientname }</h4>
 
 <h4>  Medicine Name  :${medicinename }</h4>
 
-<h4> Medicine Type  :${medicinetype }</h4>
+
 
 <h4>  Quantity  :${quantity }</h4>
 <h4> Medicine Cost  :${medicinecost }</h4>

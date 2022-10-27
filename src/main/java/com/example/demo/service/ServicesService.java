@@ -37,7 +37,7 @@ public class ServicesService {
 	
 public void Services(
 	//	@RequestParam("serviceid") int  serviceid,
-		@RequestParam("patientid") Integer patientid,
+	//	@RequestParam("patientid") Integer patientid,
 		@RequestParam("patientname") String patientname,
 		@RequestParam("servicedetails") String servicedetails,
 		
@@ -51,7 +51,7 @@ public void Services(
 	Services services= new Services();
 	
 	services.setServiceid(services.getServiceid());
-	services.setPatientid(patientid);
+//	services.setPatientid(patientid);
 	services.setPatientname(patientname);
 	services.setServicedetails(servicedetails);
 	
@@ -61,7 +61,7 @@ public void Services(
 	
 	modelMap.put("serviceid",services.getServiceid() );
 
-modelMap.put("patientid", patientid);
+  //modelMap.put("patientid", patientid);
 modelMap.put("patientname", patientname);
 modelMap.put("servicedetails", servicedetails);
 

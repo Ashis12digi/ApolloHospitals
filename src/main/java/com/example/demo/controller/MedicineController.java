@@ -53,6 +53,10 @@ public class MedicineController {
 			return medicineService.viewMedicine(medicineid, medicinename,brand,madein,quantity,medicinecost, modelMap);
 			}
 		
+		
+		
+		
+		
 		 @GetMapping("/fetchmedicine")
 		  public String Medicine(ModelMap model) {
 			

@@ -38,6 +38,11 @@
 }
 
 
+.activereg{
+position: absolute;
+left: 90%;
+}
+
 </style>
 
 </head>
@@ -57,8 +62,8 @@
        <a href="medicineform">STORE</a>
   
      <a href="contactus">CONTACT US</a>
-  
-   <a href="alllogin" >LOGIN</a>
+ 
+   <a  class="activereg" href="alllogin">LOGIN</a>
            
   
    

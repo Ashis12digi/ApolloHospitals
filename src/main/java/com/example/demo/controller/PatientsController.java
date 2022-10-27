@@ -1,11 +1,14 @@
 package com.example.demo.controller;
 
+import java.net.http.HttpRequest;
 import java.util.Date;
 
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,7 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.pojo.Admin;
+import com.example.demo.pojo.Appointment;
 import com.example.demo.pojo.Patients;
+import com.example.demo.pojo.Services;
 import com.example.demo.repository.DoctorRepository;
 import com.example.demo.repository.PatientsRepository;
 import com.example.demo.service.DoctorService;
@@ -33,19 +38,17 @@ import com.example.demo.service.PatientsService;
 public class PatientsController {
 	@Autowired
 	PatientsService patientsService;
-	@Autowired
-	PatientsRepository patientsRepository;
+
 	@Autowired
 	DoctorService doctorService;
-	@Autowired
-	DoctorRepository doctorRepository;
+	//@Autowired
+//	DoctorRepository doctorRepository;
+	
+	Patients patients123;
+	Appointment appointment123;
 	
 	
-	public PatientsController(PatientsRepository patientsRepository,PatientsService patientsService) {
-		this.patientsRepository = patientsRepository;
-		this.patientsService = patientsService;
-	}
-	
+
 	
 	
 
@@ -100,11 +103,14 @@ public class PatientsController {
 		return patientsService.viewDetails(name, username, password, emailid, dateofbirth, gender, bloodgroup, mobilenumber, address, modelMap);
 	}
 	
-	 // @GetMapping("/patientloginusername")
+	 
 	    @PostMapping("/patientloginusername")
-	    public String getpatientlogin(@ModelAttribute("patients") Patients patients) {
+	    public String getpatientlogin(@ModelAttribute("patients") Patients patients, HttpServletRequest request) {
 	    	Patients patient1=patientsService.getpatientlogin(patients.getUsername(),patients.getPassword());
 	    	if(Objects.nonNull(patient1)) {
+	    		
+	    		patients123 =patientsService.getdata(request.getParameter("username"));
+               
 	    		return "patientHome";
 	    	}
 	    	else {
@@ -128,7 +134,26 @@ public class PatientsController {
 			return patientsService.Patient(model);
 			  
 		  }
+	
 	    
+	    @GetMapping("/patientprofile")
+	    public String profile(ModelMap map) {
+	       
+	        map.put("result", patients123);
+	       
+	        return "Patientprofile";
+	  	    }
+	    
+	    //fetching service details 
+	    @GetMapping("/patientservice")
+	    public String profileService(ModelMap map) {
+	        map.put("patient", patients123);
+	        List<Services> list1= patientsService.getservicedata(patients123.getName());
+	        map.put("service", list1);
+	        return "patientSerivce";
+	        
+	    }
+	   
 	
 	
 	}

@@ -18,8 +18,7 @@ public class Prescription {
 
 	@Column
 	private String patientname;
-	@Column 
-	private Integer appointmentid;
+	
 	@Column
 	private String description;
 
@@ -27,11 +26,10 @@ public class Prescription {
 		
 	}
 
-	public Prescription(int prescriptionid, String patientname, Integer appointmentid, String description) {
+	public Prescription(int prescriptionid, String patientname, String description) {
 		super();
 		this.prescriptionid = prescriptionid;
 		this.patientname = patientname;
-		this.appointmentid = appointmentid;
 		this.description = description;
 	}
 
@@ -51,14 +49,6 @@ public class Prescription {
 		this.patientname = patientname;
 	}
 
-	public Integer getAppointmentid() {
-		return appointmentid;
-	}
-
-	public void setAppointmentid(Integer appointmentid) {
-		this.appointmentid = appointmentid;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -69,10 +59,11 @@ public class Prescription {
 
 	@Override
 	public String toString() {
-		return "Prescription [prescriptionid=" + prescriptionid + ", patientname=" + patientname + ", appointmentid="
-				+ appointmentid + ", description=" + description + "]";
+		return "Prescription [prescriptionid=" + prescriptionid + ", patientname=" + patientname + ", description="
+				+ description + "]";
 	}
 
+	
 	
 	
 	

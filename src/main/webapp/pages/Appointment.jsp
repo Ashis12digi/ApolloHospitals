@@ -10,42 +10,40 @@
 
 </head>
 <body>
+  
+
+
+  <div align="center">
+       
+       
 
 <center>
-<form action="appointmnet" id="ft-form" method="POST" accept-charset="UTF-8">
-  <fieldset>
-    <legend>For Patient</legend>
-    <label>
-    Patient Id
-      <input type="text" name="patientid" required>
-    </label>
-    <div class="two-cols">
-      <label>
-      Doctor Name
-        <input type="text" name="doctorname">
-      </label>
-      
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Appointment request</legend>
-    <div class="two-cols">
-      <label>
-        date
-        <input type="date" name="Appointment request" required>
-      </label>
-     
-    </div>
-  
+<legend>For Patient</legend>
+ 
+<fieldset style="width:600px">
+<form action="appointmnet" method="post" >
+DOCTOR NAME:<input type="text" name="doctorname" required="required">
+
+ 
+  <br><br>
+ <tr>
+ DATE:
+<input type="text" name="date" required="required">
+</tr>
+
+ <br><br>
+ 
+ 
+    <input type="submit" value="Appointment Request">
     
-  </fieldset>
-  <div class="btns">
-    <input type="text" name="_gotcha" value="" style="display:none;">
-    <input type="submit" value="Submit request">
-  </div>
+ 
 </form>
 
+
+</fieldset>
 </center>
+
+    </div>
 
 
 </body>

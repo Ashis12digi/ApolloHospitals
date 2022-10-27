@@ -41,7 +41,7 @@ public class PrescriptionController {
 			
 				@RequestParam("patientname") String patientname,
 
-				@RequestParam("appointmentid") Integer appointmentid,
+			//	@RequestParam("appointmentid") Integer appointmentid,
 
 				@RequestParam("description") String description,
 				
@@ -50,7 +50,7 @@ public class PrescriptionController {
 			
 			
 		{
-			return prescriptionService.viewPrescription(patientname, appointmentid, description, modelMap);
+			return prescriptionService.viewPrescription(patientname, description, modelMap);
 			}
 		
 

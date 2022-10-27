@@ -1,6 +1,6 @@
 package com.example.demo.pojo;
 
-  //import java.util.Date;
+  import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
+
 
 
 @Entity
@@ -19,8 +19,7 @@ public class Appointment{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int appointmentid;
 
-	@Column
-	private int patientid;
+	
 	@Column
 	private Date date;
 	
@@ -37,10 +36,9 @@ public class Appointment{
 
 
 
-	public Appointment(int appointmentid, int patientid, Date date, String doctorname) {
+	public Appointment(int appointmentid, Date date, String doctorname) {
 		super();
 		this.appointmentid = appointmentid;
-		this.patientid = patientid;
 		this.date = date;
 		this.doctorname = doctorname;
 	}
@@ -57,20 +55,6 @@ public class Appointment{
 
 	public void setAppointmentid(int appointmentid) {
 		this.appointmentid = appointmentid;
-	}
-
-
-
-
-	public int getPatientid() {
-		return patientid;
-	}
-
-
-
-
-	public void setPatientid(int patientid) {
-		this.patientid = patientid;
 	}
 
 
@@ -106,9 +90,9 @@ public class Appointment{
 
 	@Override
 	public String toString() {
-		return "Appointment [appointmentid=" + appointmentid + ", patientid=" + patientid + ", date=" + date
-				+ ", doctorname=" + doctorname + "]";
+		return "Appointment [appointmentid=" + appointmentid + ", date=" + date + ", doctorname=" + doctorname + "]";
 	}
+
 
 
 

@@ -1,8 +1,8 @@
 
   package com.example.demo.repository;
   
- // import java.util.List;
-  import java.sql.Date;
+  import java.util.List;
+  import java.util.Date;
   
   import org.springframework.data.jpa.repository.Modifying; import
   org.springframework.data.jpa.repository.Query; import

@@ -51,8 +51,9 @@
   <div class="topnav">
   <a class="active" href="/">Home</a>
  <a href="fetchpatient">Patients Details</a>
-  <a href="fetchmedicine">Medicine</a>
-  
+  <a href="fetchmedicine"></a>
+  <a href="fetchmedicineinventory">Inventory</a>
+        
   >
    <a href=fetch>Doctor Details</a>
   

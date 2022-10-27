@@ -12,7 +12,6 @@
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 
-
 <style >
 .topnav {
   background-color: #333;
@@ -43,23 +42,21 @@
   background-color: #04AA6D;
   color: white;
 }
-
-
 </style>
-
 
 </head>
 <body>
 
 
+
 <div class="topnav">
   <a class="active" href="/">Home</a>
-  <a href="medicineitems">Add Medicine</a>
+  
 </div> 
 
 <center>
 
-
+<h1>Welcome to our Inventory</h1>
 
 
 <h1> The Medicine Details are:</h1>
@@ -72,9 +69,9 @@
 <tr>
 <th >Medicine Id</th>
 <th>Medicine Name</th>
-<th>Brand</th>
 
-<th>Made In</th>
+
+
 <th>Quantity</th>
 <th>Medicine Cost</th>
 
@@ -90,8 +87,7 @@
   <tr>
     <td>${x.medicineid}</td>
     <td>${x.medicinename}</td>  
-   <td>${x.brand}</td> 
-   <td>${x.madein}</td> 
+ 
     <td>${x.quantity}</td>
     <td>${x.medicinecost}</td>
     
@@ -114,7 +110,6 @@
 
 </tbody>
 </table>
-
 
 </body>
 </html>

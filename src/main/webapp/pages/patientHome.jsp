@@ -51,10 +51,12 @@
   <div class="topnav">
   <a class="active" href="/">Home</a>
  
- <a href=""></a>
+ <a href="patientprofile">Profile</a>
+ <a href="patientservice">Services</a>
+  <a href="">Appointment</a>
   
   <a href="feedback">FeedBack</a>
- 
+      
   
   
 </div>

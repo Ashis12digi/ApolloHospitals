@@ -39,7 +39,7 @@ import com.example.demo.repository.AppointmentRepository;
 			
 		
 			//	@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date date,
-			@RequestParam(required=false,name="patientid")  int patientid,
+		//	@RequestParam(required=false,name="patientid")  int patientid,
 			@RequestParam(required=false,name= "date") Date date,
 			@RequestParam( required=false,name="doctorname")  String doctorname,
 			ModelMap modelMap
@@ -49,7 +49,7 @@ import com.example.demo.repository.AppointmentRepository;
 			) {
 	   Appointment appointment=new Appointment();
 	 
-	   appointment.setPatientid(patientid);
+	//   appointment.setPatientid(patientid);
 	   
 	   appointment.setDate(date);
 	   appointment.setDoctorname(doctorname);
@@ -59,7 +59,7 @@ import com.example.demo.repository.AppointmentRepository;
 
  
   modelMap.put("appointmentid", appointment.getAppointmentid());
-  modelMap.put("patientid", appointment.getPatientid());
+//  modelMap.put("patientid", appointment.getPatientid());
   modelMap.put("date", appointment.getDate());
   modelMap.put("doctorname", appointment.getDoctorname());
 	

@@ -13,15 +13,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.controller.PatientsController;
 import com.example.demo.pojo.Admin;
+import com.example.demo.pojo.Appointment;
 import com.example.demo.pojo.Doctor;
 import com.example.demo.pojo.Patients;
+import com.example.demo.pojo.Services;
 import com.example.demo.repository.PatientsRepository;
+import com.example.demo.repository.ServicesRepository;
 @Component
 @Service
 public class PatientsService {
 	@Autowired
 	PatientsRepository patientsRepository;
-
+	
+	@Autowired
+	ServicesRepository  service;
+ 
 	public String Entry() {
 		return "index";
 	}
@@ -109,8 +115,23 @@ public String Patient(ModelMap model) {
 	
 	 return "displayAllPatient";
 }
-	
 
+public Patients getdata(String username) {
+	Patients pass= patientsRepository.findByusername(username);
+			return  pass;
+}
+	
+//fetch service
+public List<Services> getservicedata(String patientsname)
+{
+	List<Services> list1=new ArrayList<>();
+	service.findAllBypatientname(patientsname).forEach(x->list1.add(x));
+	return list1;
+	
+}
+
+
+ 
 
 
 	

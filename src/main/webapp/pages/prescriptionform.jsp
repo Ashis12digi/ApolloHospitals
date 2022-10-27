@@ -18,11 +18,8 @@
     </label>
     <br><br>
     <div class="two-cols">
-      <label>
-     Appointment ID:
-        <input type="text" name="appointmentid">
-      </label>
-       <br><br>
+     
+      
        <label>
     Prescription Details:
       

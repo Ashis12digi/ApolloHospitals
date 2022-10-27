@@ -14,18 +14,18 @@ public class Services {
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int serviceid;
-	private int patientid;
+	@Column
 	private String patientname;
+	@Column
 	private String servicedetails;
 	
 	public Services() {
 		
 	}
 
-	public Services(int serviceid, int patientid, String patientname, String servicedetails) {
+	public Services(int serviceid, String patientname, String servicedetails) {
 		super();
 		this.serviceid = serviceid;
-		this.patientid = patientid;
 		this.patientname = patientname;
 		this.servicedetails = servicedetails;
 	}
@@ -36,14 +36,6 @@ public class Services {
 
 	public void setServiceid(int serviceid) {
 		this.serviceid = serviceid;
-	}
-
-	public int getPatientid() {
-		return patientid;
-	}
-
-	public void setPatientid(int patientid) {
-		this.patientid = patientid;
 	}
 
 	public String getPatientname() {
@@ -64,9 +56,10 @@ public class Services {
 
 	@Override
 	public String toString() {
-		return "Services [serviceid=" + serviceid + ", patientid=" + patientid + ", patientname=" + patientname
-				+ ", servicedetails=" + servicedetails + "]";
+		return "Services [serviceid=" + serviceid + ", patientname=" + patientname + ", servicedetails="
+				+ servicedetails + "]";
 	}
+
 	
 	
 
