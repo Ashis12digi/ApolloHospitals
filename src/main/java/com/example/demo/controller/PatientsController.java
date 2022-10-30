@@ -27,11 +27,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.pojo.Admin;
 import com.example.demo.pojo.Appointment;
 import com.example.demo.pojo.Patients;
+import com.example.demo.pojo.Prescription;
 import com.example.demo.pojo.Services;
 import com.example.demo.repository.DoctorRepository;
 import com.example.demo.repository.PatientsRepository;
 import com.example.demo.service.DoctorService;
 import com.example.demo.service.PatientsService;
+import com.example.demo.service.PrescriptionService;
 
 @Controller
 @Component
@@ -46,6 +48,7 @@ public class PatientsController {
 	
 	Patients patients123;
 	Appointment appointment123;
+
 	
 	
 
@@ -110,7 +113,7 @@ public class PatientsController {
 	    	if(Objects.nonNull(patient1)) {
 	    		
 	    		patients123 =patientsService.getdata(request.getParameter("username"));
-               
+	    	
 	    		return "patientHome";
 	    	}
 	    	else {
@@ -145,15 +148,16 @@ public class PatientsController {
 	  	    }
 	    
 	    //fetching service details 
-	    @GetMapping("/patientservice")
-	    public String profileService(ModelMap map) {
-	        map.put("patient", patients123);
-	        List<Services> list1= patientsService.getservicedata(patients123.getName());
-	        map.put("service", list1);
-	        return "patientSerivce";
-	        
-	    }
-	   
+		
+		/*
+		 * @GetMapping("/patientservice") public String profileService(ModelMap map) {
+		 * map.put("patient", patients123); List<Services> list1=
+		 * patientsService.getservicedata(patients123.getName()); map.put("service",
+		 * list1); return "patientSerivce";
+		 * 
+		 * }
+		 * 
+		 */
 	
 	
 	}

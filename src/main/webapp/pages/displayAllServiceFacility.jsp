@@ -7,10 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>List of Doctor</title>
+<title>Display Services</title>
 <link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
+
 
 
 <style >
@@ -46,19 +47,21 @@
 
 
 </style>
+
 </head>
 <body>
 
 <div class="topnav">
   <a class="active" href="/">Home</a>
+  <a href="ServiceFacility">Add Service Facility</a>
 </div> 
 
 <center>
-<h1> Welcome to our Hospital</h1>
 
-<form modelAttribute="eventForm" method="POST" >
 
-<h1> The Doctor Details are:</h1>
+
+
+<h1> The Service Details are:</h1>
 <fieldset style="width: 1000px">
 
 
@@ -66,19 +69,9 @@
 <table border = "1" width = "100%">
 <thead>
 <tr>
-<th >Doctor Id</th>
-<th>Name</th>
-<th>UserName</th>
-
-<th>Password</th>
-<th>Location</th>
-<th>Gender</th>
-<th>EmailId</th>
-<th>Timing</th>
-<th>Fees</th>
-<th>MobileNumber</th>
-<th>Info</th>
-<th>Experience</th>
+<th >Service Id</th>
+<th>Service Name</th>
+<th>Amount</th>
 <th>Action</th>
 
 </tr>
@@ -89,30 +82,17 @@
 
 <c:forEach items="${result}" var="x">  
   <tr>
-    <td>${x.id}</td>
-    <td>${x.name}</td>  
-   <td>${x.username}</td> 
-   <td>${x.password}</td> 
-    <td>${x.location}</td>
-    <td>${x.gender}</td>
-    <td>${x.emailid}</td> 
-   
-    <td>${x.timing}</td>
-    <td>${x.fees}</td>
-    <td>${x.mobilenumber}</td> 
- 
-    <td>${x.info}</td>
-      <td>${x.experience}</td>
+    <td>${x.serviceId}</td>
+    <td>${x.serviceName}</td>  
+   <td>${x.amount}</td> 
+  
+     
+     
       
       
-      <td>
-       <spring:url value="/event/editEvent/${x.id}" var="editURL" />
-       <a class="btn btn-info" href="${editURL}" role="button" >Update</a>
-      </td>
-      
-      
+       
      <td>
-       <spring:url value="/doctor/deleteDoctor/${x.id}" var="deleteURL" />
+       <spring:url value="/doctor/deleteMedicine/${x.serviceId}" var="deleteURL" />
        <a class="btn btn-danger" href="${deleteURL}" role="button" >Delete</a>
       </td>
      
@@ -124,6 +104,7 @@
 
 </tbody>
 </table>
-</fieldset></form>
+
+
 </body>
 </html>

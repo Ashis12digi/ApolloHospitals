@@ -20,7 +20,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import com.example.demo.pojo.Prescription;
- //import com.example.demo.service.AppointmentService;
+import com.example.demo.pojo.Services;
+//import com.example.demo.service.AppointmentService;
 import com.example.demo.service.PrescriptionService;
 
 @Controller
@@ -29,7 +30,7 @@ public class PrescriptionController {
 	
 	@Autowired
 	private PrescriptionService prescriptionService;
-	
+	Prescription prescription1;
 
 	  @RequestMapping("/Prescriptionform")
 	  public String PrescriptionForm() {
@@ -41,7 +42,7 @@ public class PrescriptionController {
 			
 				@RequestParam("patientname") String patientname,
 
-			//	@RequestParam("appointmentid") Integer appointmentid,
+			
 
 				@RequestParam("description") String description,
 				
@@ -54,7 +55,14 @@ public class PrescriptionController {
 			}
 		
 
-	
+			/*
+			 * @GetMapping("/patientservice1") public String profileService(ModelMap map) {
+			 * map.put("patient", prescription1); List<Prescription> list1=
+			 * prescriptionService.getPrescriptiondata(prescription1.getPatientname());
+			 * map.put("service",list1); return "patientSerivce";
+			 * 
+			 * }
+			 */
 	
 	
 

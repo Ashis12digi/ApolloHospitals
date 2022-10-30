@@ -25,10 +25,10 @@
  
 <select name="servicedetails"  id="data">
   <option value="">Lab Tests </option>
-  <option value="Blood">Blood enzyme tests</option>
-  <option value="liver">liver function test</option>
+  <option value="Blood enzyme tests">Blood enzyme tests</option>
+  <option value="liver function test">liver function test</option>
    <option value="Xray">Xray</option>
-    <option value="gastric">gastric fluid analysis</option>
+    <option value="gastric fluid analysis">gastric fluid analysis</option>
      <option value="malabsorption">malabsorption test</option>
       <option value="Ecg">ECG</option>
        <option value="enzyme">Blood enzyme tests</option>
@@ -40,14 +40,19 @@
              <option value="Organ function tests">Organ function tests</option>
               <option value=" Infectious disease tests"> Infectious disease tests</option>
               
-          
+      
           
           
           
  
 </select>
 <br><br>
- 
+
+ <tr>
+ Service Amount:
+<input type="text" name="amount"  value="${amount}" >
+</tr>   
+ <br><br>
     <input type="submit" value="Submit Request">
  
 </form>

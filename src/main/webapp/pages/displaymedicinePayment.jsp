@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,23 +8,15 @@
 </head>
 <body>
 
+<body>
 <center>
+<h1>Total Payment is:</h1>
 
-
-<h3>Medicine Details: </h3>
-
-
-<h4>  Medicine Id  :${medicineId }</h4>
-<h4>  Medicine Name  :${medicinename }</h4>
-
-
-
-<h4>  Quantity  :${quantity }</h4>
-<h4> Medicine Cost  :${medicinecost }</h4>
+<h2>${Total}</h2>
 
 
 </center>
-
+</body>
 
 </body>
 </html>

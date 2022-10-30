@@ -13,9 +13,9 @@
 <table border = "1" width = "100%">
 <thead>
 <tr>
-<th >Service Id</th>
+<th >Prescription Id</th>
 <th>Patient Name</th>
-<th>Service Details</th>
+<th>Description</th>
 
 </tr>
 
@@ -25,10 +25,10 @@
 
 <c:forEach items="${service}" var="x">  
   <tr>
-    <td>${x.serviceid}</td>
+    <td>${x.prescriptionid}</td>
     <td>${x.patientname}</td>  
  
-    <td>${x.servicedetails}</td>
+    <td>${x.description}</td>
     
 </c:forEach>
 

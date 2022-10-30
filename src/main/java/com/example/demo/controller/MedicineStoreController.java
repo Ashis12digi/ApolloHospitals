@@ -60,7 +60,7 @@ public class MedicineStoreController {
 			@RequestParam(required = false, name = "medicinecost") double medicinecost,
 			ModelMap modelMap
 			) {
-		medicineStoreService.updateMedicineInventory(patientname,medicinename, quantity,medicinecost,modelMap);
+		//medicineStoreService.updateMedicineInventory(patientname,medicinename, quantity,medicinecost,modelMap);
 		return medicineStoreService.updateMedicineInventory(patientname, medicinename, quantity, medicinecost, modelMap);
 	}
 	

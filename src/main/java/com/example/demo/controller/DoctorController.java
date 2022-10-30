@@ -138,7 +138,7 @@ public class DoctorController {
 		return "deleteDoctor";
 		   
 	   }
-	   
+	   //fetching
 	   @GetMapping("/fetch")
 		  public String Doctor(ModelMap model) {
 			
@@ -155,6 +155,24 @@ public class DoctorController {
 	      return new ModelAndView("/deleteDoctor");
 	      
 	     }
+	   
+	   
+	   //update
+	   @RequestMapping(value="/event/editEvent/{id}", method=RequestMethod.GET)
+	   public ModelAndView editStudent(@PathVariable int id)
+	   { 
+		   ModelAndView model = new ModelAndView("/");
+				  
+				  Doctor event = doctorService.getDoctortById(id);
+				  System.out.println("coming inside");
+				  model.addObject("eventForm", event);
+				  System.out.println("come"); 
+				  model.setViewName("/DoctorRegistration");//form
+				  
+				  
+				  
+				  return model;
+				  }
 	   
 		
 }

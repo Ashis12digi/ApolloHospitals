@@ -40,7 +40,7 @@ public void Services(
 	//	@RequestParam("patientid") Integer patientid,
 		@RequestParam("patientname") String patientname,
 		@RequestParam("servicedetails") String servicedetails,
-		
+		@RequestParam("amount") double amount,
 	
 		ModelMap modelMap
 		
@@ -54,6 +54,8 @@ public void Services(
 //	services.setPatientid(patientid);
 	services.setPatientname(patientname);
 	services.setServicedetails(servicedetails);
+	services.setAmount(amount);
+	
 	
 	
  
@@ -64,7 +66,7 @@ public void Services(
   //modelMap.put("patientid", patientid);
 modelMap.put("patientname", patientname);
 modelMap.put("servicedetails", servicedetails);
-
+modelMap.put("amount", amount);
 
 //return "displayServices";
 

@@ -121,15 +121,16 @@ public Patients getdata(String username) {
 			return  pass;
 }
 	
-//fetch service
-public List<Services> getservicedata(String patientsname)
-{
-	List<Services> list1=new ArrayList<>();
-	service.findAllBypatientname(patientsname).forEach(x->list1.add(x));
-	return list1;
-	
-}
 
+/*
+ * //fetch service public List<Services> getservicedata(String patientsname) {
+ * List<Services> list1=new ArrayList<>();
+ * service.findAllBypatientname(patientsname).forEach(x->list1.add(x)); return
+ * list1;
+ * 
+ * }
+ */
+ 
 
  
 

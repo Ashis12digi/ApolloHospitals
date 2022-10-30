@@ -43,10 +43,18 @@ position: absolute;
 left: 90%;
 }
 
+body {
+  background-image:url("pages/images/DrRegister.jpg");
+  background-size: cover;
+}
+  
 </style>
+
 
 </head>
 <body>
+
+
 <center>
 <h1>Online Hospital Booking</h1>
 
@@ -54,12 +62,13 @@ left: 90%;
 
   
   <div class="topnav">
-  <a class="active" href="#home">Home</a>
+  <a class="active" href="#home">HOME</a>
  
    <a href="fetchalldoctor">DOCTORS</a>
    <a href="Appointmentform">BOOK APPOINTMENT</a>
-     <a href="Service">SERVICES</a>
-       <a href="medicineform">STORE</a>
+    
+      
+       <a href="ServiceFacilityindex">MEDICAL STORE</a>
   
      <a href="contactus">CONTACT US</a>
  

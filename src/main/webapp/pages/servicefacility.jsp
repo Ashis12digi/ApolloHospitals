@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
+
 <style >
 .topnav {
   background-color: #333;
@@ -38,37 +39,24 @@
 }
 
 
+body {
+  background-image:url("pages/images/store1.webp");
+  background-size: cover;
+}
 </style>
 
+ 
 </head>
 <body>
-
 <center>
-<form action=>
-
-
- 
-  <div class="topnav">
-  <a class="active" href="/">Home</a>
- 
- <a href="patientprofile">Profile</a>
- <a href="patientservice">Services</a>
-  <a href="medicineInventory">Store</a>
-  
-  
-  <a href="patientservice1">Prescription</a>
-  <a href="feedback">FeedBack</a>
-      
-  
-  
-</div>
-
-
-
-
-</form>
-
+<h1>Welcome to our Medical Store </h1>
 </center>
+<div class="topnav">
+  <a class="active" href="/">Home</a>
+   <a href="fetchAllServicesindex">Lab Facility</a>
+  <a href="listofMedicine">Medicine</a>
+  
+ </div>
 
 </body>
 </html>

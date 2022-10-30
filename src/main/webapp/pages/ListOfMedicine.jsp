@@ -13,49 +13,9 @@
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 
 
-<style >
-.topnav {
-  background-color: #333;
-  overflow: hidden;
-}
-
-
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-
-</style>
-
-
 </head>
 <body>
 
-
-<div class="topnav">
-  <a class="active" href="/">Home</a>
-  <a href="medicineitems">Add Medicine</a>
-</div> 
 
 <center>
 
@@ -72,13 +32,8 @@
 <tr>
 <th >Medicine Id</th>
 <th>Medicine Name</th>
-<th>Brand</th>
-
 <th>Made In</th>
-<th>Quantity</th>
 <th>Medicine Cost</th>
-
-<th>Action</th>
 
 </tr>
 </thead>
@@ -90,23 +45,10 @@
   <tr>
     <td>${x.medicineId}</td>
     <td>${x.medicinename}</td>  
-   <td>${x.brand}</td> 
    <td>${x.madein}</td> 
-    <td>${x.quantity}</td>
-    <td>${x.medicinecost}</td>
     
-      
-     
-     
-      
-      
-       
-     <td>
-       <spring:url value="/doctor/deleteMedicine/${x.medicineId}" var="deleteURL" />
-       <a class="btn btn-danger" href="${deleteURL}" role="button" >Delete</a>
-      </td>
-     
-    
+      <td>${x.medicinecost}</td> 
+
 </c:forEach>
 
 
@@ -114,6 +56,14 @@
 
 </tbody>
 </table>
+
+
+ <form action="SearchMedicine" method="post" >
+
+Enter the Medicine Id <input required="required" type = "number" placeholder="Enter Medicine id" name=medicineId> <br><br>
+ <input type="submit" value="Enter"></input>
+</form>
+
 
 
 </body>

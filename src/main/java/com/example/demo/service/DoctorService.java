@@ -167,6 +167,11 @@ public String Doctor(ModelMap model) {
 public void DeleteDoctor(int id) {
     doctorRepository.deleteById(id);
 }
+
+public Doctor getDoctortById(int id) {
+	// TODO Auto-generated method stub
+	return null;
+}
 	
  
 }

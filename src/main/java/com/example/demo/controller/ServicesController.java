@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -15,7 +17,7 @@ import com.example.demo.service.ServicesService;
 @Controller
 @Component
 public class ServicesController {
-	
+	@Autowired
 	ServicesService servicesService;
 	
 	 
@@ -46,14 +48,17 @@ public class ServicesController {
 			//	@RequestParam(required=false,name="patientid") Integer patientid,
 				@RequestParam(required=false,name="patientname") String patientname,
 				@RequestParam(required=false,name= "servicedetails") String servicedetails,
-				
+				@RequestParam(required=false,name="amount") double amount,
 			
 				ModelMap modelMap)
 			
 			
 		{
-			servicesService.Services(  patientname,servicedetails, modelMap);
+			servicesService.Services(  patientname,servicedetails,amount, modelMap);
 			return "displayServices";
 			}
+	 
+	
+	 
 		
 }

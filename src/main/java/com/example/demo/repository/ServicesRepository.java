@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.pojo.ServiceFacility;
 import com.example.demo.pojo.Services;
 
 import java.util.List;
@@ -13,5 +14,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ServicesRepository extends CrudRepository<Services, Integer> {
-  List<Services> findAllBypatientname(String patientname);
+
 }

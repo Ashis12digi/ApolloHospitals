@@ -46,14 +46,14 @@
 </style>
 </head>
 <body>
+<center>
+<h1> Welcome to our Hospital</h1>
+
 
 
   <div class="topnav">
   <a class="active" href="/">Home</a>
 </div> 
-
-<center>
-<h1> Welcome to our Hospital</h1>
 
 
 

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,7 @@
 <h3>Medicine Details: </h3>
 
 
-<h4>  Medicine ID  :${medicineid }</h4>
+<h4>  Medicine ID  :${medicineId }</h4>
 
 <h4>  Medicine Name  :${medicinename }</h4>
 

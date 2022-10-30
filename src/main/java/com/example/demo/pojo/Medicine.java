@@ -13,65 +13,94 @@ public class Medicine {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int medicineid;
+	private int medicineId;
 	private String medicinename;
 	private String brand;
 	private String madein;
 	private int quantity;
 	private double medicinecost;
-	public Medicine(int medicineid, String medicinename, String brand, String madein, int quantity,
-			double medicinecost) {
-		super();
-		this.medicineid = medicineid;
-		this.medicinename = medicinename;
-		this.brand = brand;
-		this.madein = madein;
-		this.quantity = quantity;
-		this.medicinecost = medicinecost;
-	}
+	
 	
 	public Medicine() {
 		// TODO Auto-generated constructor stub
 	}
-	public int getMedicineid() {
-		return medicineid;
+
+
+	public Medicine(int medicineId, String medicinename, String brand, String madein, int quantity,
+			double medicinecost) {
+		super();
+		this.medicineId = medicineId;
+		this.medicinename = medicinename;
+		this.brand = brand;
+		this.madein = madein;
+		this.quantity = quantity;
+		this.medicinecost = medicinecost;
 	}
-	public void setMedicineid(int medicineid) {
-		this.medicineid = medicineid;
+
+
+	public int getMedicineId() {
+		return medicineId;
 	}
+
+
+	public void setMedicineId(int medicineId) {
+		this.medicineId = medicineId;
+	}
+
+
 	public String getMedicinename() {
 		return medicinename;
 	}
+
+
 	public void setMedicinename(String medicinename) {
 		this.medicinename = medicinename;
 	}
+
+
 	public String getBrand() {
 		return brand;
 	}
+
+
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
+
+
 	public String getMadein() {
 		return madein;
 	}
+
+
 	public void setMadein(String madein) {
 		this.madein = madein;
 	}
+
+
 	public int getQuantity() {
 		return quantity;
 	}
+
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+
 	public double getMedicinecost() {
 		return medicinecost;
 	}
+
+
 	public void setMedicinecost(double medicinecost) {
 		this.medicinecost = medicinecost;
 	}
+
+
 	@Override
 	public String toString() {
-		return "Medicine [medicineid=" + medicineid + ", medicinename=" + medicinename + ", brand=" + brand
+		return "Medicine [medicineId=" + medicineId + ", medicinename=" + medicinename + ", brand=" + brand
 				+ ", madein=" + madein + ", quantity=" + quantity + ", medicinecost=" + medicinecost + "]";
 	}
 	

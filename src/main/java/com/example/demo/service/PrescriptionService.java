@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.pojo.Appointment;
 import com.example.demo.pojo.Prescription;
+import com.example.demo.pojo.Services;
 import com.example.demo.repository.PrescriptionRepository;
 
 @Service
@@ -59,6 +61,23 @@ public class PrescriptionService {
 		
 		
 	}
+
+
+
+	/*
+	 * public List<Prescription> getPrescriptiondata(String patientname) {
+	 * 
+	 * 
+	 * List<Prescription> list1=new ArrayList<>();
+	 * prescriptionRepository.findBypatientname(patientname).forEach(x->list1.add(x)
+	 * ); return list1;
+	 * 
+	 * }
+	 */
+
+
+
+	 
 
 	
 	
