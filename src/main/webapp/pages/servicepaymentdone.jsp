@@ -7,13 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center>
-<h1>Deleted Successfully</h1>
 
-<a href="/">Home</a>
+
+ <form action="/">
+<input type="submit" value="GoBack">
+</form>
+ <center>
+
+<h1>Your Payment is Done</h1>
+<h2>Thank you for choosing us</h2>
 
 </center>
-
-
 </body>
 </html>

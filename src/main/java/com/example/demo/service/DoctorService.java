@@ -1,10 +1,14 @@
 package com.example.demo.service;
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +24,8 @@ import com.example.demo.repository.DoctorRepository;
 @Component
 @Service
 public class DoctorService implements doctorService1{
+	
+	Doctor doctor;
 	@Autowired
 	DoctorRepository doctorRepository;
 	
@@ -39,10 +45,9 @@ public class DoctorService implements doctorService1{
 				@RequestParam("location")  String location,
 				@RequestParam("gender")  String gender,
 				@RequestParam("emailid")  String emailid,
-		//		@RequestParam @DateTimeFormat(pattern = "MM:ss") Date timing;
-				@RequestParam("timing")  Time timing,
+				@RequestParam("timing")  String timing,
 				@RequestParam("fees")  int fees,
-				@RequestParam("mobilenumber")  long mobilenumber,
+				@RequestParam("mobilenumber")  String mobilenumber,
 				@RequestParam("info")  String info,
 				@RequestParam("experience")  String experience,
 				ModelMap modelMap
@@ -88,22 +93,7 @@ public class DoctorService implements doctorService1{
 	
 	
 	}
-	/*
-	 * public void Gret() { System.out.println("Comming");
-	 * doctorRepository.findAll(); }
-	 * 
-	 * public List<Doctor> getAllDoctors() { List<Doctor> doctors = new
-	 * ArrayList<Doctor>(); doctorRepository.findAll().forEach(i -> doctors.add(i));
-	 * ModelMap mm=new ModelMap(); for(Doctor d:doctors) {
-	 * 
-	 * mm.put("d",d.getName()); }
-	 * 
-	 * 
-	 * return doctors;
-	 * 
-	 * }
-	 */
-	 
+	
 	
 	
 	
@@ -112,23 +102,6 @@ public String DoctorHome() {
 		
 		return "doctorHome";
 	}
-	/*
-	 * public ModelAndView getAllDoctors() { List<Doctor> alldoctor=(List<Doctor>)
-	 * doctorRepository.findAll();
-	 * 
-	 * return new ModelAndView("alldoctor", "doctors",alldoctor);
-	 * 
-	 * }
-	 */
-	
-	  public List<Doctor> allDoctor() 
-	  {
-		  List<Doctor>doctor=new ArrayList<>();
-	  doctorRepository.findAll().forEach(i->doctor.add(i));
-	  
-	  return doctor;
-	  }
-	 
  
 
 public Doctor getdoctorlogin(String username, String password) {
@@ -136,11 +109,7 @@ public Doctor getdoctorlogin(String username, String password) {
 	return doc;
 	
 }
-/*
- * public List<Doctor> getAllDoctor() {
- * 
- * return doctorRepository.findAll(); }
- */
+
 
 public String displayDoctor(ModelMap model) {
 	
@@ -168,10 +137,53 @@ public void DeleteDoctor(int id) {
     doctorRepository.deleteById(id);
 }
 
-public Doctor getDoctortById(int id) {
-	// TODO Auto-generated method stub
-	return null;
+public Doctor getspecificdata(String username) {
+	Doctor doctor= doctorRepository.findByusername(username);
+			return  doctor;
 }
+
+public Doctor DoctorUpdateFactching(int id) {
+	doctor=doctorRepository.findById(id);
 	
+	System.out.println(doctor);
+	return doctor;
+}
+
+
+@Override
+public Doctor DoctorUpdate(HttpServletRequest request) throws ParseException {
+	Doctor doctor1= doctorRepository.findById(Integer.parseInt(request.getParameter("id")));
+	Doctor doctor= new Doctor();
+	
+   
+	doctor.setId(doctor1.getId());
+	doctor.setName(request.getParameter("name"));
+	doctor.setUsername(request.getParameter("username"));
+	doctor.setPassword(request.getParameter("password"));
+	doctor.setLocation(request.getParameter("location"));
+  
+    doctor.setGender(request.getParameter("gender"));
+    doctor.setEmailid(request.getParameter("emailid"));
  
+   
+    doctor.setTiming(request.getParameter("timing"));
+  int fees=Integer.parseInt(request.getParameter("fees"));
+		  doctor.setFees(fees);
+    doctor.setMobilenumber(request.getParameter("mobilenumber"));
+
+    doctor.setInfo(request.getParameter("info"));
+    
+    doctor.setExperience(request.getParameter("experience"));
+    
+   
+    
+    
+    this.doctorRepository.save(doctor);
+	
+	return doctor;
+}
+
+
+
+
 }

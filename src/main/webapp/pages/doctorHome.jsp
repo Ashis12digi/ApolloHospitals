@@ -38,19 +38,27 @@
 }
 
 
+body {
+  background-image:url("pages/images/doctor1.webp");
+  background-size: cover;
+}
+
+
 </style>
 
 </head>
 <body>
 
 <center>
+<h1>Welcome to our Hospital</h1>
 <form action="">
 
-
+<h2>Doctor Portal</h2>
 
  <div class="topnav">
   <a class="active" href="/">Home</a>
-
+  
+ <a href="doctorprofile">Profile</a>
   
      <a href="Prescriptionform">Precription</a>
  

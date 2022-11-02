@@ -10,9 +10,18 @@
 
 <body>
 <center>
-<h1>Total Payment is:</h1>
 
-<h2>${Total}</h2>
+
+
+<form action="paymentdonemedicine" method ="post">
+<h2>Thank you for chossing our service facility</h2>
+<h2>Your total Amount is:</h2>
+
+<h1>${Total}</h1>
+
+<h2>please pay the amount to confirm your service</h2>
+  <br>
+<input type ="submit" value="Pay Bill">
 
 
 </center>

@@ -26,12 +26,7 @@ public class Prescription {
 		
 	}
 
-	public Prescription(int prescriptionid, String patientname, String description) {
-		super();
-		this.prescriptionid = prescriptionid;
-		this.patientname = patientname;
-		this.description = description;
-	}
+	
 
 	public int getPrescriptionid() {
 		return prescriptionid;

@@ -33,19 +33,38 @@
 <th >Service Id</th>
 <th>Service Name</th>
 <th>Amount</th>
-
+<th>Action</th>
 
 </tr>
 </thead>
 <tbody>
 
 
+ 
+     
+
 
 <c:forEach items="${result}" var="x">  
+ <form action="Searchstatus1" >
+ 
+  <input type= "hidden"  name="serviceId" value="${x.serviceId}">
+<input type= "hidden"  name="serviceName" value="${x.serviceName}">
+<input type= "hidden"  name="amount" value="${x.amount}">
+  
+      
+  
   <tr>
     <td>${x.serviceId}</td>
     <td>${x.serviceName}</td>  
    <td>${x.amount}</td> 
+ 
+ <td>
+     <input type="submit" value="Book"></input>
+  </td>
+
+  </tr>
+ </form>
+  
   
 
 </c:forEach>
@@ -55,13 +74,6 @@
 
 </tbody>
 </table>
-
-
- <form action="Searchstatus" method="post" >
-
-Enter the Service Id <input required="required" type = "number" placeholder="Enter service id" name="serviceId"> <br><br>
- <input type="submit" value="Enter"></input>
-</form>
 
 
 

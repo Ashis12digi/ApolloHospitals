@@ -7,11 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+ <form action="/">
+<input type="submit" value="GoBack">
+</form>
 
 <center>
 <form action="displayPrescription" id="ft-form" method="POST" accept-charset="UTF-8">
   <fieldset>
-    <legend>For Patient</legend>
+   <h1>Hospital</h1>
     <label>
     Patient Name:
       <input type="text" name="patientname" required>

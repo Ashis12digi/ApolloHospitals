@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.pojo.Doctor;
 import com.example.demo.pojo.Medicine;
-import com.example.demo.pojo.MedicineStore;
+
 import com.example.demo.pojo.Prescription;
 import com.example.demo.pojo.ServiceFacility;
 import com.example.demo.repository.MedicineRepository;
@@ -84,19 +84,20 @@ public class MedicineService implements MedicineServiceDelete{
 		//	String medicineName, int quantity
 			) {
 		
-		int finalQuantity = 0;
-		
-		Optional<Medicine> store = medicineRepository.findBymedicinename(medicinename);
-		if(!store.isEmpty()) {
-			Medicine medicineStore = store.get();
-			finalQuantity = medicineStore.getQuantity() - quantity;
-		}
-		
-		int count = medicineRepository.updateMeidicineInventory(finalQuantity, medicinename);
-		System.out.println("Update rows for meidicineStore inventory" + count);
-		
+				/*
+				 * int finalQuantity = 0;
+				 * 
+				 * Optional<Medicine> store =
+				 * medicineRepository.findBymedicinename(medicinename); if(!store.isEmpty()) {
+				 * Medicine medicineStore = store.get(); finalQuantity =
+				 * medicineStore.getQuantity() - quantity; }
+				 * 
+				 * int count = medicineRepository.updateMeidicineInventory(finalQuantity,
+				 * medicinename); System.out.println("Update rows for meidicineStore inventory"
+				 * + count);
+				 */	
 		Medicine medicinestore= new Medicine();
-	//	medicinestore.setMedicineid(medicineid);
+
 		medicinestore.setMedicinename(medicinename);
 		medicinestore.setBrand(brand);
 		medicinestore.setMadein(madein);
@@ -104,7 +105,7 @@ public class MedicineService implements MedicineServiceDelete{
 		medicinestore.setMedicinecost(medicinecost);
 		
 		medicineRepository.save(medicinestore); 
-	//	 modelMap.put("medicineid", medicineid);
+	
 		  modelMap.put("medicinename", medicinename); 
 		  modelMap.put("brand", brand);
 		  modelMap.put("madein", madein);
@@ -133,9 +134,10 @@ public String Medicine(ModelMap model) {
 }
 
 
-@Override
+//@Override
 public void DeleteMedicine(int medicineId) {
 	medicineRepository.deleteById(medicineId);
+	System.out.println("coming");
 }
 
 

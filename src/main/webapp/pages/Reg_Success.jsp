@@ -15,7 +15,7 @@
 <h3>Patients Details: </h3>
 
 <h4> Patients ID  :${id }</h4>
-<h4> Patients NAME  :${name }</h4>
+<h4> Patients NAME  :${patientname}</h4>
 <h4> Patients USERNAME  :${username }</h4>
 <h4> Patients PASSWORD  :${password }</h4>
 <h4> Patients Email ID  :${emailid}</h4>

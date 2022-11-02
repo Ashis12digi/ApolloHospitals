@@ -73,6 +73,7 @@
 <th>Service Name</th>
 <th>Amount</th>
 <th>Action</th>
+<th>Action</th>
 
 </tr>
 </thead>
@@ -86,13 +87,18 @@
     <td>${x.serviceName}</td>  
    <td>${x.amount}</td> 
   
+        <td>
+     <form action="" >
+     <input type="submit" value="Update"></input>
+      
+      </td>
      
      
       
       
        
      <td>
-       <spring:url value="/doctor/deleteMedicine/${x.serviceId}" var="deleteURL" />
+       <spring:url value="/service/deleteMedicine/${x.serviceId}" var="deleteURL" />
        <a class="btn btn-danger" href="${deleteURL}" role="button" >Delete</a>
       </td>
      

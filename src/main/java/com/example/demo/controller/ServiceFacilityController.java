@@ -10,12 +10,15 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.pojo.ServiceFacility;
-import com.example.demo.pojo.Services;
+
 import com.example.demo.repository.ServiceFacilityRepository;
 import com.example.demo.service.ServiceFacilityService;
 
@@ -39,7 +42,6 @@ return serviceFacilityService.ServiceFacilitydetails();
 }
 
 @GetMapping("/fetchServicesFecility")
-//@PostMapping("/fetchServices")
 public String ViewServicesFacility(
 	
 		@RequestParam(required=false,name="serviceName") String serviceName,
@@ -74,11 +76,19 @@ return serviceFacilityService.Facilitydetails();
  public String ServiceDisplayIndex(ModelMap model) {
 	
 	
-	return serviceFacilityService.ServiceDisplayIndex(model);
+	return serviceFacilityService.ServiceDisplayIndex1(model);
 	  
  }
 
-@PostMapping("/Searchstatus")
+@RequestMapping("/displayServiceFacilityIndex")
+public String AfterLogin(ModelMap model) {
+	  return serviceFacilityService.ServiceDisplayIndex(model);
+//  return "displayServiceFacilityIndex";
+
+
+}
+
+//@PostMapping("/Searchstatus")
 public String ServiceStatus(@RequestParam ("serviceId") int serviceId, HttpServletRequest request,ModelMap map){
 	
 		serviceFacility=  serviceFacilityRepository.findByServiceId(serviceId);
@@ -100,20 +110,6 @@ public String serviceconfirmdata(ModelMap map) {
 	
 }
 
-@RequestMapping("/payment")
-	
-	public String Servicepayment( @RequestParam("amount") double amount, HttpServletRequest request, ModelMap map) {
-	
-		//int n=Integer.parseInt(request.getParameter("price"));
-		double total=amount;
-		map.put("Total", total);
-		return "displayservicepayment";
-	}
-	
-
-
-
-
 @GetMapping("/patientservice")
 public String profileService(ModelMap map) {
     map.put("patient", serviceFacility2);
@@ -122,5 +118,41 @@ public String profileService(ModelMap map) {
     return "patientSerivce";
     
 }
+
+@RequestMapping("/paymentdone")
+public String paymentdone() {
+return "servicepaymentdone";
+}
+
+@GetMapping("/Searchstatus")
+public ModelAndView flightstatus(@RequestParam("serviceId") int serviceId, HttpServletRequest request,ModelMap map){
+	System.out.println("Search");
+	
+	ModelAndView model= new ModelAndView("confirmservice");
+	serviceFacility= serviceFacilityRepository.findByServiceId(serviceId);
+	System.out.println(serviceFacility);
+	request.setAttribute ("serviceFacility", serviceFacility);
+
+	
+	model.setViewName("confirmservice");
+	
+
+return model;
+
+}
+
+
+//Delete
+@RequestMapping(value="/service/deleteMedicine/{serviceId}", method=RequestMethod.GET)
+public ModelAndView delete(@PathVariable("serviceId") int serviceId) {
+	 System.out.println("come");
+    
+	 serviceFacilityService.DeleteService(serviceId);
+System.out.println("comings");
+ return new ModelAndView("/DeleteMedicine");
+ 
+}
+
+
 
 }

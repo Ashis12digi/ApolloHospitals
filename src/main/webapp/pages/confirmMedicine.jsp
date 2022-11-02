@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<center>
 <form action="paymentmedicine" method ="post">
 Enter Patients Name: <input required="required" type = "text" placeholder="Enter Name" , name = "patientname"> 
  <br> <br> 
@@ -15,11 +15,12 @@ Enter Age: <input  type = "number" placeholder="Enter Age" , name="age">
 <br>  <br>
 Enter Number of Medicine  : <input  type = "number"  name="num">
 <br>  <br>
-Amount : <input type= "number"  name="medicinecost" value="${medicinecost}"/>
+Amount : <input type= "hidden"  name="medicinecost" value="${medicinecost}"/>
+<br>  <br>
 <input type ="submit" value="Confirm">
 </form>
 
-
+</center>
 
 </body>
 </html>

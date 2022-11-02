@@ -76,7 +76,7 @@
 
 <th>Made In</th>
 <th>Quantity</th>
-<th>Medicine Cost</th>
+<th>Medicine Cost/piece</th>
 
 <th>Action</th>
 

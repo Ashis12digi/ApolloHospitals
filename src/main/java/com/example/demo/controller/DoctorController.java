@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
 import java.sql.Time;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +37,8 @@ import com.example.demo.service.DoctorService;
 public class DoctorController {
 	@Autowired
 	DoctorService doctorService;
-	/*
-	 * @Autowired DoctorRepository doctorRepository;
-	 */
+	Doctor doctorDetails;
+	
 	
 	@RequestMapping("/doctorlogin")
     public String Login() {
@@ -59,9 +61,9 @@ public class DoctorController {
 				@RequestParam("gender")  String gender,
 				@RequestParam("emailid")  String emailid,
 			
-				@RequestParam("timing")  Time timing,
+				@RequestParam("timing")  String timing,
 				@RequestParam("fees")  int fees,
-				@RequestParam("mobilenumber")  long mobilenumber,
+				@RequestParam("mobilenumber")  String mobilenumber,
 				@RequestParam("info")  String info,
 				@RequestParam("experience")  String experience,
 				ModelMap modelMap
@@ -71,54 +73,30 @@ public class DoctorController {
 			return doctorService.viewDetails(name,username, password, location, gender, emailid,timing,fees, mobilenumber,info, experience, modelMap);
 		}
 		
-	//	@GetMapping("/alldoctor")
-//		@GetMapping("/listdoctor")
-	//	@PostMapping("/listdoctor")
 	
-		/*
-		 * public String getAllDoctors() { doctorService.getAllDoctors(); return
-		 * "alldoctor"; }
-		 */ 
 		
 		@RequestMapping("/dlogin")
 		  public String DoctorHome() {
 		   return doctorService.DoctorHome();
 		  }
-			/*
-			 * @RequestMapping("/dlogin") public String getin() { doctorService.Gret();
-			 * System.out.println("getting");
-			 * 
-			 * return "DrReqistSuccess";
-			 * 
-			 * }
-			 */
+			
 		
 
 		@RequestMapping("/doctorAppointments")
 		public String showDoctorAppointments(Model model) {
 			
-		//	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		//	String doctorName = authentication.getName();
-		//	List<Appointment> doctorAppointments = service.findByDoctorName(doctorName);
-		//	model.addAttribute("doctorAppointments",doctorAppointments);
+		
 			return "doctorAppointments";
 		}
 		
 		
-		@RequestMapping("/createPrescription")
-		public String createPrescription() {
-			return "viewPrescription";
-		}
-		//@GetMapping("/fetchalldoctor")
-		public @ResponseBody List<Doctor>allDoctor(){
-			return doctorService.allDoctor();
-		}
 		 
 		  @GetMapping("/doctorloginusername")
-	   // @PostMapping("/doctorloginusername")
-	    public String getdoctorlogin(@ModelAttribute("doctor") Doctor doctor) {
+	    public String getdoctorlogin(@ModelAttribute("doctor")  Doctor doctor,HttpServletRequest request ) {
 	    	Doctor doctor1=doctorService.getdoctorlogin(doctor.getUsername(),doctor.getPassword());
 	    	if(Objects.nonNull(doctor1)) {
+	    		
+	    		doctorDetails =doctorService.getspecificdata(request.getParameter("username"));
 	    		return "doctorHome";
 	    	}
 	    	else {
@@ -157,22 +135,35 @@ public class DoctorController {
 	     }
 	   
 	   
-	   //update
-	   @RequestMapping(value="/event/editEvent/{id}", method=RequestMethod.GET)
-	   public ModelAndView editStudent(@PathVariable int id)
-	   { 
-		   ModelAndView model = new ModelAndView("/");
-				  
-				  Doctor event = doctorService.getDoctortById(id);
-				  System.out.println("coming inside");
-				  model.addObject("eventForm", event);
-				  System.out.println("come"); 
-				  model.setViewName("/DoctorRegistration");//form
-				  
-				  
-				  
-				  return model;
-				  }
 	   
-		
+	   @GetMapping("/doctorprofile")
+	    public String profile(ModelMap map) {
+	       
+	        map.put("result", doctorDetails);
+	       
+	        return "doctorprofile";
+	  	    }
+	   
+	   //----------------------------------------------------------
+	    @RequestMapping(value="/editDoctor", method=RequestMethod.GET)
+	      public ModelAndView viewAll(@RequestParam("id") int id,ModelMap map) {
+	       ModelAndView modelAndView=new ModelAndView("/updateDoctordetails");
+	      Doctor list=doctorService.DoctorUpdateFactching(id);
+	      map.put("userdata", list);
+	  
+	      return modelAndView;
+	    }
+	    
+	    
+	    @PostMapping("/updateDoctor")
+	    public ModelAndView updatetable(HttpServletRequest request,ModelMap map) throws ParseException {
+	         ModelAndView modelAndView=new ModelAndView("/doctorprofile");
+	        Doctor user= doctorService.DoctorUpdate(request);
+	        map.put("result", user);
+	         return modelAndView;
+	    }
+	    
+	   
+	   
+	   
 }

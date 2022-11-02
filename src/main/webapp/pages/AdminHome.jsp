@@ -37,14 +37,18 @@
   color: white;
 }
 
+body {
+  background-image:url("pages/images/admin.jpg");
+  background-size: cover;
+}
 
 </style>
 
 </head>
 <body>
-
-
 <center>
+<h1>Welcome to our Admin Portal</h1>
+
 <form action="">
 
 
@@ -52,7 +56,7 @@
   <a class="active" href="/">Home</a>
  <a href="fetchpatient">Patients Details</a>
   <a href="fetchmedicine">Medicine Inventory</a>
-  <a href="fetchmedicineinventory"></a>
+ 
   <a href="fetchAllServices">Service Inventory</a>
   
         

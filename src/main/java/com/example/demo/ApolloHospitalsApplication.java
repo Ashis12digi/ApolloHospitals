@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 @Configuration
 @ComponentScan({"com.example.demo.controller","com.example.demo.pojo",
-		"com.example.demo.repository","com.example.demo.service"})
+		"com.example.demo.repository","com.example.demo.service",})
 public class ApolloHospitalsApplication {
 
 	public static void main(String[] args) {

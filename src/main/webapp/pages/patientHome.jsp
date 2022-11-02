@@ -38,12 +38,19 @@
 }
 
 
+body {
+  background-image:url("pages/images/DrRegister.jpg");
+  background-size: cover;
+}
+
 </style>
 
 </head>
 <body>
 
 <center>
+<h1>Welcome to our Hospital</h1>
+
 <form action=>
 
 
@@ -52,11 +59,10 @@
   <a class="active" href="/">Home</a>
  
  <a href="patientprofile">Profile</a>
- <a href="patientservice">Services</a>
-  <a href="medicineInventory">Store</a>
-  
-  
-  <a href="patientservice1">Prescription</a>
+   <a href="app">View Appointment</a>
+     <a href="appointmentHistory">Appointment History</a>
+ <a href="history"> Prescription History</a>
+<a href="displayServiceFacilityIndex">Services</a>
   <a href="feedback">FeedBack</a>
       
   

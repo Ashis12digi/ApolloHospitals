@@ -26,16 +26,6 @@ public class Medicine {
 	}
 
 
-	public Medicine(int medicineId, String medicinename, String brand, String madein, int quantity,
-			double medicinecost) {
-		super();
-		this.medicineId = medicineId;
-		this.medicinename = medicinename;
-		this.brand = brand;
-		this.madein = madein;
-		this.quantity = quantity;
-		this.medicinecost = medicinecost;
-	}
 
 
 	public int getMedicineId() {

@@ -49,12 +49,14 @@
 </head>
 <body>
 
+<center>
+<h1> Welcome to our Hospital</h1>
+
 <div class="topnav">
   <a class="active" href="/">Home</a>
 </div> 
 
-<center>
-<h1> Welcome to our Hospital</h1>
+
 
 <form modelAttribute="eventForm" method="POST" >
 
@@ -105,10 +107,6 @@
       <td>${x.experience}</td>
       
       
-      <td>
-       <spring:url value="/event/editEvent/${x.id}" var="editURL" />
-       <a class="btn btn-info" href="${editURL}" role="button" >Update</a>
-      </td>
       
       
      <td>

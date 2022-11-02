@@ -22,7 +22,7 @@
  <h2>Patients Registration</h2>
 <fieldset style="width:600px">
 <form action="regsuccess" method="post" >
- NAME:<input type="text" name="name" required="required">
+ NAME:<input type="text" name="patientname" required="required">
 
  <br><br>
  <tr>

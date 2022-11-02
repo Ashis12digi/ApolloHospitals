@@ -35,6 +35,7 @@
    <td>${result.serviceId} </td> 
     <td>${result.serviceName}</td>  
 	<td>${result.amount}</td>
+	<input type= "hidden"  name="number" value="${result.}">
 	
 	</tr>
 	

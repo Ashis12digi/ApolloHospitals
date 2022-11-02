@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,21 +17,28 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
+import com.example.demo.pojo.Patients;
 import com.example.demo.pojo.Prescription;
-import com.example.demo.pojo.Services;
+import com.example.demo.repository.PrescriptionRepository;
 //import com.example.demo.service.AppointmentService;
 import com.example.demo.service.PrescriptionService;
 
 @Controller
 @Component
 public class PrescriptionController {
-	
+
 	@Autowired
-	private PrescriptionService prescriptionService;
-	Prescription prescription1;
+    PrescriptionService prescriptionService;
+	@Autowired
+	PatientsController patientsController;
+	@Autowired
+	PrescriptionRepository prescriptionRepository;
+	
+	Prescription prescription;
+	
 
 	  @RequestMapping("/Prescriptionform")
 	  public String PrescriptionForm() {
@@ -51,6 +59,12 @@ public class PrescriptionController {
 			
 			
 		{
+			/*
+			 * List<Prescription> listpre=new ArrayList(); String
+			 * name=PatientsController.name; listpre=prescriptionService.getHistroy(name);
+			 * modelMap.put("listpre", listpre);
+			 */
+		//	modelMap.put("id", id);
 			return prescriptionService.viewPrescription(patientname, description, modelMap);
 			}
 		
@@ -64,6 +78,18 @@ public class PrescriptionController {
 			 * }
 			 */
 	
+		@RequestMapping("/history")
+		public String checkHistory(ModelMap modelMap) {
+		
+			String patientDetailsName=patientsController.getFullName();
+			System.out.println(patientDetailsName);
+			//System.out.println(patientDetailsName+"in prescription controller");
+	//String p=prescriptionRepository.findByPatientName();
+			List<Prescription> prescription= prescriptionService.Findhistory(patientDetailsName);
+			System.out.println(prescription);
+			modelMap.put("prescription", prescription);
+			return "HistoryPrescription";
+		}
 	
 
 }

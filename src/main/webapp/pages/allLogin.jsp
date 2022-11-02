@@ -34,6 +34,10 @@
   color: white;
 }
 
+body {
+  background-image:url("pages/images/docReg.jpg");
+  background-size: cover;
+}
 
 </style>
 
@@ -43,6 +47,8 @@
 <title>Login page</title>
 </head>
 <body>
+<center>
+<h2>Welcome to our Login Page</h2>
 <form action="">
 
 <div class="topnav">
@@ -52,7 +58,7 @@
   <a href="doctorlogin">DOCTOR LOGIN</a>
    <a href="alogin">ADMIN LOGIN</a>
 
-
+</center>
 </form>
 </body>
 </html>

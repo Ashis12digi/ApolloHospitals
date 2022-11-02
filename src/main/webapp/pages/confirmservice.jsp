@@ -8,17 +8,8 @@
 </head>
 <body>
 <center>
+<h2>Fill up the following details </h2>
 
-<form action="payment" method ="post">
-Enter Patients Name: <input required="required" type = "text" placeholder="Enter Name" , name = "patientname"> 
- <br> <br> 
-Enter Age: <input  type = "number" placeholder="Enter Age" , name="age">
-<br>  <br>
-Enter Mobile Number  : <input  type = "number"  name="num">
-<br>  <br>
-Amount : <input type= "number"  name="amount" value="${amount}"/>
-<input type ="submit" value="Confirm">
-</form>
 
 
 

@@ -13,15 +13,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table
+@Component
 public class Patients {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column
-	private String name;
+	private String patientname;
 	
 	@Column(name = "username", unique = true)
 	private String username;
@@ -36,27 +39,12 @@ public class Patients {
 	@Column
 	private String bloodgroup;
 	@Column
-	private long mobilenumber;
+	private String mobilenumber;
 	@Column
 	private String address;
 	
 	public Patients() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public Patients(int id, String name, String username, String password, String emailid, Date dateofbirth,
-			String gender, String bloodgroup, long mobilenumber, String address) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-		this.emailid = emailid;
-		this.dateofbirth = dateofbirth;
-		this.gender = gender;
-		this.bloodgroup = bloodgroup;
-		this.mobilenumber = mobilenumber;
-		this.address = address;
 	}
 
 	public int getId() {
@@ -67,12 +55,12 @@ public class Patients {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getPatientname() {
+		return patientname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPatientname(String patientname) {
+		this.patientname = patientname;
 	}
 
 	public String getUsername() {
@@ -120,14 +108,14 @@ public class Patients {
 	}
 
 	public void setBloodgroup(String bloodgroup) {
- 		this.bloodgroup = bloodgroup;
+		this.bloodgroup = bloodgroup;
 	}
 
-	public long getMobilenumber() {
+	public String getMobilenumber() {
 		return mobilenumber;
 	}
 
-	public void setMobilenumber(long mobilenumber) {
+	public void setMobilenumber(String mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
 
@@ -141,15 +129,16 @@ public class Patients {
 
 	@Override
 	public String toString() {
-		return "Patients [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
-				+ ", emailid=" + emailid + ", dateofbirth=" + dateofbirth + ", gender=" + gender + ", bloodgroup="
-				+ bloodgroup + ", mobilenumber=" + mobilenumber + ", address=" + address + "]";
+		return "Patients [id=" + id + ", patientname=" + patientname + ", username=" + username + ", password="
+				+ password + ", emailid=" + emailid + ", dateofbirth=" + dateofbirth + ", gender=" + gender
+				+ ", bloodgroup=" + bloodgroup + ", mobilenumber=" + mobilenumber + ", address=" + address + "]";
 	}
 
-	/*
-	 * @OneToMany(mappedBy = "patients", cascade = CascadeType.ALL, fetch =
-	 * FetchType.LAZY) private List<Appointment> appointments;
-	 * 
-	 */
+	
+	
+
+	
+
+	
 
 }

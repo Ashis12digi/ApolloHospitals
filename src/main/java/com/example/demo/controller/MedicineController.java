@@ -33,40 +33,6 @@ public class MedicineController {
 	  public String medicineform() {
 	  return medicineService.medicineform();
 	  }
-  
- 
-	  
-		/*
-		 * @PostMapping("/medicineitems") public String viewMedicine(
-		 * 
-		 * 
-		 * @RequestParam(required=false,name="medicineid") Integer medicineid,
-		 * 
-		 * @RequestParam (required=false,name="medicinename") String medicinename,
-		 * 
-		 * @RequestParam( required=false,name="brand") String brand,
-		 * 
-		 * @RequestParam( required=false,name="madein") String madein,
-		 * 
-		 * @RequestParam( required=false,name="quantity") int quantity,
-		 * 
-		 * @RequestParam( required=false,name="medicinecost") double medicinecost,
-		 * 
-		 * 
-		 * 
-		 * 
-		 * ModelMap modelMap)
-		 * 
-		 * 
-		 * { return medicineService.viewMedicine(medicineid,
-		 * medicinename,brand,madein,quantity,medicinecost, modelMap); }
-		 */
-		/*
-		 * @RequestMapping("/medicineAdded") public String medicine() { return
-		 * "displaymedicineitems"; }
-		 */
-  
-  
 		
 		@RequestMapping("/medicineInventory")
 		  public String medicineformDetails() {
@@ -76,8 +42,6 @@ public class MedicineController {
 		
 		@PostMapping("/update/Inventory")
 		public String updateMedicineInventory(
-				
-			//	@RequestParam(required=false,name="medicineid") Integer medicineid,
 				 @RequestParam (required=false,name="medicinename") String medicinename,
 					@RequestParam( required=false,name="brand")  String brand,
 					@RequestParam( required=false,name="madein")  String madein,
@@ -91,18 +55,9 @@ public class MedicineController {
 			return medicineService.updateMedicineInventory( medicinename, brand, madein,quantity,medicinecost, modelMap);
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		//fetch
 		 @GetMapping("/fetchmedicine")
 		  public String Medicine(ModelMap model) {
-			
-			
 			return medicineService.Medicine(model);
 			  
 		  }
@@ -110,9 +65,10 @@ public class MedicineController {
 		 //Delete
 		 @RequestMapping(value="/doctor/deleteMedicine/{medicineId}", method=RequestMethod.GET)
 	     public ModelAndView delete(@PathVariable("medicineId") int medicineId) {
+			 System.out.println("come");
 	         
 			 medicineService.DeleteMedicine(medicineId);
-	     
+	     System.out.println("comings");
 	      return new ModelAndView("/DeleteMedicine");
 	      
 	     }
@@ -132,6 +88,7 @@ public class MedicineController {
 public String ServiceStatus(@RequestParam ("medicineId") int medicineId, HttpServletRequest request,ModelMap map){
 	
 	medicine=  medicineRepository.findByMedicineId(medicineId);
+	System.out.println(medicine);
 		map.put("result", medicine);
 	return  "specificMedicine";
 	
@@ -163,6 +120,10 @@ public String Medicineconfirmdata(ModelMap map) {
 	}
 	
 
+@RequestMapping("/paymentdonemedicine")
+public String paymentdone() {
+return "servicepaymentdone";
+}
 
 
 

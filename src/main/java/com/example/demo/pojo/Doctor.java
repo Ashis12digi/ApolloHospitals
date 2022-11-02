@@ -36,11 +36,11 @@ public class Doctor {
 	@Column(name = "emailid", unique = true)
 	private String emailid;
 	@Column
-	private Time timing;
+	private String timing;
 	@Column
 	private int fees;
 	@Column
-	private long mobilenumber;
+	private String mobilenumber;
 	@Column
 	private String info;
 	@Column
@@ -49,24 +49,6 @@ public class Doctor {
 	
 	public Doctor() {
 		
-	}
-
-
-	public Doctor(int id, String name, String username, String password, String location, String gender, String emailid,
-			Time timing, int fees, long mobilenumber, String info, String experience) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-		this.location = location;
-		this.gender = gender;
-		this.emailid = emailid;
-		this.timing = timing;
-		this.fees = fees;
-		this.mobilenumber = mobilenumber;
-		this.info = info;
-		this.experience = experience;
 	}
 
 
@@ -140,12 +122,12 @@ public class Doctor {
 	}
 
 
-	public Time getTiming() {
+	public String getTiming() {
 		return timing;
 	}
 
 
-	public void setTiming(Time timing) {
+	public void setTiming(String timing) {
 		this.timing = timing;
 	}
 
@@ -160,12 +142,12 @@ public class Doctor {
 	}
 
 
-	public long getMobilenumber() {
+	public String getMobilenumber() {
 		return mobilenumber;
 	}
 
 
-	public void setMobilenumber(long mobilenumber) {
+	public void setMobilenumber(String mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
 
@@ -197,6 +179,8 @@ public class Doctor {
 				+ ", fees=" + fees + ", mobilenumber=" + mobilenumber + ", info=" + info + ", experience=" + experience
 				+ "]";
 	}
+
+  
 
 	
 		

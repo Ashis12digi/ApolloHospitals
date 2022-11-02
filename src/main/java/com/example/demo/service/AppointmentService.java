@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.pojo.Appointment;
 import com.example.demo.pojo.Doctor;
 import com.example.demo.pojo.Patients;
+import com.example.demo.pojo.Prescription;
 import com.example.demo.repository.AppointmentRepository;
 
 
@@ -40,9 +41,14 @@ import com.example.demo.repository.AppointmentRepository;
 		
 			//	@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date date,
 		//	@RequestParam(required=false,name="patientid")  int patientid,
-			@RequestParam(required=false,name= "date") Date date,
+			
+			@RequestParam( required=false,name="patientname")  String patientname,
+			@RequestParam( required=false,name="MobileNumber")  long MobileNumber,
 			@RequestParam( required=false,name="doctorname")  String doctorname,
-			ModelMap modelMap
+			@RequestParam(required=false,name= "date") Date date,
+	
+		 @RequestParam( required=false,name="Address")  String Address,
+						ModelMap modelMap
 			
 			
 			
@@ -50,24 +56,34 @@ import com.example.demo.repository.AppointmentRepository;
 	   Appointment appointment=new Appointment();
 	 
 	//   appointment.setPatientid(patientid);
-	   
-	   appointment.setDate(date);
+	   appointment.setPatientname(patientname);
+	   appointment.setMobileNumber(MobileNumber);
 	   appointment.setDoctorname(doctorname);
-		
-		this.appointmentRepository.save(appointment);
+	   appointment.setDate(date);
+	   appointment.setAddress(Address);
+	  this.appointmentRepository.save(appointment);
 		
 
  
   modelMap.put("appointmentid", appointment.getAppointmentid());
-//  modelMap.put("patientid", appointment.getPatientid());
-  modelMap.put("date", appointment.getDate());
+  modelMap.put("patientname", patientname);
+  modelMap.put("MobileNumber", MobileNumber);
   modelMap.put("doctorname", appointment.getDoctorname());
+  modelMap.put("date", appointment.getDate());
+  modelMap.put("Address", Address);
+
 	
 	
 	return "DisplayAppointment";
 	
 	
 	}
+  
+  public List<Appointment> FindHistory(String patientDetailsName) {
+		List<Appointment> result=appointmentRepository.findAllByPatientname(patientDetailsName);
+			return result;
+		}
+		
 
  
   

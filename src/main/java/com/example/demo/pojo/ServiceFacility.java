@@ -31,12 +31,7 @@ public class ServiceFacility {
 		this.serviceId = serviceId;
 	}
 
-	public ServiceFacility(int serviceId, String serviceName, double amount) {
-		super();
-		this.serviceId = serviceId;
-		this.serviceName = serviceName;
-		this.amount = amount;
-	}
+	
 
 	public String getServiceName() {
 		return serviceName;
