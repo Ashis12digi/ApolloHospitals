@@ -32,7 +32,7 @@
   <br><br>
  <tr>
  PASSWORD:
-<input type="text" name="password" required="required">
+<input type="password" name="password" required="required">
 </tr>
  
  <br><br>

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.pojo.Patients;
 import com.example.demo.pojo.ServiceFacility;
 
 import com.example.demo.repository.ServiceFacilityRepository;
@@ -153,6 +155,24 @@ System.out.println("comings");
  
 }
 
+
+//----------------------------------------------------------
+/*
+ * @RequestMapping(value="/editUser", method=RequestMethod.GET) public
+ * ModelAndView viewAll(@RequestParam("serviceId") int serviceId,ModelMap map) {
+ * ModelAndView modelAndView=new ModelAndView("/updateuserdetails");
+ * ServiceFacility
+ * list=serviceFacilityService.patientUpdateFactching(serviceId);
+ * map.put("userdata", list);
+ * 
+ * return modelAndView; }
+ * 
+ * @PostMapping("/updateUser") public ModelAndView
+ * updatetable(HttpServletRequest request,ModelMap map) throws ParseException {
+ * ModelAndView modelAndView=new ModelAndView("/Patientprofile");
+ * ServiceFacility user= serviceFacilityService.PatientUpdate(request);
+ * map.put("result", user); return modelAndView; }
+ */
 
 
 }
