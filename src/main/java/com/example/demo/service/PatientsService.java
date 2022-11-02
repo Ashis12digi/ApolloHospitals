@@ -145,10 +145,9 @@ public void DeletePatient(int id) {
 	patientsRepository.deleteById(id);
 }
 
-///@Override
+
 public Patients patientUpdateFactching(int id) {
 	patients=patientsRepository.findById(id);
-	// TODO Auto-generated method stub
 	System.out.println(patients);
 	return patients;
 }
@@ -167,8 +166,7 @@ public Patients PatientUpdate(HttpServletRequest request) throws ParseException 
     patients.setDateofbirth(date1);
     patients.setGender(request.getParameter("gender"));
     patients.setBloodgroup(request.getParameter("bloodgroup"));
-  //  patients.setStr(request.getParameter("phoneno"));
-  // Long phone = Long.parseLong(request.getParameter("mobilenumber"));
+  
    patients.setMobilenumber(request.getParameter("mobilenumber"));
 
     patients.setAddress(request.getParameter("address"));

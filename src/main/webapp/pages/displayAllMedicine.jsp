@@ -79,6 +79,7 @@
 <th>Medicine Cost/piece</th>
 
 <th>Action</th>
+<th>Action</th>
 
 </tr>
 </thead>
@@ -94,10 +95,7 @@
    <td>${x.madein}</td> 
     <td>${x.quantity}</td>
     <td>${x.medicinecost}</td>
-    
-      
-     
-     
+ <td>     <a class="btn btn-info" href="/editMedicine?medicineId=${x.medicineId}"><h4>Update</h4></a></td>
       
       
        

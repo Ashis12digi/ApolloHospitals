@@ -22,7 +22,7 @@ import com.example.demo.repository.ServiceFacilityRepository;
 
 @Service
 @Component
-public class ServiceFacilityService {
+public class ServiceFacilityService implements ServiceFacilityService1{
 	ServiceFacility serviceFacility;
 
 	
@@ -112,32 +112,42 @@ public class ServiceFacilityService {
 	}
 	
 	
-	/*
-	 * public ServiceFacility patientUpdateFactching(int serviceId) {
-	 * serviceFacilityRepository=serviceFacilityRepository.findById(serviceId); //
-	 * TODO Auto-generated method stub
-	 * System.out.println(serviceFacilityRepository); return
-	 * serviceFacilityRepository; }
-	 * 
-	 * 
-	 * 
-	 * 
-	 * public ServiceFacility PatientUpdate(HttpServletRequest request) throws
-	 * ParseException { ServiceFacility serviceFacility1=
-	 * serviceFacilityRepository.findById(Integer.parseInt(request.getParameter(
-	 * "serviceId")));
-	 * 
-	 * ServiceFacility serviceFacility=new ServiceFacility();
-	 * serviceFacility.setServiceId(serviceFacility1.getServiceId());
-	 * 
-	 * serviceFacility.setServiceName(request.getParameter("patientname")); String
-	 * st=Double.toString(
-	 * serviceFacility.setAmount(request.getParameter("amount")));//
-	 * serviceFacility.setAmount(request.getParameter("amount"));
-	 * serviceFacility.setAmount(request.getParameter("username"));
-	 * 
-	 * return serviceFacility; }
-	 */
+	
+	  public ServiceFacility ServiceUpdateFactching(int serviceId) {
+	  serviceFacility=serviceFacilityRepository.findById(serviceId);
+	  
+	  System.out.println(serviceFacility); return serviceFacility;
+	  }
+	 
+	  
+	  
+	
+	  @Override public ServiceFacility ServiceUpdate(HttpServletRequest request)
+	  throws ParseException {
+	  
+	  ServiceFacility
+	  serviceFacility1=serviceFacilityRepository.findById(Integer.parseInt(request.
+	  getParameter("serviceId")));
+	  
+	  ServiceFacility serviceFacility=new ServiceFacility();
+	  serviceFacility.setServiceId(serviceFacility1.getServiceId());
+	  
+	  serviceFacility.setServiceName(request.getParameter("serviceName"));
+	
+	  //  serviceFacility.setAmount(request.getParameter("amount"));
+	  // double d = 123.45d; // String str = Double.toString(d); // Double.valueOf("amount");
+	  
+	  // String amount=Double.toString(
+	//  serviceFacility.setAmount(request.getParameter("amount")));
+	  
+	  return serviceFacility;
+	  }
+	  
+	  
+	  
+	
+	
+	 
 
 	
 		

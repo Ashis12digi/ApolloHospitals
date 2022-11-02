@@ -59,7 +59,6 @@ body {
   <a class="active" href="/">Home</a>
  
  <a href="patientprofile">Profile</a>
-   <a href="app">View Appointment</a>
      <a href="appointmentHistory">Appointment History</a>
  <a href="history"> Prescription History</a>
 <a href="displayServiceFacilityIndex">Services</a>

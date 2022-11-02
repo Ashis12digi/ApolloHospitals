@@ -18,7 +18,6 @@ public interface ServiceFacilityRepository extends CrudRepository<ServiceFacilit
 	ServiceFacility findByServiceId(int serviceId);
 	List<ServiceFacility> findAllByServiceName(String serviceName);
 
-//	ServiceFacility PatientUpdate(HttpServletRequest request) throws ParseException;
-	
+	ServiceFacility findById(int id);
 
 }

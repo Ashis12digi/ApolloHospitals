@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,8 @@ import com.example.demo.repository.MedicineRepository;
 
 @Service
 @Component
-public class MedicineService implements MedicineServiceDelete{
+public class MedicineService implements MedicineService1{
+	Medicine medicine;
 	@Autowired
 	MedicineRepository medicineRepository;
 
@@ -81,21 +85,10 @@ public class MedicineService implements MedicineServiceDelete{
 			
 			
 			ModelMap modelMap
-		//	String medicineName, int quantity
+		
 			) {
 		
-				/*
-				 * int finalQuantity = 0;
-				 * 
-				 * Optional<Medicine> store =
-				 * medicineRepository.findBymedicinename(medicinename); if(!store.isEmpty()) {
-				 * Medicine medicineStore = store.get(); finalQuantity =
-				 * medicineStore.getQuantity() - quantity; }
-				 * 
-				 * int count = medicineRepository.updateMeidicineInventory(finalQuantity,
-				 * medicinename); System.out.println("Update rows for meidicineStore inventory"
-				 * + count);
-				 */	
+				
 		Medicine medicinestore= new Medicine();
 
 		medicinestore.setMedicinename(medicinename);
@@ -134,7 +127,7 @@ public String Medicine(ModelMap model) {
 }
 
 
-//@Override
+
 public void DeleteMedicine(int medicineId) {
 	medicineRepository.deleteById(medicineId);
 	System.out.println("coming");
@@ -154,5 +147,36 @@ public String ListOfMedicine(ModelMap model) {
 	
 	return "ListOfMedicine";
 }
+
+
+public Medicine MedicineUpdateFactching(int medicineId) {
+	medicine=medicineRepository.findById(medicineId);
+
+System.out.println(medicine); 
+return medicine;
+}
+
+
+
+
+@Override
+public Medicine MedicineUpdate(HttpServletRequest request) throws ParseException {
+Medicine medicine1=medicineRepository.findById(Integer.parseInt(request.getParameter("medicineId")));
+Medicine medicine=new Medicine();
+medicine.setMedicineId(medicine1.getMedicineId());
+
+medicine.setMedicinename(request.getParameter("medicinename"));
+medicine.setMedicinename(request.getParameter("brand"));
+medicine.setMedicinename(request.getParameter("madein"));
+medicine.setMedicinename(request.getParameter("quantity"));
+//medicine.setMedicinename(request.getParameter("medicinecost"));
+
+
+
+return medicine;
+}
+
+
+
 
 }

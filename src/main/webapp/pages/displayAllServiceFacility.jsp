@@ -88,8 +88,7 @@
    <td>${x.amount}</td> 
   
         <td>
-     <form action="" >
-     <input type="submit" value="Update"></input>
+  <a class="btn btn-info" href="/editService?serviceId=${x.serviceId}"><h4>Update</h4></a>
       
       </td>
      

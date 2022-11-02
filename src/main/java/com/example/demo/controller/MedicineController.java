@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.sql.Date;
+import java.text.ParseException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.repository.MedicineRepository;
 import com.example.demo.service.MedicineService;
 import com.example.demo.pojo.Medicine;
+import com.example.demo.pojo.ServiceFacility;
 
 @Controller
 @Component
@@ -123,6 +125,27 @@ public String Medicineconfirmdata(ModelMap map) {
 @RequestMapping("/paymentdonemedicine")
 public String paymentdone() {
 return "servicepaymentdone";
+}
+
+
+//----------------------------------------------------------
+
+
+@RequestMapping(value="/editMedicine", method=RequestMethod.GET)
+public ModelAndView viewAll(@RequestParam("medicineId") int medicineId,ModelMap map) {
+ModelAndView modelAndView=new ModelAndView("/updatemedicinedetails");
+Medicine list=medicineService.MedicineUpdateFactching(medicineId);
+map.put("userdata", list);
+
+return modelAndView; 
+}
+
+@PostMapping("/updateMedicine") 
+public ModelAndView updatetable(HttpServletRequest request,ModelMap map) throws ParseException {
+ModelAndView modelAndView=new ModelAndView("/displayAllServiceFacility");
+Medicine user= medicineService.MedicineUpdate(request);
+map.put("result", user);
+return modelAndView; 
 }
 
 
