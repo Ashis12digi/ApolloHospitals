@@ -23,7 +23,7 @@
  
  <tr>
  PASSWORD:
-<input type="text" name="password">
+<input type="password" name="password">
 </tr>
  
  <br><br>

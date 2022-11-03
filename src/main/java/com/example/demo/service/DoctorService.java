@@ -23,7 +23,7 @@ import com.example.demo.pojo.Patients;
 import com.example.demo.repository.DoctorRepository;
 @Component
 @Service
-public class DoctorService implements doctorService1{
+public class DoctorService implements DoctorServiceInterface{
 	
 	Doctor doctor;
 	@Autowired
@@ -36,7 +36,6 @@ public class DoctorService implements doctorService1{
 	public String Registration() {
 		return "DoctorRegistration";
 	}
-	
 	
 	public String viewDetails(
 			   @RequestParam("name") String name,
@@ -88,102 +87,71 @@ public class DoctorService implements doctorService1{
 	modelMap.put("experience", experience);
 	
 	return "DrRegistSuccess";
-	
-	
-	
-	
 	}
 	
-	
-	
-	
-	
 public String DoctorHome() {
-		
 		return "doctorHome";
 	}
  
-
-public Doctor getdoctorlogin(String username, String password) {
-	Doctor doc=doctorRepository.findByUsernameAndPassword(username,password);
-	return doc;
+public Doctor GetDoctorLogin(String username, String password) {
+	Doctor doctor=doctorRepository.findByUsernameAndPassword(username,password);
+	return doctor;
 	
 }
 
-
-public String displayDoctor(ModelMap model) {
-	
+public String DisplayDoctor(ModelMap model) {
 	  List<Doctor>doctor=new ArrayList<Doctor>();
 	 doctorRepository.findAll().forEach(i->doctor.add(i));
 	 model.addAttribute("result", doctor);
-	
 	 return "displayAllDoctor";
 }
 
-
 public String Doctor(ModelMap model) {
-	
 	  List<Doctor>doctor=new ArrayList<Doctor>();
 	 doctorRepository.findAll().forEach(i->doctor.add(i));
 	 model.addAttribute("result", doctor);
-	
 	 return "displayAllDoctorFetchAdmin";
 }
 
-
-
-@Override
+//@Override
 public void DeleteDoctor(int id) {
     doctorRepository.deleteById(id);
 }
 
-public Doctor getspecificdata(String username) {
+public Doctor GetSpecificData(String username) {
 	Doctor doctor= doctorRepository.findByusername(username);
 			return  doctor;
 }
 
 public Doctor DoctorUpdateFactching(int id) {
 	doctor=doctorRepository.findById(id);
-	
 	System.out.println(doctor);
 	return doctor;
 }
 
 
-@Override
-public Doctor DoctorUpdate(HttpServletRequest request) throws ParseException {
-	Doctor doctor1= doctorRepository.findById(Integer.parseInt(request.getParameter("id")));
+//@Override
+public Doctor DoctorUpdate(HttpServletRequest request) {
+	Doctor doctorId= doctorRepository.findById(Integer.parseInt(request.getParameter("id")));
 	Doctor doctor= new Doctor();
 	
-   
-	doctor.setId(doctor1.getId());
+	doctor.setId(doctorId.getId());
 	doctor.setName(request.getParameter("name"));
 	doctor.setUsername(request.getParameter("username"));
 	doctor.setPassword(request.getParameter("password"));
 	doctor.setLocation(request.getParameter("location"));
-  
     doctor.setGender(request.getParameter("gender"));
     doctor.setEmailid(request.getParameter("emailid"));
- 
-   
     doctor.setTiming(request.getParameter("timing"));
   int fees=Integer.parseInt(request.getParameter("fees"));
-		  doctor.setFees(fees);
+   doctor.setFees(fees);
     doctor.setMobilenumber(request.getParameter("mobilenumber"));
-
     doctor.setInfo(request.getParameter("info"));
-    
     doctor.setExperience(request.getParameter("experience"));
-    
-   
-    
-    
     this.doctorRepository.save(doctor);
 	
 	return doctor;
 }
-
-
 
 
 }

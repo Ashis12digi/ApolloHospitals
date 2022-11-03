@@ -33,10 +33,7 @@ public class ServiceFacilityController
 	@Autowired
 	ServiceFacilityRepository serviceFacilityRepository;
 	
-	ServiceFacility serviceFacility;
-	
-	ServiceFacility serviceFacility2;
-	
+	ServiceFacility serviceFacility;	
 
 @RequestMapping("/ServiceFacility")
 public String ServiceFacilitydetails() {
@@ -47,26 +44,18 @@ return serviceFacilityService.ServiceFacilitydetails();
 public String ViewServicesFacility(
 	
 		@RequestParam(required=false,name="serviceName") String serviceName,
-		
 		@RequestParam(required=false,name="amount") double amount,
-	
 		ModelMap modelMap)
-	
-	
 {
 	serviceFacilityService.ViewServicesFacility(serviceName,amount, modelMap);
 	return "displayServicesFacility";
 	}
 
-
 @GetMapping("/fetchAllServices")
  public String ServiceDisplay(ModelMap model) {
-	
-	
 	return serviceFacilityService.ServiceDisplay(model);
 	  
  }
-
 
 @RequestMapping("/ServiceFacilityindex")
 public String Facilitydetails() {
@@ -76,9 +65,7 @@ return serviceFacilityService.Facilitydetails();
 
 @GetMapping("/fetchAllServicesindex")
  public String ServiceDisplayIndex(ModelMap model) {
-	
-	
-	return serviceFacilityService.ServiceDisplayIndex1(model);
+	return serviceFacilityService.ServiceDisplayIndexBeforeLogin(model);
 	  
  }
 
@@ -90,73 +77,35 @@ public String AfterLogin(ModelMap model) {
 
 }
 
-//@PostMapping("/Searchstatus")
-public String ServiceStatus(@RequestParam ("serviceId") int serviceId, HttpServletRequest request,ModelMap map){
-	
-		serviceFacility=  serviceFacilityRepository.findByServiceId(serviceId);
-		map.put("result", serviceFacility);
-	return  "specificservice";
-	
-}
-
-
-
-@GetMapping("servicepayment")
-public String serviceconfirmdata(ModelMap map) {
-	map.put("serviceId", serviceFacility.getServiceId());
-	map.put("serviceName", serviceFacility.getServiceName());
-	map.put("amount", serviceFacility.getAmount());
-	
-		
-	return "confirmservice";
-	
-}
 
 @GetMapping("/patientservice")
-public String profileService(ModelMap map) {
-    map.put("patient", serviceFacility2);
-    List<ServiceFacility> list1= serviceFacilityService.getservicedata(serviceFacility2.getServiceName());
-    map.put("service", list1);
+public String ProfileService(ModelMap map) {
+    map.put("patient", serviceFacility);
+    List<ServiceFacility> list= serviceFacilityService.GetServiceData(serviceFacility.getServiceName());
+    map.put("service", list);
     return "patientSerivce";
     
 }
 
 @RequestMapping("/paymentdone")
-public String paymentdone() {
+public String PaymentDone() {
 return "servicepaymentdone";
 }
 
-@GetMapping("/Searchstatus")
-public ModelAndView flightstatus(@RequestParam("serviceId") int serviceId, HttpServletRequest request,ModelMap map){
-	System.out.println("Search");
-	
-	ModelAndView model= new ModelAndView("confirmservice");
-	serviceFacility= serviceFacilityRepository.findByServiceId(serviceId);
-	System.out.println(serviceFacility);
-	request.setAttribute ("serviceFacility", serviceFacility);
 
-	
-	model.setViewName("confirmservice");
-	
-
-return model;
-
-}
 
 
 //Delete
 @RequestMapping(value="/service/deleteMedicine/{serviceId}", method=RequestMethod.GET)
-public ModelAndView delete(@PathVariable("serviceId") int serviceId) {
-	 System.out.println("come");
+public ModelAndView Delete(@PathVariable("serviceId") int serviceId) {
     
 	 serviceFacilityService.DeleteService(serviceId);
-System.out.println("comings");
- return new ModelAndView("/DeleteMedicine");
+     return new ModelAndView("/DeleteMedicine");
  
 }
 
 
-//----------------------------------------------------------
+//-----------------Update-----------------------------------------
 
 
   @RequestMapping(value="/editService", method=RequestMethod.GET)
@@ -169,7 +118,7 @@ System.out.println("comings");
   }
   
   @PostMapping("/updateService") 
-  public ModelAndView updatetable(HttpServletRequest request,ModelMap map) throws ParseException {
+  public ModelAndView UpdateTable(HttpServletRequest request,ModelMap map)  {
   ModelAndView modelAndView=new ModelAndView("/displayAllServiceFacility");
   ServiceFacility user= serviceFacilityService.ServiceUpdate(request);
   map.put("result", user);

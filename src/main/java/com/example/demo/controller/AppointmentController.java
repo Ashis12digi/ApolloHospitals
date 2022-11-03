@@ -1,5 +1,4 @@
-
-  package com.example.demo.controller;
+package com.example.demo.controller;
   
   import java.util.Date;
 import java.util.List;
@@ -20,10 +19,7 @@ import com.example.demo.pojo.Prescription;
 import com.example.demo.repository.AppointmentRepository;
 import com.example.demo.service.AppointmentService;
  
- 
-  
   @Controller
-  
   @Component 
   public class AppointmentController {
   
@@ -36,7 +32,6 @@ import com.example.demo.service.AppointmentService;
   @Autowired
 	PatientsController patientsController;
 	
-  
   @RequestMapping("/Appointmentform")
   public String AppointmentForm() {
   return appointmentService.AppointmentForm();
@@ -44,30 +39,22 @@ import com.example.demo.service.AppointmentService;
   
 	@PostMapping("/appointment")
 	public String viewAppointment(
-			
-			
-		//	@RequestParam(required=false,name="patientid") Integer patientid,
 			@RequestParam( required=false,name="patientname")  String patientname,
 			@RequestParam( required=false,name="MobileNumber")  long MobileNumber,
 			@RequestParam( required=false,name="doctorname")  String doctorname,
-			
-			
-		 @RequestParam (required=false,name="date") java.sql.Date date,
-		 @RequestParam( required=false,name="Address")  String Address,
-			
-			
+		    @RequestParam (required=false,name="date") java.sql.Date date,
+		    @RequestParam( required=false,name="Address")  String Address,
+		
 			ModelMap modelMap)
-		
-		
 	{
 		return appointmentService.viewAppointment(patientname,MobileNumber, doctorname, date, Address,modelMap);
 		}
 	//.............History.......
 	
 	@RequestMapping("/appointmentHistory")
-	public String checkHistory(ModelMap modelMap) {
+	public String CheckHistory(ModelMap modelMap) {
 	
-		String patientDetailsName=patientsController.getFullName();
+		String patientDetailsName=patientsController.GetFullName();
 		System.out.println(patientDetailsName);
 		
 		List<Appointment> appointment= appointmentService.FindHistory(patientDetailsName);

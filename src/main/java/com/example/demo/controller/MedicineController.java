@@ -33,12 +33,12 @@ public class MedicineController {
 	
   @RequestMapping("/medicineitems")
 	  public String medicineform() {
-	  return medicineService.medicineform();
+	  return medicineService.MedicineForm();
 	  }
 		
 		@RequestMapping("/medicineInventory")
 		  public String medicineformDetails() {
-		  return medicineService.medicineformDetails();
+		  return medicineService.MedicineFormDetails();
 		  }
 		
 		
@@ -47,9 +47,7 @@ public class MedicineController {
 				 @RequestParam (required=false,name="medicinename") String medicinename,
 					@RequestParam( required=false,name="brand")  String brand,
 					@RequestParam( required=false,name="madein")  String madein,
-					
 					@RequestParam( required=false,name="quantity")  int quantity,
-					
 					@RequestParam( required=false,name="medicinecost")  double medicinecost,
 				ModelMap modelMap
 				) {
@@ -74,14 +72,10 @@ public class MedicineController {
 	      return new ModelAndView("/DeleteMedicine");
 	      
 	     }
-		 
-	
-		 
+			 
 //display Medicine
 @GetMapping("/listofMedicine")
  public String ListOfMedicine(ModelMap model) {
-	
-	
 	return medicineService.ListOfMedicine(model);
 	  
  }
@@ -96,9 +90,8 @@ public String ServiceStatus(@RequestParam ("medicineId") int medicineId, HttpSer
 	
 }
 
-
 @GetMapping("medicinepayment")
-public String Medicineconfirmdata(ModelMap map) {
+public String MedicineConfirmData(ModelMap map) {
 	map.put("medicineId", medicine.getMedicineId());
 	map.put("medicinename", medicine.getMedicinename());
 	map.put("quantity", medicine.getQuantity());
@@ -108,9 +101,7 @@ public String Medicineconfirmdata(ModelMap map) {
 	
 }
 
-
 @RequestMapping("/paymentmedicine")
-	
 	public String MedicinePayment(
 			@RequestParam("num") double num, 
 			@RequestParam("medicinecost") double medicinecost, HttpServletRequest request, ModelMap map) {
@@ -123,12 +114,12 @@ public String Medicineconfirmdata(ModelMap map) {
 	
 
 @RequestMapping("/paymentdonemedicine")
-public String paymentdone() {
+public String PaymentDone() {
 return "servicepaymentdone";
 }
 
 
-//----------------------------------------------------------
+//-------------------Upadte---------------------------------------
 
 
 @RequestMapping(value="/editMedicine", method=RequestMethod.GET)
@@ -141,7 +132,7 @@ return modelAndView;
 }
 
 @PostMapping("/updateMedicine") 
-public ModelAndView updatetable(HttpServletRequest request,ModelMap map) throws ParseException {
+public ModelAndView UpdateTable(HttpServletRequest request,ModelMap map) throws ParseException {
 ModelAndView modelAndView=new ModelAndView("/displayAllServiceFacility");
 Medicine user= medicineService.MedicineUpdate(request);
 map.put("result", user);

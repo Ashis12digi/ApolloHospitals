@@ -44,7 +44,7 @@ public class Patients {
 	private String address;
 	
 	public Patients() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public int getId() {

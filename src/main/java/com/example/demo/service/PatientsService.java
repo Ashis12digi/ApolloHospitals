@@ -25,13 +25,11 @@ import com.example.demo.repository.PatientsRepository;
 
 @Component
 @Service
-public class PatientsService implements patientService1{
+public class PatientsService implements PatientServiceInterface{
 	Patients patients;
 	@Autowired
 	PatientsRepository patientsRepository;
 	
-	
- 
 	public String Entry() {
 		return "index";
 	}
@@ -50,21 +48,12 @@ public class PatientsService implements patientService1{
 			@RequestParam("password")String password,
 			@RequestParam("emailid")  String emailid,
 			@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
-		
-		//	@RequestParam @DateTimeFormat(pattern=" MM/dd/yyyy ")  Date dateofbirth,
-			//@RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date dateofbirth,
-		//	@RequestParam("Date") Date dateofbirth,
 			@RequestParam("gender")  String gender,
 			@RequestParam("bloodgroup")  String bloodgroup,
 			@RequestParam("mobilenumber")  String mobilenumber,
 			@RequestParam("address")  String address,
-			
-			
-			ModelMap modelMap
-			
-			
-			
-			) {
+	
+			ModelMap modelMap) {
 		
 		Patients patients=new Patients();
 		patients.setId(patients.getId());
@@ -79,9 +68,6 @@ public class PatientsService implements patientService1{
 		patients.setGender(gender);
 		patients.setBloodgroup(bloodgroup);
 		patients.setMobilenumber(mobilenumber);
-	//	patients.setMobilenumber(address)
-	//	patients.setMobilenumber(mobilenumber);
-	
 		patients.setAddress(address);
 		
 		this.patientsRepository.save(patients);
@@ -100,17 +86,15 @@ public class PatientsService implements patientService1{
 	
 	return "Reg_Success";
 	
-	
 	}
 
-	public Patients getpatientlogin(String username, String password) {
+	public Patients GetPatientLogin(String username, String password) {
 		Patients patient=patientsRepository.findByUsernameAndPassword(username,password);
 		return patient;
 		
 	}
 
 	public String AllLogin() {
-		// TODO Auto-generated method stub
 		return "allLogin";
 	}
 
@@ -124,36 +108,26 @@ public String Patient(ModelMap model) {
 	 return "displayAllPatient";
 }
 
-public Patients getdata(String username) {
+public Patients GetData(String username) {
 	Patients patient= patientsRepository.findByusername(username);
 			return  patient;
 }
-	
 
-/*
- * //fetch service public List<Services> getservicedata(String patientsname) {
- * List<Services> list1=new ArrayList<>();
- * service.findAllBypatientname(patientsname).forEach(x->list1.add(x)); return
- * list1;
- * 
- * }
- */
- 
 
-@Override
+//@Override
 public void DeletePatient(int id) {
 	patientsRepository.deleteById(id);
 }
 
 
-public Patients patientUpdateFactching(int id) {
+public Patients PatientUpdateFactching(int id) {
 	patients=patientsRepository.findById(id);
 	System.out.println(patients);
 	return patients;
 }
 
-@Override
-public Patients PatientUpdate(HttpServletRequest request) throws ParseException {
+//@Override
+public Patients PatientUpdate(HttpServletRequest request) throws Exception {
 	Patients patients1= patientsRepository.findById(Integer.parseInt(request.getParameter("id")));
     Patients patients= new Patients();
     patients.setId(patients1.getId());

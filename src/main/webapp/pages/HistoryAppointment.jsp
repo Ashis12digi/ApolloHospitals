@@ -31,16 +31,7 @@
 </tr>
 </thead>
 <tbody>
-
-
- 
-     
-
-
 <c:forEach items="${appointment}" var="appointment">
-
- 
-  
   <tr>
   
    <td>
@@ -71,25 +62,12 @@ ${appointment.date}
   </tr>
  </form>
   
-  
-
 </c:forEach>
-
-
-
 
 </tbody>
 </table>
 
-
-
-
-
-
 </center>
-
-
-
 
 </body>
 </html>

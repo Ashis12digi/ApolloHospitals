@@ -35,22 +35,19 @@ import com.example.demo.service.DoctorService;
 @Controller
 @Component
 public class DoctorController {
+	Doctor doctorDetails;
 	@Autowired
 	DoctorService doctorService;
-	Doctor doctorDetails;
-	
-	
+
 	@RequestMapping("/doctorlogin")
     public String Login() {
       return  doctorService.Login();
     }
-	
 
 	  @RequestMapping("/dregistration")
 	  public String Registration() {
 	   return doctorService.Registration();
 	  }
-
 
 		@PostMapping("/DRregsuccess")
 		public String viewDetails(
@@ -73,50 +70,40 @@ public class DoctorController {
 			return doctorService.viewDetails(name,username, password, location, gender, emailid,timing,fees, mobilenumber,info, experience, modelMap);
 		}
 		
-	
-		
 		@RequestMapping("/dlogin")
 		  public String DoctorHome() {
 		   return doctorService.DoctorHome();
 		  }
 			
-		
-
 		@RequestMapping("/doctorAppointments")
-		public String showDoctorAppointments(Model model) {
-			
-		
+		public String ShowDoctorAppointments(Model model) {
 			return "doctorAppointments";
 		}
-		
-		
-		 
+	
 		  @GetMapping("/doctorloginusername")
-	    public String getdoctorlogin(@ModelAttribute("doctor")  Doctor doctor,HttpServletRequest request ) {
-	    	Doctor doctor1=doctorService.getdoctorlogin(doctor.getUsername(),doctor.getPassword());
-	    	if(Objects.nonNull(doctor1)) {
-	    		
-	    		doctorDetails =doctorService.getspecificdata(request.getParameter("username"));
+	    public String GetDoctorLogin(@ModelAttribute("doctor")  Doctor doctor,HttpServletRequest request ) {
+	    	Doctor doctorLogin=doctorService.GetDoctorLogin(doctor.getUsername(),doctor.getPassword());
+	    	if(Objects.nonNull(doctorLogin)) {
+	    		doctorDetails =doctorService.GetSpecificData(request.getParameter("username"));
 	    		return "doctorHome";
 	    	}
 	    	else {
 	    		return "adminloginerror";
 	    	}
 	    }
+		  
 	   @GetMapping("/fetchalldoctor")
-		  public String displayDoctor(ModelMap model) {
-			
-			
-			return doctorService.displayDoctor(model);
+		  public String DisplayDoctor(ModelMap model) {
+			return doctorService.DisplayDoctor(model);
 			  
 		  }
 	   
 	   @GetMapping("/deletedoctor")
-	   public String deleteDoctor() {
+	   public String DeleteDoctor() {
 		return "deleteDoctor";
 		   
 	   }
-	   //fetching
+	   //..............fetching.......
 	   @GetMapping("/fetch")
 		  public String Doctor(ModelMap model) {
 			
@@ -124,27 +111,23 @@ public class DoctorController {
 			return doctorService.Doctor(model);
 			  
 		  }
-	   
+	   //......Delete........
 	   @RequestMapping(value="/doctor/deleteDoctor/{id}", method=RequestMethod.GET)
-	     public ModelAndView delete(@PathVariable("id") int id) {
+	     public ModelAndView Delete(@PathVariable("id") int id) {
 	         
 	      doctorService.DeleteDoctor(id);
 	     
 	      return new ModelAndView("/deleteDoctor");
 	      
 	     }
-	   
-	   
-	   
+	  //.....Profile.......
 	   @GetMapping("/doctorprofile")
-	    public String profile(ModelMap map) {
-	       
+	    public String Profile(ModelMap map) {
 	        map.put("result", doctorDetails);
-	       
 	        return "doctorprofile";
 	  	    }
 	   
-	   //----------------------------------------------------------
+	   //------------------------update----------------------------------
 	    @RequestMapping(value="/editDoctor", method=RequestMethod.GET)
 	      public ModelAndView viewAll(@RequestParam("id") int id,ModelMap map) {
 	       ModelAndView modelAndView=new ModelAndView("/updateDoctordetails");
@@ -156,7 +139,7 @@ public class DoctorController {
 	    
 	    
 	    @PostMapping("/updateDoctor")
-	    public ModelAndView updatetable(HttpServletRequest request,ModelMap map) throws ParseException {
+	    public ModelAndView UpdateTable(HttpServletRequest request,ModelMap map) throws Exception {
 	         ModelAndView modelAndView=new ModelAndView("/doctorprofile");
 	        Doctor user= doctorService.DoctorUpdate(request);
 	        map.put("result", user);

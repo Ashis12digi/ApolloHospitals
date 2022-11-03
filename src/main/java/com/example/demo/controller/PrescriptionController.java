@@ -81,7 +81,7 @@ public class PrescriptionController {
 		@RequestMapping("/history")
 		public String checkHistory(ModelMap modelMap) {
 		
-			String patientDetailsName=patientsController.getFullName();
+			String patientDetailsName=patientsController.GetFullName();
 			System.out.println(patientDetailsName);
 			//System.out.println(patientDetailsName+"in prescription controller");
 	//String p=prescriptionRepository.findByPatientName();

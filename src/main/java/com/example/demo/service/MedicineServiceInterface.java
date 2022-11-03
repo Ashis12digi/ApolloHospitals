@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import com.example.demo.pojo.Medicine;
 import com.example.demo.pojo.ServiceFacility;
 
-public interface MedicineService1 {
+public interface MedicineServiceInterface {
 	public void DeleteMedicine(int medicineid);
-	Medicine MedicineUpdate(HttpServletRequest request) throws ParseException;
+	Medicine MedicineUpdate(HttpServletRequest request);
 		
 
 }

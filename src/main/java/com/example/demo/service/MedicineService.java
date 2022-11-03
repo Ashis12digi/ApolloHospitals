@@ -23,56 +23,16 @@ import com.example.demo.repository.MedicineRepository;
 
 @Service
 @Component
-public class MedicineService implements MedicineService1{
+public class MedicineService implements MedicineServiceInterface{
 	Medicine medicine;
 	@Autowired
 	MedicineRepository medicineRepository;
 
-	public String medicineform() {
-		
+	public String MedicineForm() {
 		return "medicineitem";
 		
 	}
 	
-	/*
-	 * public String viewMedicine(
-	 * 
-	 * @RequestParam("medicineid") int medicineid,
-	 * 
-	 * @RequestParam("medicinename") String medicinename,
-	 * 
-	 * @RequestParam("brand") String brand,
-	 * 
-	 * @RequestParam("madein") String madein,
-	 * 
-	 * @RequestParam("quantity") int quantity,
-	 * 
-	 * @RequestParam("medicinecost") double medicinecost,
-	 * 
-	 * 
-	 * 
-	 * 
-	 * ModelMap modelMap ) {
-	 * 
-	 * Medicine medicine=new Medicine(); medicine.setMedicineid(medicineid);
-	 * medicine.setMedicinename(medicinename); medicine.setBrand(brand);
-	 * medicine.setMadein(madein); medicine.setQuantity(quantity);
-	 * medicine.setMedicinecost(medicinecost);
-	 * 
-	 * this.medicineRepository.save(medicine); modelMap.put("medicineid",
-	 * medicineid); modelMap.put("medicinename", medicinename);
-	 * modelMap.put("brand", brand); modelMap.put("madein", madein);
-	 * modelMap.put("quantity", quantity); modelMap.put("medicinecost",
-	 * medicinecost);
-	 * 
-	 * 
-	 * return "displaymedicineitems";
-	 * 
-	 * }
-	 */
-       
-	
-	@Transactional
 	public String updateMedicineInventory(
 		
 			@RequestParam("medicinename") String medicinename,
@@ -104,63 +64,42 @@ public class MedicineService implements MedicineService1{
 		  modelMap.put("madein", madein);
 		  modelMap.put("quantity", quantity); 
 		  modelMap.put("medicinecost", medicinecost);
-		  
-		  
+		   
 		  return "displaymedicine";
-		
-
 	}
-	
-	
-	
-	
-	
-	
 
 public String Medicine(ModelMap model) {
 	
 	  List<Medicine>medicine=new ArrayList<Medicine>();
 	  medicineRepository.findAll().forEach(i->medicine.add(i));
 	 model.addAttribute("result", medicine);
-	
 	 return "displayAllMedicine";
 }
 
-
-
 public void DeleteMedicine(int medicineId) {
 	medicineRepository.deleteById(medicineId);
-	System.out.println("coming");
 }
 
 
-public String medicineformDetails() {
-	
+public String MedicineFormDetails() {
 	return "Inventory";
 }
-
 
 public String ListOfMedicine(ModelMap model) {
 	 List<Medicine>medicine=new ArrayList<Medicine>();
 	 medicineRepository.findAll().forEach(i->medicine.add(i));
 	 model.addAttribute("result", medicine);
-	
 	return "ListOfMedicine";
 }
 
-
 public Medicine MedicineUpdateFactching(int medicineId) {
 	medicine=medicineRepository.findById(medicineId);
-
 System.out.println(medicine); 
 return medicine;
 }
 
-
-
-
-@Override
-public Medicine MedicineUpdate(HttpServletRequest request) throws ParseException {
+//@Override
+public Medicine MedicineUpdate(HttpServletRequest request) {
 Medicine medicine1=medicineRepository.findById(Integer.parseInt(request.getParameter("medicineId")));
 Medicine medicine=new Medicine();
 medicine.setMedicineId(medicine1.getMedicineId());
@@ -170,9 +109,6 @@ medicine.setMedicinename(request.getParameter("brand"));
 medicine.setMedicinename(request.getParameter("madein"));
 medicine.setMedicinename(request.getParameter("quantity"));
 //medicine.setMedicinename(request.getParameter("medicinecost"));
-
-
-
 return medicine;
 }
 

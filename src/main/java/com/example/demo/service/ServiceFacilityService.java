@@ -22,7 +22,7 @@ import com.example.demo.repository.ServiceFacilityRepository;
 
 @Service
 @Component
-public class ServiceFacilityService implements ServiceFacilityService1{
+public class ServiceFacilityService implements ServiceFacilityServiceInterface{
 	ServiceFacility serviceFacility;
 
 	
@@ -87,68 +87,45 @@ public class ServiceFacilityService implements ServiceFacilityService1{
 		// return "BeforeLogin";
 	}
 	
-	public String ServiceDisplayIndex1(ModelMap model) {
+	public String ServiceDisplayIndexBeforeLogin(ModelMap model) {
 		
 		  List<ServiceFacility>facility=new ArrayList<>();
 		  serviceFacilityRepository.findAll().forEach(i->facility.add(i));
 		 model.addAttribute("result", facility);
-		
-		//return "displayServiceFacilityIndex";
 		 return "BeforeLogin";
 	}
 
 	
-	public List<ServiceFacility> getservicedata(String serviceName)
+	public List<ServiceFacility> GetServiceData(String serviceName)
 	{
-		List<ServiceFacility> list1=new ArrayList<>();
-		serviceFacilityRepository.findAllByServiceName(serviceName).forEach(x->list1.add(x));
-		return list1;
+		List<ServiceFacility> list=new ArrayList<>();
+		serviceFacilityRepository.findAllByServiceName(serviceName).forEach(x->list.add(x));
+		return list;
 		
 	}
 	
 	public void DeleteService(int serviceId) {
-		serviceFacilityRepository.deleteById(serviceId);
-		System.out.println("coming");
+    serviceFacilityRepository.deleteById(serviceId);
+
 	}
 	
 	
 	
 	  public ServiceFacility ServiceUpdateFactching(int serviceId) {
 	  serviceFacility=serviceFacilityRepository.findById(serviceId);
-	  
-	  System.out.println(serviceFacility); return serviceFacility;
-	  }
-	 
-	  
-	  
-	
-	  @Override public ServiceFacility ServiceUpdate(HttpServletRequest request)
-	  throws ParseException {
-	  
-	  ServiceFacility
-	  serviceFacility1=serviceFacilityRepository.findById(Integer.parseInt(request.
-	  getParameter("serviceId")));
-	  
-	  ServiceFacility serviceFacility=new ServiceFacility();
-	  serviceFacility.setServiceId(serviceFacility1.getServiceId());
-	  
-	  serviceFacility.setServiceName(request.getParameter("serviceName"));
-	
-	  //  serviceFacility.setAmount(request.getParameter("amount"));
-	  // double d = 123.45d; // String str = Double.toString(d); // Double.valueOf("amount");
-	  
-	  // String amount=Double.toString(
-	//  serviceFacility.setAmount(request.getParameter("amount")));
-	  
+	  System.out.println(serviceFacility); 
 	  return serviceFacility;
 	  }
-	  
-	  
-	  
-	
-	
 	 
 
+	  public ServiceFacility ServiceUpdate(HttpServletRequest request)  {
+	  ServiceFacility serviceFacilityId=serviceFacilityRepository.findById(Integer.parseInt(request.getParameter("serviceId")));
+	  ServiceFacility serviceFacility=new ServiceFacility();
+	  serviceFacility.setServiceId(serviceFacilityId.getServiceId());
+	  serviceFacility.setServiceName(request.getParameter("serviceName"));
+	  return serviceFacility;
+	  }
+	 
 	
 		
 	}

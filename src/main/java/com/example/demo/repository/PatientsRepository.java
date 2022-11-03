@@ -11,12 +11,12 @@ import com.example.demo.pojo.Admin;
 import com.example.demo.pojo.Patients;
 
 @Repository
-public interface PatientsRepository extends JpaRepository<Patients, Integer>{
+public interface PatientsRepository extends CrudRepository<Patients, Integer>{
 
 	Patients findByUsernameAndPassword(String username, String password);
     Patients findByusername(String username);
 	Patients findByEmailid(String emailid);
 	Patients findById(int id);
 
-    
+	
 }
