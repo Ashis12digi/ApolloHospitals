@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -29,66 +30,47 @@ import com.example.demo.service.PrescriptionService;
 @Controller
 @Component
 public class PrescriptionController {
-
-	@Autowired
     PrescriptionService prescriptionService;
-	@Autowired
 	PatientsController patientsController;
-	@Autowired
-	PrescriptionRepository prescriptionRepository;
-	
-	Prescription prescription;
-	
+
+	public PrescriptionController(PrescriptionService prescriptionService, PatientsController patientsController) {
+		this.prescriptionService = prescriptionService;
+		this.patientsController = patientsController;
+	}
 
 	  @RequestMapping("/Prescriptionform")
-	  public String PrescriptionForm() {
-	  return prescriptionService.PrescriptionForm();
+	  public String prescriptionForm() {
+	  return prescriptionService.prescriptionForm();
 	  }
 	  
 		@PostMapping("/displayPrescription")
 		public String viewPrescription(
 			
 				@RequestParam("patientname") String patientname,
-
-			
-
 				@RequestParam("description") String description,
-				
-			
 				ModelMap modelMap)
-			
-			
 		{
-			/*
-			 * List<Prescription> listpre=new ArrayList(); String
-			 * name=PatientsController.name; listpre=prescriptionService.getHistroy(name);
-			 * modelMap.put("listpre", listpre);
-			 */
-		//	modelMap.put("id", id);
+			
 			return prescriptionService.viewPrescription(patientname, description, modelMap);
 			}
 		
-
-			/*
-			 * @GetMapping("/patientservice1") public String profileService(ModelMap map) {
-			 * map.put("patient", prescription1); List<Prescription> list1=
-			 * prescriptionService.getPrescriptiondata(prescription1.getPatientname());
-			 * map.put("service",list1); return "patientSerivce";
-			 * 
-			 * }
-			 */
-	
 		@RequestMapping("/history")
 		public String checkHistory(ModelMap modelMap) {
-		
-			String patientDetailsName=patientsController.GetFullName();
-			System.out.println(patientDetailsName);
-			//System.out.println(patientDetailsName+"in prescription controller");
-	//String p=prescriptionRepository.findByPatientName();
-			List<Prescription> prescription= prescriptionService.Findhistory(patientDetailsName);
-			System.out.println(prescription);
+			String patientDetailsName=patientsController.getFullName();
+			String redirect="";
+			List<Prescription> prescription= prescriptionService.findHistory(patientDetailsName);
 			modelMap.put("prescription", prescription);
-			return "HistoryPrescription";
+			if(prescription.isEmpty())
+			{
+				redirect="prescriptionfailed";
+			}
+			
+			else
+			{
+				redirect="HistoryPrescription";
+				
+			}
+				return redirect;
 		}
 	
 

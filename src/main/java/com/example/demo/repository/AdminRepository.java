@@ -7,7 +7,6 @@ import com.example.demo.pojo.Admin;
 
 @Repository
 public interface AdminRepository  extends CrudRepository<Admin, Integer>{
-
 	Admin findByUsernameAndPassword(String username, String password);
 	
 

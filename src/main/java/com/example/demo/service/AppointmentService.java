@@ -25,24 +25,22 @@ import com.example.demo.repository.AppointmentRepository;
   @Service
   @Component 
   public class AppointmentService {
-	  @Autowired
-	  private AppointmentRepository appointmentRepository;
+	 
+  AppointmentRepository appointmentRepository;
 	  
-  public String AppointmentForm() 
+  public AppointmentService(AppointmentRepository appointmentRepository) {
+		this.appointmentRepository = appointmentRepository;
+	}
+
+
+public String AppointmentForm() 
   {
 	  return "Appointment"; 
   }
   
   
-  public String viewAppointment(
-			
-			@RequestParam( required=false,name="patientname")  String patientname,
-			@RequestParam( required=false,name="MobileNumber")  long MobileNumber,
-			@RequestParam( required=false,name="doctorname")  String doctorname,
-			@RequestParam(required=false,name= "date") Date date,
-	        @RequestParam( required=false,name="Address")  String Address,
-		    ModelMap modelMap
-			) {
+  public String viewAppointment(  String patientname,long MobileNumber, String doctorname, Date date,String Address,
+		    ModelMap modelMap) {
 	   Appointment appointment=new Appointment();
 	   appointment.setPatientname(patientname);
 	   appointment.setMobileNumber(MobileNumber);
@@ -60,7 +58,7 @@ import com.example.demo.repository.AppointmentRepository;
 	return "DisplayAppointment";
 	}
   
-  public List<Appointment> FindHistory(String patientDetailsName) {
+  public List<Appointment> findHistory(String patientDetailsName) {
 		List<Appointment> result=appointmentRepository.findAllByPatientname(patientDetailsName);
 			return result;
 		}

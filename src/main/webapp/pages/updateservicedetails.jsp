@@ -25,11 +25,13 @@
 
 <form action="/updateService" method="post">
 <div>
-   <input type="hidden" name="serviceId" cssClass="form-control" id="serviceId"  value="${userdata.serviceId}">
+   <input type="hidden" name="serviceId"  cssClass="form-control" id="serviceId"  value="${servicedata.serviceId} ">
    
     <label>Service Name</label>
-    <input name="serviceName" cssClass="form-control" id="serviceName" value="${userdata.serviceName}" />
+    <input name="serviceName" cssClass="form-control" id="serviceName" value="${servicedata.serviceName} " />
    </div><br>
+   
+    
    
    <button type="submit" class="btn btn-success">Confirm</button>
 </form>

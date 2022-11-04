@@ -21,7 +21,7 @@
  
  <tr>
  PASSWORD:
-<input type="text" name="password" placeholder="Enter Password ">
+<input type="text" name="password" placeholder="Enter Password " required="required">
 </tr>
  
  <br><br>

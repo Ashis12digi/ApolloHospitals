@@ -21,68 +21,50 @@ import com.example.demo.repository.PatientsRepository;
 @Component
 @Service
 public class AdminService {
-	@Autowired
-	AdminRepository adminRepository;
-	@Autowired
-	PatientsRepository patientsRepository;
-	@Autowired
-	DoctorRepository doctorRepository;
 
-	public String Login() {
-		
+	AdminRepository adminRepository;
+	PatientsRepository patientsRepository;
+	DoctorRepository doctorRepository;
+	
+	public AdminService(AdminRepository adminRepository, PatientsRepository patientsRepository,
+			DoctorRepository doctorRepository) {
+		this.adminRepository = adminRepository;
+		this.patientsRepository = patientsRepository;
+		this.doctorRepository = doctorRepository;
+	}
+
+	public String login() {
 		return "AdminLogin";
 	}
 
-	public String Registration() {
-		
+	public String registration() {
 		return "AdminRegistration";
 	}
 
-	
-	public String viewDetails(
-			   @RequestParam("name") String name,
-			   @RequestParam("username") String username,
-				@RequestParam("password")String password,
-				@RequestParam("emailid")  String emailid,
-				@RequestParam("gender")  String gender,
-			
-				@RequestParam("mobilenumber")  long mobilenumber,
-				ModelMap modelMap
-			
-			) {
+	public String viewDetails(String name,String username,String password, String emailid, String gender, long mobilenumber,
+				ModelMap modelMap) {
 	
 		Admin admin=new Admin();
-     
-	//admin.setAdminid(admin.getAdminid());
 		admin.setId(admin.getId());
 		admin.setName(name);
 		admin.setUsername(username);
 		admin.setPassword(password);
 		admin.setEmailid(emailid);
 		admin.setGender(gender);
-	
 		admin.setMobilenumber(mobilenumber);
-     
 		this.adminRepository.save(admin);
 		
- //  modelMap.put("adminid", admin.getAdminid() );
   	modelMap.put("id", admin.getId());
 	modelMap.put("name",name);
 	modelMap.put("username", username);
 	modelMap.put("password", password);
 	modelMap.put("emailid", emailid);
 	modelMap.put("gender", gender);
-	
 	modelMap.put("mobilenumber", mobilenumber);
 	return "Adminregistsuccess";
-	
-	
-	
-	
 	}
 	
-	public String AdminHome() {
-		
+	public String adminHome() {
 		return "AdminHome";
 	}
 
@@ -91,24 +73,22 @@ public class AdminService {
 	public List<Patients> allPatients() {
 		List<Patients>patient=new ArrayList<>();
 		patientsRepository.findAll().forEach(i->patient.add(i));
-		
 		return patient;
 	}
 
 	public List<Doctor> allDoctor() {
 		List<Doctor>doctor=new ArrayList<>();
 		doctorRepository.findAll().forEach(i->doctor.add(i));
-		
 		return doctor;
 	}
 
-	public Admin getlogin(String username, String password) {
+	public Admin getLogin(String username, String password) {
 		Admin admin=adminRepository.findByUsernameAndPassword(username,password);
 		return admin;
 	}
 
 	
-	public String ContactUs() {
+	public String contactUs() {
 		return "ContactUs";
 	}
 	

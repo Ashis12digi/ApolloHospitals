@@ -17,90 +17,38 @@ import com.example.demo.pojo.Prescription;
 import com.example.demo.repository.PrescriptionRepository;
 
 @Service
-
 @Component
 public class PrescriptionService {
 
-	@Autowired
 	 PrescriptionRepository prescriptionRepository;
 
-	Prescription prescription= new Prescription();
- 
+   public PrescriptionService(PrescriptionRepository prescriptionRepository) {
+		this.prescriptionRepository = prescriptionRepository;
+	}
+   
 
-	public String PrescriptionForm() {
+	public String prescriptionForm() {
 		
 		return "prescriptionform";
 	}
 
-
-
-
-	public String viewPrescription(
-		//	@RequestParam("patientname")
-			String  patientname,
-		//	@RequestParam("appointmentid") int appointmentid,
-		//	@RequestParam("description") 
-			String description,
-			
-		
-			ModelMap modelMap
-			
-			
-			
-			) {
-		
-		//  Prescription prescription= new Prescription();
+	public String viewPrescription(	String  patientname,String description,ModelMap modelMap) {
+		Prescription prescription=new Prescription();
 		prescription.setPatientname(patientname);
-		//  prescription.setPatientname(patientname);
-		//  prescription.setAppointmentid(appointmentid);
 		  prescription.setDescription(description);
-		    
 			this.prescriptionRepository.save(prescription);
 			
 			modelMap.put("patientname", patientname);
-   
- //    modelMap.put("appointmentid", appointmentid);
-     modelMap.put("description", description);
-    
-		
+           modelMap.put("description", description);
 		return "viewPrescription";
-		
-		
-		
 	}
 
 
-
-
-	public List<Prescription> Findhistory(String patientDetailsName) {
-	
+	public List<Prescription> findHistory(String patientDetailsName) {
 	List<Prescription> result=	prescriptionRepository.findAllByPatientname(patientDetailsName);
 		return result;
 	}
 	
-	
-
-	/*
-	 * public List<Prescription> getHistroy(String name){
-	 * 
-	 * List<Prescription> list=new ArrayList();
-	 * prescriptionRepository.findByPatientname(name); return list; }
-	 * 
-	 */
-	/*
-	 * public List<Prescription> getPrescriptiondata(String patientname) {
-	 * 
-	 * 
-	 * List<Prescription> list1=new ArrayList<>();
-	 * prescriptionRepository.findBypatientname(patientname).forEach(x->list1.add(x)
-	 * ); return list1;
-	 * 
-	 * }
-	 */
-
-
-
-	 
 
 	
 	

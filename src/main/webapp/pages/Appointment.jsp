@@ -11,12 +11,8 @@
 </head>
 <body>
   
-
-
   <div align="center">
        
-       
-
 <center>
 <h1> Book Appointment </h1>
  

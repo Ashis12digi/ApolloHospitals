@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.example.demo.pojo.Patients;
 
 public interface PatientServiceInterface {
-	public void DeletePatient(int id);
-	Patients PatientUpdate(HttpServletRequest request) throws Exception;
+	public void deletePatient(int id);
+	Patients patientUpdate(HttpServletRequest request) throws Exception;
 	
 }

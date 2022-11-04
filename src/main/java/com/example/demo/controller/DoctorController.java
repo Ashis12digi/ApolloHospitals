@@ -35,29 +35,32 @@ import com.example.demo.service.DoctorService;
 @Controller
 @Component
 public class DoctorController {
-	Doctor doctorDetails;
-	@Autowired
 	DoctorService doctorService;
+	
+	public DoctorController(DoctorService doctorService) {
+		this.doctorService = doctorService;
+	}
+	
+	Doctor doctorDetails;
 
 	@RequestMapping("/doctorlogin")
-    public String Login() {
-      return  doctorService.Login();
+    public String login() {
+      return  doctorService.login();
     }
 
 	  @RequestMapping("/dregistration")
-	  public String Registration() {
-	   return doctorService.Registration();
+	  public String registration() {
+	   return doctorService.registration();
 	  }
 
 		@PostMapping("/DRregsuccess")
 		public String viewDetails(
-	              @RequestParam("name") String name,
-	              @RequestParam("username") String username,
+	            @RequestParam("name") String name,
+	            @RequestParam("username") String username,
 				@RequestParam("password")String password,
 				@RequestParam("location")  String location,
 				@RequestParam("gender")  String gender,
 				@RequestParam("emailid")  String emailid,
-			
 				@RequestParam("timing")  String timing,
 				@RequestParam("fees")  int fees,
 				@RequestParam("mobilenumber")  String mobilenumber,
@@ -71,20 +74,20 @@ public class DoctorController {
 		}
 		
 		@RequestMapping("/dlogin")
-		  public String DoctorHome() {
-		   return doctorService.DoctorHome();
+		  public String doctorHome() {
+		   return doctorService.doctorHome();
 		  }
 			
 		@RequestMapping("/doctorAppointments")
-		public String ShowDoctorAppointments(Model model) {
+		public String showDoctorAppointments(Model model) {
 			return "doctorAppointments";
 		}
 	
 		  @GetMapping("/doctorloginusername")
-	    public String GetDoctorLogin(@ModelAttribute("doctor")  Doctor doctor,HttpServletRequest request ) {
-	    	Doctor doctorLogin=doctorService.GetDoctorLogin(doctor.getUsername(),doctor.getPassword());
+	    public String getDoctorLogin(@ModelAttribute("doctor")  Doctor doctor,HttpServletRequest request ) {
+	    	Doctor doctorLogin=doctorService.getDoctorLogin(doctor.getUsername(),doctor.getPassword());
 	    	if(Objects.nonNull(doctorLogin)) {
-	    		doctorDetails =doctorService.GetSpecificData(request.getParameter("username"));
+	   doctorDetails =doctorService.getSpecificData(request.getParameter("username"));
 	    		return "doctorHome";
 	    	}
 	    	else {
@@ -93,56 +96,48 @@ public class DoctorController {
 	    }
 		  
 	   @GetMapping("/fetchalldoctor")
-		  public String DisplayDoctor(ModelMap model) {
-			return doctorService.DisplayDoctor(model);
-			  
+		  public String displayDoctor(ModelMap model) {
+			return doctorService.displayDoctor(model);  
 		  }
 	   
 	   @GetMapping("/deletedoctor")
-	   public String DeleteDoctor() {
+	   public String deleteDoctor() {
 		return "deleteDoctor";
 		   
 	   }
-	   //..............fetching.......
+
 	   @GetMapping("/fetch")
-		  public String Doctor(ModelMap model) {
-			
-			
-			return doctorService.Doctor(model);
+		  public String doctor(ModelMap model) {
+			return doctorService.doctor(model);
 			  
 		  }
-	   //......Delete........
+	 
 	   @RequestMapping(value="/doctor/deleteDoctor/{id}", method=RequestMethod.GET)
-	     public ModelAndView Delete(@PathVariable("id") int id) {
-	         
-	      doctorService.DeleteDoctor(id);
-	     
+	     public ModelAndView delete(@PathVariable("id") int id) {
+	      doctorService.deleteDoctor(id);
 	      return new ModelAndView("/deleteDoctor");
 	      
 	     }
-	  //.....Profile.......
+	
 	   @GetMapping("/doctorprofile")
-	    public String Profile(ModelMap map) {
+	    public String profile(ModelMap map) {
 	        map.put("result", doctorDetails);
 	        return "doctorprofile";
 	  	    }
 	   
-	   //------------------------update----------------------------------
 	    @RequestMapping(value="/editDoctor", method=RequestMethod.GET)
 	      public ModelAndView viewAll(@RequestParam("id") int id,ModelMap map) {
 	       ModelAndView modelAndView=new ModelAndView("/updateDoctordetails");
-	      Doctor list=doctorService.DoctorUpdateFactching(id);
-	      map.put("userdata", list);
-	  
+	      Doctor list=doctorService.DoctorUpdateFetch(id);
+	      map.put("doctordata", list);
 	      return modelAndView;
 	    }
 	    
-	    
 	    @PostMapping("/updateDoctor")
-	    public ModelAndView UpdateTable(HttpServletRequest request,ModelMap map) throws Exception {
+	    public ModelAndView updateTable(HttpServletRequest request,ModelMap map) throws Exception {
 	         ModelAndView modelAndView=new ModelAndView("/doctorprofile");
-	        Doctor user= doctorService.DoctorUpdate(request);
-	        map.put("result", user);
+	        Doctor doctor= doctorService.doctorUpdate(request);
+	        map.put("result", doctor);
 	         return modelAndView;
 	    }
 	    

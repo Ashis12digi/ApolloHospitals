@@ -18,7 +18,7 @@
  
  <tr>
  Patient Name:
-<input type="text" name="patientname" placeholder="Enter patientsname " >
+<input type="text" name="patientname" placeholder="Enter patientsname " required="required">
 </tr>
  
  <br><br>
@@ -50,7 +50,7 @@
 
  <tr>
  Service Amount:
-<input type="text" name="amount"  value="${amount}" >
+<input type="text" name="amount"  value="${amount}" required="required" >
 </tr>   
  <br><br>
     <input type="submit" value="Submit Request">

@@ -25,20 +25,23 @@ import com.example.demo.pojo.ServiceFacility;
 @Controller
 @Component
 public class MedicineController {
-	@Autowired
-	MedicineRepository medicineRepository;
-	@Autowired
+	
 	MedicineService medicineService;
-    Medicine medicine;
+	
+    public MedicineController(MedicineService medicineService) {
+		this.medicineService = medicineService;
+	}
+
+	Medicine medicine;
 	
   @RequestMapping("/medicineitems")
 	  public String medicineform() {
-	  return medicineService.MedicineForm();
+	  return medicineService.medicineForm();
 	  }
 		
 		@RequestMapping("/medicineInventory")
 		  public String medicineformDetails() {
-		  return medicineService.MedicineFormDetails();
+		  return medicineService.medicineFormDetails();
 		  }
 		
 		
@@ -55,43 +58,35 @@ public class MedicineController {
 			return medicineService.updateMedicineInventory( medicinename, brand, madein,quantity,medicinecost, modelMap);
 		}
 		
-		//fetch
 		 @GetMapping("/fetchmedicine")
 		  public String Medicine(ModelMap model) {
-			return medicineService.Medicine(model);
+			return medicineService.medicine(model);
 			  
 		  }
 		 
-		 //Delete
 		 @RequestMapping(value="/doctor/deleteMedicine/{medicineId}", method=RequestMethod.GET)
-	     public ModelAndView delete(@PathVariable("medicineId") int medicineId) {
-			 System.out.println("come");
-	         
-			 medicineService.DeleteMedicine(medicineId);
-	     System.out.println("comings");
+	     public ModelAndView delete(@PathVariable("medicineId") int medicineId) { 
+			 medicineService.deleteMedicine(medicineId);
 	      return new ModelAndView("/DeleteMedicine");
 	      
 	     }
 			 
-//display Medicine
 @GetMapping("/listofMedicine")
- public String ListOfMedicine(ModelMap model) {
-	return medicineService.ListOfMedicine(model);
+ public String listOfMedicine(ModelMap model) {
+	return medicineService.listOfMedicine(model);
 	  
  }
 	
 @PostMapping("/SearchMedicine")
-public String ServiceStatus(@RequestParam ("medicineId") int medicineId, HttpServletRequest request,ModelMap map){
-	
-	medicine=  medicineRepository.findByMedicineId(medicineId);
-	System.out.println(medicine);
+public String serviceStatus(@RequestParam ("medicineId") int medicineId, HttpServletRequest request,ModelMap map){
+	Medicine medicine= medicineService.findMedicine(medicineId);
 		map.put("result", medicine);
 	return  "specificMedicine";
 	
 }
 
 @GetMapping("medicinepayment")
-public String MedicineConfirmData(ModelMap map) {
+public String medicineConfirmData(ModelMap map) {
 	map.put("medicineId", medicine.getMedicineId());
 	map.put("medicinename", medicine.getMedicinename());
 	map.put("quantity", medicine.getQuantity());
@@ -102,40 +97,32 @@ public String MedicineConfirmData(ModelMap map) {
 }
 
 @RequestMapping("/paymentmedicine")
-	public String MedicinePayment(
-			@RequestParam("num") double num, 
+	public String medicinePayment(
+			@RequestParam("number") double number, 
 			@RequestParam("medicinecost") double medicinecost, HttpServletRequest request, ModelMap map) {
-	
-		//int n=Integer.parseInt(request.getParameter("price"));
-		double total=num*medicinecost;
+		double total=number*medicinecost;
 		map.put("Total", total);
 		return "medicineAmount";
 	}
 	
-
 @RequestMapping("/paymentdonemedicine")
-public String PaymentDone() {
+public String paymentDone() {
 return "servicepaymentdone";
 }
-
-
-//-------------------Upadte---------------------------------------
-
 
 @RequestMapping(value="/editMedicine", method=RequestMethod.GET)
 public ModelAndView viewAll(@RequestParam("medicineId") int medicineId,ModelMap map) {
 ModelAndView modelAndView=new ModelAndView("/updatemedicinedetails");
-Medicine list=medicineService.MedicineUpdateFactching(medicineId);
-map.put("userdata", list);
-
+Medicine list=medicineService.medicineUpdate(medicineId);
+map.put("medicinedata", list);
 return modelAndView; 
 }
 
 @PostMapping("/updateMedicine") 
-public ModelAndView UpdateTable(HttpServletRequest request,ModelMap map) throws ParseException {
-ModelAndView modelAndView=new ModelAndView("/displayAllServiceFacility");
-Medicine user= medicineService.MedicineUpdate(request);
-map.put("result", user);
+public ModelAndView updateTable(HttpServletRequest request,ModelMap map){
+ModelAndView modelAndView=new ModelAndView("/displayAllMedicin");
+Medicine mediicne= medicineService.medicineUpdate(request);
+map.put("result", mediicne);
 return modelAndView; 
 }
 

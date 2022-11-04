@@ -23,64 +23,64 @@
 
 <form action="/updateDoctor" method="post">
 <div>
-   <input type="hidden" name="id" cssClass="form-control" id="id"  value="${userdata.id}">
+   <input type="hidden" name="id" cssClass="form-control" id="id"  value="${doctordata.id}">
    
     <label>Doctor Name</label>
-    <input name="name" cssClass="form-control" id="name" value="${userdata.name}" />
+    <input name="name" cssClass="form-control" id="name" value="${doctordata.name}" />
    </div><br>
    
    <div class="form-group">
     <label>User Name</label>
-    <input name="username" cssClass="form-control" id="username"  value="${userdata.username}"/>
+    <input name="username" cssClass="form-control" id="username"  value="${doctordata.username}"/>
    </div><br>
    
    <div class="form-group">
     <label>Password</label>
-    <input name="password" cssClass="form-control" id="password"  value="${userdata.password}"/>
+    <input name="password" cssClass="form-control" id="password"  value="${doctordata.password}"/>
    </div><br>
    
     <div class="form-group">
     <label>Location</label>
-    <input name="location" cssClass="form-control" id="location" value="${userdata.location}"/>
+    <input name="location" cssClass="form-control" id="location" value="${doctordata.location}"/>
    </div><br>
   
    
    <div class="form-group">
     <label>Gender</label>
-    <input name="gender" cssClass="form-control" id="gender" value="${userdata.gender}" />
+    <input name="gender" cssClass="form-control" id="gender" value="${doctordata.gender}" />
    </div><br>
    
    <div class="form-group">
     <label>Email Id</label>
-    <input name="emailid" cssClass="form-control" id="emailid" value="${userdata.emailid}"/>
+    <input name="emailid" cssClass="form-control" id="emailid" value="${doctordata.emailid}"/>
    </div><br>
    
    <div class="form-group">
     <label>Timing</label>
-    <input name="timing" cssClass="form-control" id="timing" value="${userdata.timing}"/>
+    <input name="timing" cssClass="form-control" id="timing" value="${doctordata.timing}"/>
    </div><br>
    
   
   
   <div class="form-group">
     <label>Fees</label>
-    <input name="fees" cssClass="form-control" id="fees" value="${userdata.fees}" />
+    <input name="fees" cssClass="form-control" id="fees" value="${doctordata.fees}"  />
    </div><br>
    
    <div class="form-group">
     <label>Mobile Number</label>
-    <input name="mobilenumber" cssClass="form-control" id="mobilenumber" value="${userdata.mobilenumber}" />
+    <input name="mobilenumber" cssClass="form-control" id="mobilenumber" value="${doctordata.mobilenumber}" />
    </div><br>
    
    <div class="form-group">
     <label>Info</label>
-    <input name="info" cssClass="form-control" id="info" value="${userdata.info}" />
+    <input name="info" cssClass="form-control" id="info" value="${doctordata.info}"  />
    </div><br>
    
    
    <div class="form-group">
     <label>Experience</label>
-    <input name="experience" cssClass="form-control" id="experience" value="${userdata.experience}" />
+    <input name="experience" cssClass="form-control" id="experience" value="${doctordata.experience}" />
    </div><br>
    
    <button type="submit" class="btn btn-success">Confirm</button>

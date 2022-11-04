@@ -8,9 +8,8 @@ import com.example.demo.pojo.Doctor;
 import com.example.demo.pojo.Patients;
 
 public interface DoctorServiceInterface {
-	public void DeleteDoctor(int id);
-	
-	Doctor DoctorUpdate(HttpServletRequest request) ;
+	public void deleteDoctor(int id);
+	Doctor doctorUpdate(HttpServletRequest request) ;
 	
 
 }

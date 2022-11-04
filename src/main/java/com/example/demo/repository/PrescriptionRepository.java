@@ -14,12 +14,5 @@ import com.example.demo.pojo.ServiceFacility;
 
 @Repository
 public interface PrescriptionRepository extends CrudRepository<Prescription, Integer> {
-
-	//ArrayList<Prescription> findByPatientname(String patientname);
-	/*
-	 * @Query("select p.description from Prescription p where p.patientname=patientDetailsName"
-	 * ) public String findByPatientName();
-	 */
-	
 	List<Prescription> findAllByPatientname(String patientname);
 }

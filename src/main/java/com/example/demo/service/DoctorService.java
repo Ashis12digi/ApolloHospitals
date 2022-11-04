@@ -29,31 +29,16 @@ public class DoctorService implements DoctorServiceInterface{
 	@Autowired
 	DoctorRepository doctorRepository;
 	
-	public String Login() {
+	public String login() {
 		return  "DoctorLogin";
 	}
 
-	public String Registration() {
+	public String registration() {
 		return "DoctorRegistration";
 	}
 	
-	public String viewDetails(
-			   @RequestParam("name") String name,
-			   @RequestParam("username") String username,
-				@RequestParam("password")String password,
-				@RequestParam("location")  String location,
-				@RequestParam("gender")  String gender,
-				@RequestParam("emailid")  String emailid,
-				@RequestParam("timing")  String timing,
-				@RequestParam("fees")  int fees,
-				@RequestParam("mobilenumber")  String mobilenumber,
-				@RequestParam("info")  String info,
-				@RequestParam("experience")  String experience,
-				ModelMap modelMap
-			
-			
-			
-			) {
+	public String viewDetails(String name,String username,String password, String location, String gender, String emailid,
+ String timing, int fees,String mobilenumber,  String info, String experience,ModelMap modelMap) {
 	
       Doctor doctor=new Doctor();
 	
@@ -89,49 +74,47 @@ public class DoctorService implements DoctorServiceInterface{
 	return "DrRegistSuccess";
 	}
 	
-public String DoctorHome() {
+public String doctorHome() {
 		return "doctorHome";
 	}
  
-public Doctor GetDoctorLogin(String username, String password) {
+public Doctor getDoctorLogin(String username, String password) {
 	Doctor doctor=doctorRepository.findByUsernameAndPassword(username,password);
 	return doctor;
 	
 }
 
-public String DisplayDoctor(ModelMap model) {
+public String displayDoctor(ModelMap model) {
 	  List<Doctor>doctor=new ArrayList<Doctor>();
 	 doctorRepository.findAll().forEach(i->doctor.add(i));
 	 model.addAttribute("result", doctor);
 	 return "displayAllDoctor";
 }
 
-public String Doctor(ModelMap model) {
+public String doctor(ModelMap model) {
 	  List<Doctor>doctor=new ArrayList<Doctor>();
 	 doctorRepository.findAll().forEach(i->doctor.add(i));
 	 model.addAttribute("result", doctor);
 	 return "displayAllDoctorFetchAdmin";
 }
 
-//@Override
-public void DeleteDoctor(int id) {
+
+public void deleteDoctor(int id) {
     doctorRepository.deleteById(id);
 }
 
-public Doctor GetSpecificData(String username) {
+public Doctor getSpecificData(String username) {
 	Doctor doctor= doctorRepository.findByusername(username);
 			return  doctor;
 }
 
-public Doctor DoctorUpdateFactching(int id) {
+public Doctor DoctorUpdateFetch(int id) {
 	doctor=doctorRepository.findById(id);
-	System.out.println(doctor);
 	return doctor;
 }
 
 
-//@Override
-public Doctor DoctorUpdate(HttpServletRequest request) {
+public Doctor doctorUpdate(HttpServletRequest request) {
 	Doctor doctorId= doctorRepository.findById(Integer.parseInt(request.getParameter("id")));
 	Doctor doctor= new Doctor();
 	
@@ -143,8 +126,8 @@ public Doctor DoctorUpdate(HttpServletRequest request) {
     doctor.setGender(request.getParameter("gender"));
     doctor.setEmailid(request.getParameter("emailid"));
     doctor.setTiming(request.getParameter("timing"));
-  int fees=Integer.parseInt(request.getParameter("fees"));
-   doctor.setFees(fees);
+    int fees=Integer.parseInt(request.getParameter("fees"));
+    doctor.setFees(fees);
     doctor.setMobilenumber(request.getParameter("mobilenumber"));
     doctor.setInfo(request.getParameter("info"));
     doctor.setExperience(request.getParameter("experience"));

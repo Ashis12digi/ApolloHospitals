@@ -28,100 +28,92 @@ import com.example.demo.service.ServiceFacilityService;
 @Component
 public class ServiceFacilityController 
 {
-	@Autowired
 	ServiceFacilityService serviceFacilityService;
-	@Autowired
-	ServiceFacilityRepository serviceFacilityRepository;
-	
+
+	public ServiceFacilityController(ServiceFacilityService serviceFacilityService) {
+		this.serviceFacilityService = serviceFacilityService;
+	}
+
 	ServiceFacility serviceFacility;	
 
 @RequestMapping("/ServiceFacility")
-public String ServiceFacilitydetails() {
-return serviceFacilityService.ServiceFacilitydetails();
+public String serviceFacilityDetails() {
+return serviceFacilityService.serviceFacilityDetails();
 }
 
 @GetMapping("/fetchServicesFecility")
-public String ViewServicesFacility(
+public String viewServicesFacility(
 	
 		@RequestParam(required=false,name="serviceName") String serviceName,
 		@RequestParam(required=false,name="amount") double amount,
 		ModelMap modelMap)
 {
-	serviceFacilityService.ViewServicesFacility(serviceName,amount, modelMap);
+	serviceFacilityService.viewServicesFacility(serviceName,amount, modelMap);
 	return "displayServicesFacility";
 	}
 
 @GetMapping("/fetchAllServices")
- public String ServiceDisplay(ModelMap model) {
-	return serviceFacilityService.ServiceDisplay(model);
+ public String serviceDisplay(ModelMap model) {
+	return serviceFacilityService.serviceDisplay(model);
 	  
  }
 
 @RequestMapping("/ServiceFacilityindex")
-public String Facilitydetails() {
-return serviceFacilityService.Facilitydetails();
+public String facilityDetails() {
+return serviceFacilityService.facilityDetails();
 }
 
 
 @GetMapping("/fetchAllServicesindex")
- public String ServiceDisplayIndex(ModelMap model) {
-	return serviceFacilityService.ServiceDisplayIndexBeforeLogin(model);
+ public String serviceDisplayIndex(ModelMap model) {
+	return serviceFacilityService.serviceDisplayIndexBeforeLogin(model);
 	  
  }
 
 @RequestMapping("/displayServiceFacilityIndex")
-public String AfterLogin(ModelMap model) {
-	  return serviceFacilityService.ServiceDisplayIndex(model);
-//  return "displayServiceFacilityIndex";
+public String afterLogin(ModelMap model) {
+	  return serviceFacilityService.serviceDisplayIndex(model);
 
 
 }
 
 
 @GetMapping("/patientservice")
-public String ProfileService(ModelMap map) {
+public String profileService(ModelMap map) {
     map.put("patient", serviceFacility);
-    List<ServiceFacility> list= serviceFacilityService.GetServiceData(serviceFacility.getServiceName());
+    List<ServiceFacility> list= serviceFacilityService.getServiceData(serviceFacility.getServiceName());
     map.put("service", list);
     return "patientSerivce";
     
 }
 
 @RequestMapping("/paymentdone")
-public String PaymentDone() {
+public String paymentDone() {
 return "servicepaymentdone";
 }
 
-
-
-
-//Delete
 @RequestMapping(value="/service/deleteMedicine/{serviceId}", method=RequestMethod.GET)
-public ModelAndView Delete(@PathVariable("serviceId") int serviceId) {
+public ModelAndView delete(@PathVariable("serviceId") int serviceId) {
     
-	 serviceFacilityService.DeleteService(serviceId);
+	 serviceFacilityService.deleteService(serviceId);
      return new ModelAndView("/DeleteMedicine");
  
 }
-
-
-//-----------------Update-----------------------------------------
-
 
   @RequestMapping(value="/editService", method=RequestMethod.GET)
   public ModelAndView viewAll(@RequestParam("serviceId") int serviceId,ModelMap map) {
   ModelAndView modelAndView=new ModelAndView("/updateservicedetails");
   ServiceFacility list=serviceFacilityService.ServiceUpdateFactching(serviceId);
-  map.put("userdata", list);
+  map.put("servicedata", list);
   
   return modelAndView; 
   }
   
   @PostMapping("/updateService") 
-  public ModelAndView UpdateTable(HttpServletRequest request,ModelMap map)  {
+  public ModelAndView updateTable(HttpServletRequest request,ModelMap map)  {
   ModelAndView modelAndView=new ModelAndView("/displayAllServiceFacility");
-  ServiceFacility user= serviceFacilityService.ServiceUpdate(request);
-  map.put("result", user);
+  List<ServiceFacility> list= serviceFacilityService.serviceUpdate(request);
+  map.put("result", list);
   return modelAndView; 
   }
  

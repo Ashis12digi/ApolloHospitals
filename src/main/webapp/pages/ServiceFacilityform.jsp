@@ -22,7 +22,7 @@
  
  <tr>
  Service Name:
-<input type="text" name="serviceName" placeholder="Enter servicename " >
+<input type="text" name="serviceName" placeholder="Enter servicename " required="required" >
 </tr>
  
  <br><br>
@@ -31,7 +31,7 @@
 
  <tr>
  Service Amount:
-<input type="text" name="amount" >
+<input type="text" name="amount" required="required">
 </tr>   
  <br><br>
     <input type="submit" value="Submit">

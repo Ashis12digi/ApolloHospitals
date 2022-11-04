@@ -20,7 +20,7 @@
  
  <tr>
  PASSWORD:
-<input type="password" name="password">
+<input type="password" name="password" required="required">
 </tr>
  
  <br><br>

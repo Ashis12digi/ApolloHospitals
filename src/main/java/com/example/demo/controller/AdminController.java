@@ -24,57 +24,49 @@ import com.example.demo.service.DoctorService;
 @Controller
 @Component
 public class AdminController {
-	@Autowired
 	AdminService adminService;
-	@Autowired
-	AdminRepository adminRepository;
 	
+	public AdminController(AdminService adminService) {
+		this.adminService = adminService;
+	}
+
 	@RequestMapping("/alogin")
-    public String Login() {
-      return  adminService.Login();
+    public String login() {
+      return  adminService.login();
     }
 	
-
 	@RequestMapping("/aregist")
-    public String Registration() {
-      return  adminService.Registration();
+    public String registration() {
+      return  adminService.registration();
     }
 	
 	@PostMapping("/aregist")
 	public String viewDetails(
-              @RequestParam("name") String name,
-              @RequestParam("username") String username,
+            @RequestParam("name") String name,
+            @RequestParam("username") String username,
 			@RequestParam("password")String password,
 			@RequestParam("gender")  String gender,
 			@RequestParam("emailid")  String emailid,
 			@RequestParam("mobilenumber")  long mobilenumber,
-			ModelMap modelMap
-			
-			)
+			ModelMap modelMap)
 	{
 		return adminService.viewDetails(name,username, password, gender, emailid, mobilenumber, modelMap);
 	}
 	
-
-	
-	
 	@GetMapping("/fetchallpatients")
 	public @ResponseBody List<Patients>allPatients(){
-		
 		return adminService.allPatients();
 	}
 	
     @GetMapping("/fetchAllDoctor")
 	public @ResponseBody List<Doctor>allDoctor(){
-		
 		return adminService.allDoctor();
 	}
 	
     @GetMapping("/adminloginusername")
-  //  @PostMapping("/adminloginusername")
-    public String getlogin(@ModelAttribute("admin") Admin admin) {
-    	Admin admin1=adminService.getlogin(admin.getUsername(),admin.getPassword());
-    	if(Objects.nonNull(admin1)) {
+    public String getLogin(@ModelAttribute("admin") Admin admin) {
+    	Admin adminUserNameAndPassword=adminService.getLogin(admin.getUsername(),admin.getPassword());
+    	if(Objects.nonNull(adminUserNameAndPassword)) {
     		return "AdminHome";
     	}
     	else {
@@ -83,8 +75,8 @@ public class AdminController {
     }
 
     @RequestMapping("/contactus")
-    public String ContactUs() {
-      return  adminService.ContactUs();
+    public String contactUs() {
+      return  adminService.contactUs();
     }
 	
     

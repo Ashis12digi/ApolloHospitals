@@ -41,28 +41,31 @@ import com.example.demo.service.PrescriptionService;
 @Controller
 @Component
 public class PatientsController {
-	@Autowired
-	PatientsService patientsService;
-
-	@Autowired
-	DoctorService doctorService;
 	
+	PatientsService patientsService;
+	DoctorService doctorService;
+
+	public PatientsController(PatientsService patientsService, DoctorService doctorService) {
+		this.patientsService = patientsService;
+		this.doctorService = doctorService;
+	}
+
 	Appointment appointment;
-	Patients patientsdetails;
+	Patients patientsDetails;
  
 	  @RequestMapping("/") 
-	  public String Entry() 
+	  public String entry() 
 	  {
-		return patientsService.Entry();
+		return patientsService.entry();
 	  }
 	 
 	@RequestMapping("/loginn")
-    public String Login() {
-		return patientsService.Login();   
+    public String login() {
+		return patientsService.login();   
     }
 	  @RequestMapping("/pregistration")
-	  public String Registration() {
-	   return patientsService.Registration();
+	  public String registration() {
+	   return patientsService.registration();
 	  }
 	
 	@PostMapping("/regsuccess")
@@ -86,30 +89,26 @@ public class PatientsController {
 	}
 
 	    @RequestMapping("alllogin") 
-		  public String AllLogin() 
+		  public String allLogin() 
 		  {
-			return patientsService.AllLogin();
+			return patientsService.allLogin();
 		  }
     
 	    @GetMapping("/fetchpatient")
-		  public String Patient(ModelMap model) {
-			return patientsService.Patient(model);  
+		  public String patient(ModelMap model) {
+			return patientsService.patient(model);  
 		  }
 
 	    @GetMapping("/patientprofile")
-	    public String Profile(ModelMap map) {
-	       
-	        map.put("result", patientsdetails);
-	       PrescriptionController prescriptionController=new PrescriptionController();
-	     Prescription prescription=  prescriptionController.prescription;
-	     map.put("prescription", prescription);
+	    public String profile(ModelMap map) {
+	        map.put("result", patientsDetails);
 	       return "Patientprofile";
 	  	    }
 	    
 	    
-	    public String GetFullName()
+	    public String getFullName()
 	    {
-	    	String fullname=patientsdetails.getPatientname();
+	    	String fullname=patientsDetails.getPatientname();
 	    	return fullname;
 	    }
 	    
@@ -117,42 +116,35 @@ public class PatientsController {
 	    @RequestMapping(value="/doctor/deletePatient/{id}", method=RequestMethod.GET)
 	     public ModelAndView delete(@PathVariable("id") int id) {
 	         
-	    	patientsService.DeletePatient(id);
+	    	patientsService.deletePatient(id);
 	     
 	      return new ModelAndView("/deletePatient");
 	      
 	     }
 	   
-	    
-     //----------------------Update------------------------------------
 	    @RequestMapping(value="/editUser", method=RequestMethod.GET)
 	      public ModelAndView viewAll(@RequestParam("id") int id,ModelMap map) {
 	       ModelAndView modelAndView=new ModelAndView("/updateuserdetails");
-	      Patients list=patientsService.PatientUpdateFactching(id);
+	      Patients list=patientsService.patientUpdateFactching(id);
 	      map.put("userdata", list);
 	  
 	      return modelAndView;
 	    }
 	    
 	    @PostMapping("/updateUser")
-	    public ModelAndView UpdateTable(HttpServletRequest request,ModelMap map) throws Exception {
+	    public ModelAndView updateTable(HttpServletRequest request,ModelMap map) throws Exception {
 	         ModelAndView modelAndView=new ModelAndView("/Patientprofile");
-	        Patients user= patientsService.PatientUpdate(request);
+	        Patients user= patientsService.patientUpdate(request);
 	        map.put("result", user);
 	         return modelAndView;
 	    }
 	    
-	    //............Validation...........
 	    
 	    @PostMapping("/patientloginusername")
-	    public String GetPatientLogin(@ModelAttribute("patients") Patients patients,@RequestParam ("username") String username, HttpServletRequest request) {
-	    	Patients patientLogin=patientsService.GetPatientLogin(patients.getUsername(),patients.getPassword());
+	    public String getPatientLogin(@ModelAttribute("patients") Patients patients,@RequestParam ("username") String username, HttpServletRequest request) {
+	    	Patients patientLogin=patientsService.getPatientLogin(patients.getUsername(),patients.getPassword());
 	    	if(Objects.nonNull(patientLogin)) {
-	    		
-	    	//	patientsdetails =patientsService.getdata(request.getParameter("username"));
-	    		patientsdetails=patientsService.GetData(username);
-	    		System.out.println(patientsdetails);
-	   
+	    		patientsDetails=patientsService.getData(username);
 	    		return "patientHome";
 	    	}
 	    	else {
@@ -161,23 +153,23 @@ public class PatientsController {
 	    }
 	    
 		@GetMapping("/Searchstatus1")
-		public String Book(
+		public String book(
 				@RequestParam("serviceId") int serviceId, 
 				@RequestParam("serviceName") String serviceName,
 				@RequestParam("amount") double amount , ModelMap map) {
 			
-			System.out.println(patientsdetails);
+			
 			map.put("serviceId", serviceId);
 			map.put("serviceName", serviceName);
 			map.put("amount", amount);
-			map.put("patientname", patientsdetails.getPatientname());
-			map.put("mobilenumber", patientsdetails.getMobilenumber());
+			map.put("patientname", patientsDetails.getPatientname());
+			map.put("mobilenumber", patientsDetails.getMobilenumber());
 			return "BookedDetails";
 			
 		}
 		
 		@RequestMapping("/payment")
-		public String ServicePayment(HttpServletRequest request, ModelMap map) {
+		public String servicePayment(HttpServletRequest request, ModelMap map) {
 			return "displayservicepayment";
 		}
 		  

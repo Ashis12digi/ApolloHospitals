@@ -15,23 +15,21 @@ import com.example.demo.service.FeedbackService;
 @Controller
 @Component
 public class FeedbackController {
-	@Autowired
-	FeedbackRepository feedbackRepository;
-	@Autowired
+	
 	FeedbackService feedbackService;
-	
-	
-	  @RequestMapping("/feedback")
-	//  @GetMapping("/feedback")
-		  public String FeedbackForm() {
+
+	  public FeedbackController(FeedbackService feedbackService) {
+		this.feedbackService = feedbackService;
+	}
+
+	@RequestMapping("/feedback")
+		  public String feedbackForm() {
 		  return feedbackService.FeedbackForm();
 		  }
 	  
 		@PostMapping("/feedbackdisplay")
 		public String viewFeedback(
 				
-				
-			//	@RequestParam(required=false,name="patientid") Integer patientid,
 			 @RequestParam (required=false,name="name") String name,
 				@RequestParam( required=false,name="details")  String details,
 				ModelMap modelMap)

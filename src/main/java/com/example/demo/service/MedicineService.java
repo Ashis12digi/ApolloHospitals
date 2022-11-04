@@ -24,33 +24,25 @@ import com.example.demo.repository.MedicineRepository;
 @Service
 @Component
 public class MedicineService implements MedicineServiceInterface{
-	Medicine medicine;
-	@Autowired
+
+
 	MedicineRepository medicineRepository;
 
-	public String MedicineForm() {
+	public MedicineService(MedicineRepository medicineRepository) {
+		this.medicineRepository = medicineRepository;
+	}
+
+	Medicine medicine;
+	
+	public String medicineForm() {
 		return "medicineitem";
 		
 	}
 	
-	public String updateMedicineInventory(
+	public String updateMedicineInventory( String medicinename,String brand, String madein, int quantity,double medicinecost,
+		ModelMap modelMap) {
 		
-			@RequestParam("medicinename") String medicinename,
-			@RequestParam("brand") String brand,
-			@RequestParam("madein") String madein,
-			
-			@RequestParam("quantity") int quantity,
-			
-			@RequestParam("medicinecost") double medicinecost,
-			
-			
-			ModelMap modelMap
-		
-			) {
-		
-				
 		Medicine medicinestore= new Medicine();
-
 		medicinestore.setMedicinename(medicinename);
 		medicinestore.setBrand(brand);
 		medicinestore.setMadein(madein);
@@ -68,7 +60,7 @@ public class MedicineService implements MedicineServiceInterface{
 		  return "displaymedicine";
 	}
 
-public String Medicine(ModelMap model) {
+public String medicine(ModelMap model) {
 	
 	  List<Medicine>medicine=new ArrayList<Medicine>();
 	  medicineRepository.findAll().forEach(i->medicine.add(i));
@@ -76,43 +68,44 @@ public String Medicine(ModelMap model) {
 	 return "displayAllMedicine";
 }
 
-public void DeleteMedicine(int medicineId) {
+public void deleteMedicine(int medicineId) {
 	medicineRepository.deleteById(medicineId);
 }
 
 
-public String MedicineFormDetails() {
+public String medicineFormDetails() {
 	return "Inventory";
 }
 
-public String ListOfMedicine(ModelMap model) {
+public String listOfMedicine(ModelMap model) {
 	 List<Medicine>medicine=new ArrayList<Medicine>();
 	 medicineRepository.findAll().forEach(i->medicine.add(i));
 	 model.addAttribute("result", medicine);
 	return "ListOfMedicine";
 }
 
-public Medicine MedicineUpdateFactching(int medicineId) {
+public Medicine medicineUpdate(int medicineId) {
 	medicine=medicineRepository.findById(medicineId);
-System.out.println(medicine); 
 return medicine;
 }
 
-//@Override
-public Medicine MedicineUpdate(HttpServletRequest request) {
-Medicine medicine1=medicineRepository.findById(Integer.parseInt(request.getParameter("medicineId")));
-Medicine medicine=new Medicine();
-medicine.setMedicineId(medicine1.getMedicineId());
-
+public Medicine medicineUpdate(HttpServletRequest request) {
+Medicine medicine=medicineRepository.findById(Integer.parseInt(request.getParameter("medicineId")));
+medicine.setMedicineId(medicine.getMedicineId());
 medicine.setMedicinename(request.getParameter("medicinename"));
 medicine.setMedicinename(request.getParameter("brand"));
 medicine.setMedicinename(request.getParameter("madein"));
 medicine.setMedicinename(request.getParameter("quantity"));
-//medicine.setMedicinename(request.getParameter("medicinecost"));
+medicineRepository.save(medicine);
+List<Medicine> list= new ArrayList();
+medicineRepository.findAll().forEach(x->list.add(x));
 return medicine;
 }
 
-
+   public Medicine findMedicine(int medicineId) {
+	Medicine   medicine=  medicineRepository.findByMedicineId(medicineId);
+	   return medicine;
+   }
 
 
 }

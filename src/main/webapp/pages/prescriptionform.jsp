@@ -26,7 +26,7 @@
        <label>
     Prescription Details:
       
-        <textarea cols="80" rows="5" name="description">  
+        <textarea cols="80" rows="5" name="description" required="required">  
 </textarea> 
         
       </label>

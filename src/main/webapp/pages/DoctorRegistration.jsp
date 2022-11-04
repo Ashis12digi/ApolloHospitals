@@ -52,19 +52,19 @@
   
   <tr>
 EMAIL  ID:
-<input type="text" name="emailid" placeholder="Enter Email ID ">
+<input type="text" name="emailid" placeholder="Enter Email ID " required="required">
 </tr>
 
 
  <br><br>
  <tr>
 TIMING:
-<input type="text" name="timing" placeholder="mm:ss:ss ">
+<input type="text" name="timing" placeholder="mm:ss:ss " required="required">
 </tr>
  <br><br>
   <tr>
 FEES:
-<input type="text" name="fees" placeholder="Enter Fees">
+<input type="text" name="fees" placeholder="Enter Fees" required="required">
 </tr>
   <br><br>
   <tr>
@@ -77,7 +77,7 @@ pattern="[789][0-9]{9}"
  <br><br>
   <tr>
 INFO:
-<input type="text" name="info" placeholder="Enter Information">
+<input type="text" name="info" placeholder="Enter Information" required="required">
 </tr>
  <br><br>
   <tr>

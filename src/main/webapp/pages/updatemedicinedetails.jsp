@@ -18,31 +18,31 @@
 <center>
 
   <spring:url value="/addUser1" var="addURL" />
-  <h2>Update Mediicne Details</h2>
+  <h2>Update Medicine Details</h2>
 
 
 
 <form action="/updateMedicine" method="post">
 <div>
-   <input type="hidden" name="medicineId" cssClass="form-control" id="medicineId"  value="${userdata.medicineId}">
+   <input type="hidden" name="medicineId" cssClass="form-control" id="medicineId"  value="${medicinedata.medicineId}">
    
     <label>Medicine Name</label>
-    <input name="medicinename" cssClass="form-control" id="medicinename" value="${userdata.medicinename}" />
+    <input name="medicinename" cssClass="form-control" id="medicinename" value="${medicinedata.medicinename}" />
    </div><br>
    
    <div class="form-group">
     <label>Brand</label>
-    <input name="brand" cssClass="form-control" id="brand"  value="${userdata.brand}"/>
+    <input name="brand" cssClass="form-control" id="brand"  value="${medicinedata.brand}"/>
    </div><br>
    
    <div class="form-group">
     <label>MadeIn</label>
-    <input name="madein" cssClass="form-control" id="madein"  value="${userdata.madein}"/>
+    <input name="madein" cssClass="form-control" id="madein"  value="${medicinedata.madein}"/>
    </div><br>
    
     <div class="form-group">
     <label>Quantity</label>
-    <input name="quantity" cssClass="form-control" id="quantity" value="${userdata.quantity}"/>
+    <input name="quantity" cssClass="form-control" id="quantity" value="${medicinedata.quantity}" />
    </div><br>
    
   

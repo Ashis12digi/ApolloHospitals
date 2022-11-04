@@ -26,42 +26,43 @@ import com.example.demo.repository.PatientsRepository;
 @Component
 @Service
 public class PatientsService implements PatientServiceInterface{
-	Patients patients;
-	@Autowired
+	
 	PatientsRepository patientsRepository;
 	
-	public String Entry() {
+	public PatientsService(PatientsRepository patientsRepository) {
+	this.patientsRepository = patientsRepository;
+}
+
+	Patients patients;
+	
+	public String entry() {
 		return "index";
 	}
 
-	public String Login() {
+	public String login() {
 		return "PatientsLogin";
 	}
 
-	public String Registration() {
+	public String registration() {
 		return "PatientsRegistration";
 	}
 
 	public String viewDetails(
-			@RequestParam("patientname") String patientname,
-			@RequestParam("username") String username,
-			@RequestParam("password")String password,
-			@RequestParam("emailid")  String emailid,
-			@RequestParam @DateTimeFormat(pattern = "MM/dd/yyyy") Date dateofbirth,
-			@RequestParam("gender")  String gender,
-			@RequestParam("bloodgroup")  String bloodgroup,
-			@RequestParam("mobilenumber")  String mobilenumber,
-			@RequestParam("address")  String address,
-	
+		 String patientname,
+	     String username,
+		 String password,
+		 String emailid,
+	     Date dateofbirth,
+	     String gender,
+		 String bloodgroup,
+		 String mobilenumber,
+		 String address,
 			ModelMap modelMap) {
 		
 		Patients patients=new Patients();
 		patients.setId(patients.getId());
-	
 		patients.setPatientname(patientname);
-	
 		patients.setUsername(username);
-	
 		patients.setPassword(password);
 		patients.setEmailid(emailid);
 		patients.setDateofbirth(dateofbirth);
@@ -69,7 +70,6 @@ public class PatientsService implements PatientServiceInterface{
 		patients.setBloodgroup(bloodgroup);
 		patients.setMobilenumber(mobilenumber);
 		patients.setAddress(address);
-		
 		this.patientsRepository.save(patients);
 		
 
@@ -83,54 +83,50 @@ public class PatientsService implements PatientServiceInterface{
 	modelMap.put("bloodgroup", bloodgroup);
 	modelMap.put("mobilenumber", mobilenumber);
 	modelMap.put("address", address);
-	
 	return "Reg_Success";
 	
 	}
 
-	public Patients GetPatientLogin(String username, String password) {
+	public Patients getPatientLogin(String username, String password) {
 		Patients patient=patientsRepository.findByUsernameAndPassword(username,password);
 		return patient;
-		
 	}
 
-	public String AllLogin() {
+	public String allLogin() {
 		return "allLogin";
 	}
 
 
-public String Patient(ModelMap model) {
+public String patient(ModelMap model) {
 	
 	  List<Patients>patient=new ArrayList<Patients>();
 	  patientsRepository.findAll().forEach(i->patient.add(i));
 	 model.addAttribute("result", patient);
-	
 	 return "displayAllPatient";
 }
 
-public Patients GetData(String username) {
+public Patients getData(String username) {
 	Patients patient= patientsRepository.findByusername(username);
 			return  patient;
 }
 
 
-//@Override
-public void DeletePatient(int id) {
+public void deletePatient(int id) {
 	patientsRepository.deleteById(id);
 }
 
 
-public Patients PatientUpdateFactching(int id) {
+public Patients patientUpdateFactching(int id) {
 	patients=patientsRepository.findById(id);
 	System.out.println(patients);
 	return patients;
 }
 
-//@Override
-public Patients PatientUpdate(HttpServletRequest request) throws Exception {
-	Patients patients1= patientsRepository.findById(Integer.parseInt(request.getParameter("id")));
+
+public Patients patientUpdate(HttpServletRequest request) throws Exception {
+	Patients patientsId= patientsRepository.findById(Integer.parseInt(request.getParameter("id")));
     Patients patients= new Patients();
-    patients.setId(patients1.getId());
+    patients.setId(patientsId.getId());
     patients.setPatientname(request.getParameter("patientname"));
     patients.setUsername(request.getParameter("username"));
     patients.setPassword(request.getParameter("password"));
@@ -140,22 +136,12 @@ public Patients PatientUpdate(HttpServletRequest request) throws Exception {
     patients.setDateofbirth(date1);
     patients.setGender(request.getParameter("gender"));
     patients.setBloodgroup(request.getParameter("bloodgroup"));
-  
    patients.setMobilenumber(request.getParameter("mobilenumber"));
-
     patients.setAddress(request.getParameter("address"));
     this.patientsRepository.save(patients);
 	
 	return patients;
 }
-
-
-
-
-
- 
-
-
 	
 
 }

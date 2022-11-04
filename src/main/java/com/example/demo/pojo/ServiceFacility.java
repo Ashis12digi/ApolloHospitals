@@ -31,8 +31,6 @@ public class ServiceFacility {
 		this.serviceId = serviceId;
 	}
 
-	
-
 	public String getServiceName() {
 		return serviceName;
 	}
@@ -54,6 +52,8 @@ public class ServiceFacility {
 		return "ServiceFacility [serviceId=" + serviceId + ", serviceName=" + serviceName + ", amount=" + amount + "]";
 	}
 
+	
+	
 	
 	
 	

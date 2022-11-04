@@ -24,12 +24,7 @@ public class FeedbackService {
 		}
 	
 
-	public String viewFeedback(
-		//	@RequestParam("patientid") int patientid,
-			@RequestParam("name") String name,
-			@RequestParam("details") String details,
-			ModelMap modelMap
-			) {
+	public String viewFeedback(String name, String details,ModelMap modelMap) {
 		Feedback feedback= new Feedback();
 		feedback.setPatientid(feedback.getPatientid());
 		feedback.setName(name);

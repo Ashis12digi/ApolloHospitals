@@ -12,15 +12,10 @@
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 
-
-
 </head>
 <body>
 
 <center>
-
-
-
 
 <h1> The Service Details are:</h1>
 <fieldset style="width: 1000px">
@@ -47,9 +42,7 @@
     <td>${serviceName}</td>
     <td>${mobilenumber}</td>  
    <td>${amount}</td> 
-   
-   
-   
+  
    <td>
    
    <form action="/payment" method ="post">
@@ -59,9 +52,6 @@
    
    </td>
  
-
-
-
 </tbody>
 </table>
 

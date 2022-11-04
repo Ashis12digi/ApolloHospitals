@@ -22,18 +22,17 @@ import com.example.demo.service.AppointmentService;
   @Controller
   @Component 
   public class AppointmentController {
-  
-  @Autowired
-  AppointmentRepository appointmentRepository;
-  
-  @Autowired 
+ 
   AppointmentService appointmentService;
-  
-  @Autowired
 	PatientsController patientsController;
 	
+  public AppointmentController(AppointmentService appointmentService, PatientsController patientsController) {
+		this.appointmentService = appointmentService;
+		this.patientsController = patientsController;
+	}
+
   @RequestMapping("/Appointmentform")
-  public String AppointmentForm() {
+  public String appointmentForm() {
   return appointmentService.AppointmentForm();
   }
   
@@ -49,22 +48,23 @@ import com.example.demo.service.AppointmentService;
 	{
 		return appointmentService.viewAppointment(patientname,MobileNumber, doctorname, date, Address,modelMap);
 		}
-	//.............History.......
 	
 	@RequestMapping("/appointmentHistory")
-	public String CheckHistory(ModelMap modelMap) {
-	
-		String patientDetailsName=patientsController.GetFullName();
-		System.out.println(patientDetailsName);
-		
-		List<Appointment> appointment= appointmentService.FindHistory(patientDetailsName);
-		System.out.println(appointment);
+	public String checkHistory(ModelMap modelMap) {
+		String patientDetailsName=patientsController.getFullName();
+		String redirect="";
+		List<Appointment> appointment= appointmentService.findHistory(patientDetailsName);
 		modelMap.put("appointment", appointment);
-		return "HistoryAppointment";
+		if(appointment.isEmpty()) {
+			redirect= "appointmentfailed";
+		}
+		else {
+			return "HistoryAppointment";
+		}
+		return redirect;
+		
 	}
 	
-  
-  
   }
   
  

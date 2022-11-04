@@ -37,7 +37,7 @@
  <br><br>
  <tr>
  EMAIL ID:
-<input type="text" name="emailid">
+<input type="text" name="emailid" required="required">
 </tr>
 
  <br><br>

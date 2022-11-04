@@ -91,11 +91,11 @@
   <a class="btn btn-info" href="/editService?serviceId=${x.serviceId}"><h4>Update</h4></a>
       
       </td>
-     
+    
      
       
       
-       
+        
      <td>
        <spring:url value="/service/deleteMedicine/${x.serviceId}" var="deleteURL" />
        <a class="btn btn-danger" href="${deleteURL}" role="button" >Delete</a>
