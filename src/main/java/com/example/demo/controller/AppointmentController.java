@@ -31,22 +31,22 @@ import com.example.demo.service.AppointmentService;
 		this.patientsController = patientsController;
 	}
 
-  @RequestMapping("/Appointmentform")
+  @RequestMapping("/appointmentForm")
   public String appointmentForm() {
   return appointmentService.AppointmentForm();
   }
   
 	@PostMapping("/appointment")
 	public String viewAppointment(
-			@RequestParam( required=false,name="patientname")  String patientname,
-			@RequestParam( required=false,name="MobileNumber")  long MobileNumber,
-			@RequestParam( required=false,name="doctorname")  String doctorname,
+			@RequestParam( required=false,name="patientName")  String patientName,
+			@RequestParam( required=false,name="mobileNumber")  long mobileNumber,
+			@RequestParam( required=false,name="doctorName")  String doctorName,
 		    @RequestParam (required=false,name="date") java.sql.Date date,
 		    @RequestParam( required=false,name="Address")  String Address,
 		
 			ModelMap modelMap)
 	{
-		return appointmentService.viewAppointment(patientname,MobileNumber, doctorname, date, Address,modelMap);
+		return appointmentService.viewAppointment(patientName,mobileNumber, doctorName, date, Address,modelMap);
 		}
 	
 	@RequestMapping("/appointmentHistory")
@@ -56,10 +56,10 @@ import com.example.demo.service.AppointmentService;
 		List<Appointment> appointment= appointmentService.findHistory(patientDetailsName);
 		modelMap.put("appointment", appointment);
 		if(appointment.isEmpty()) {
-			redirect= "appointmentfailed";
+			redirect= "appointmentFailed";
 		}
 		else {
-			return "HistoryAppointment";
+			return "historyAppointment";
 		}
 		return redirect;
 		

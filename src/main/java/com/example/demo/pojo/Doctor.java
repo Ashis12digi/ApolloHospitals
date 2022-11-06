@@ -24,7 +24,7 @@ public class Doctor {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column
-	private String name;
+	private String doctorName;
 	@Column(name = "username", unique = true)
    private String username;
 	@Column
@@ -33,14 +33,14 @@ public class Doctor {
 	private String location;
 	@Column
 	private String gender;
-	@Column(name = "emailid", unique = true)
-	private String emailid;
+	@Column(name = "emailId", unique = true)
+	private String emailId;
 	@Column
 	private String timing;
 	@Column
 	private int fees;
 	@Column
-	private String mobilenumber;
+	private String mobileNumber;
 	@Column
 	private String info;
 	@Column
@@ -62,13 +62,13 @@ public class Doctor {
 	}
 
 
-	public String getName() {
-		return name;
+	public String getDoctorName() {
+		return doctorName;
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
 	}
 
 
@@ -112,13 +112,13 @@ public class Doctor {
 	}
 
 
-	public String getEmailid() {
-		return emailid;
+	public String getEmailId() {
+		return emailId;
 	}
 
 
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 
@@ -142,13 +142,13 @@ public class Doctor {
 	}
 
 
-	public String getMobilenumber() {
-		return mobilenumber;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
 
-	public void setMobilenumber(String mobilenumber) {
-		this.mobilenumber = mobilenumber;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 
@@ -174,13 +174,18 @@ public class Doctor {
 
 	@Override
 	public String toString() {
-		return "Doctor [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
-				+ ", location=" + location + ", gender=" + gender + ", emailid=" + emailid + ", timing=" + timing
-				+ ", fees=" + fees + ", mobilenumber=" + mobilenumber + ", info=" + info + ", experience=" + experience
+		return "Doctor [id=" + id + ", doctorName=" + doctorName + ", username=" + username + ", password=" + password
+				+ ", location=" + location + ", gender=" + gender + ", emailId=" + emailId + ", timing=" + timing
+				+ ", fees=" + fees + ", mobileNumber=" + mobileNumber + ", info=" + info + ", experience=" + experience
 				+ "]";
 	}
 
-  
+
+
+
+	
+
+	
 
 	
 		

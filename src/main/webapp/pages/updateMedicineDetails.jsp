@@ -27,7 +27,7 @@
    <input type="hidden" name="medicineId" cssClass="form-control" id="medicineId"  value="${medicinedata.medicineId}">
    
     <label>Medicine Name</label>
-    <input name="medicinename" cssClass="form-control" id="medicinename" value="${medicinedata.medicinename}" />
+    <input name="medicineName" cssClass="form-control" id="medicineName" value="${medicinedata.medicineName}" />
    </div><br>
    
    <div class="form-group">
@@ -37,7 +37,7 @@
    
    <div class="form-group">
     <label>MadeIn</label>
-    <input name="madein" cssClass="form-control" id="madein"  value="${medicinedata.madein}"/>
+    <input name="madeIn" cssClass="form-control" id="madeIn"  value="${medicinedata.madeIn}"/>
    </div><br>
    
     <div class="form-group">

@@ -58,9 +58,9 @@ body {
  <div class="topnav">
   <a class="active" href="/">Home</a>
   
- <a href="doctorprofile">Profile</a>
+ <a href="doctorProfile">Profile</a>
   
-     <a href="Prescriptionform">Precription</a>
+     <a href="prescriptionForm">Precription</a>
  
  
  

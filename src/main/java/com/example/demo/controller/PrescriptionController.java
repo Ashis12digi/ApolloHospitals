@@ -38,7 +38,7 @@ public class PrescriptionController {
 		this.patientsController = patientsController;
 	}
 
-	  @RequestMapping("/Prescriptionform")
+	  @RequestMapping("/prescriptionForm")
 	  public String prescriptionForm() {
 	  return prescriptionService.prescriptionForm();
 	  }
@@ -46,12 +46,12 @@ public class PrescriptionController {
 		@PostMapping("/displayPrescription")
 		public String viewPrescription(
 			
-				@RequestParam("patientname") String patientname,
+				@RequestParam("patientName") String patientName,
 				@RequestParam("description") String description,
 				ModelMap modelMap)
 		{
 			
-			return prescriptionService.viewPrescription(patientname, description, modelMap);
+			return prescriptionService.viewPrescription(patientName, description, modelMap);
 			}
 		
 		@RequestMapping("/history")
@@ -62,12 +62,12 @@ public class PrescriptionController {
 			modelMap.put("prescription", prescription);
 			if(prescription.isEmpty())
 			{
-				redirect="prescriptionfailed";
+				redirect="prescriptionFailed";
 			}
 			
 			else
 			{
-				redirect="HistoryPrescription";
+				redirect="historyPrescription";
 				
 			}
 				return redirect;

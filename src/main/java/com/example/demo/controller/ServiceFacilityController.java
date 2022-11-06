@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import java.lang.*;
 import com.example.demo.pojo.Patients;
 import com.example.demo.pojo.ServiceFacility;
 
@@ -36,7 +36,7 @@ public class ServiceFacilityController
 
 	ServiceFacility serviceFacility;	
 
-@RequestMapping("/ServiceFacility")
+@RequestMapping("/serviceFacility")
 public String serviceFacilityDetails() {
 return serviceFacilityService.serviceFacilityDetails();
 }
@@ -58,13 +58,13 @@ public String viewServicesFacility(
 	  
  }
 
-@RequestMapping("/ServiceFacilityindex")
+@RequestMapping("/serviceFacilityIndex")
 public String facilityDetails() {
 return serviceFacilityService.facilityDetails();
 }
 
 
-@GetMapping("/fetchAllServicesindex")
+@GetMapping("/fetchAllServicesIndex")
  public String serviceDisplayIndex(ModelMap model) {
 	return serviceFacilityService.serviceDisplayIndexBeforeLogin(model);
 	  
@@ -87,9 +87,9 @@ public String profileService(ModelMap map) {
     
 }
 
-@RequestMapping("/paymentdone")
+@RequestMapping("/paymentDone")
 public String paymentDone() {
-return "servicepaymentdone";
+return "servicePaymentDone";
 }
 
 @RequestMapping(value="/service/deleteMedicine/{serviceId}", method=RequestMethod.GET)
@@ -101,8 +101,8 @@ public ModelAndView delete(@PathVariable("serviceId") int serviceId) {
 }
 
   @RequestMapping(value="/editService", method=RequestMethod.GET)
-  public ModelAndView viewAll(@RequestParam("serviceId") int serviceId,ModelMap map) {
-  ModelAndView modelAndView=new ModelAndView("/updateservicedetails");
+  public ModelAndView viewAll(@RequestParam int serviceId,ModelMap map) {
+  ModelAndView modelAndView=new ModelAndView("/updateServiceDetails");
   ServiceFacility list=serviceFacilityService.ServiceUpdateFactching(serviceId);
   map.put("servicedata", list);
   
@@ -110,9 +110,9 @@ public ModelAndView delete(@PathVariable("serviceId") int serviceId) {
   }
   
   @PostMapping("/updateService") 
-  public ModelAndView updateTable(HttpServletRequest request,ModelMap map)  {
+  public ModelAndView updateTable(@RequestParam("serviceId") int id,@RequestParam("serviceName") String serviceName,ModelMap map)  {
   ModelAndView modelAndView=new ModelAndView("/displayAllServiceFacility");
-  List<ServiceFacility> list= serviceFacilityService.serviceUpdate(request);
+  List<ServiceFacility> list= serviceFacilityService.serviceUpdate(id,serviceName);
   map.put("result", list);
   return modelAndView; 
   }

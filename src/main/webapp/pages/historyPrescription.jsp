@@ -50,11 +50,11 @@
   <tr>
   
    <td>
-${prescription.prescriptionid}
+${prescription.prescriptionId}
 </td>
   
   <td>
-${prescription.patientname}
+${prescription.patientName}
 </td>
     
     <td>

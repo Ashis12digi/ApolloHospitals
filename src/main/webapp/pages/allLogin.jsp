@@ -54,9 +54,9 @@ body {
 <div class="topnav">
   <a class="active" href="/">HOME</a>
   
- <a href="loginn">PATIENTS LOGIN</a>
-  <a href="doctorlogin">DOCTOR LOGIN</a>
-   <a href="alogin">ADMIN LOGIN</a>
+ <a href="patientLogin">PATIENTS LOGIN</a>
+  <a href="doctorLogin">DOCTOR LOGIN</a>
+   <a href="adminLogin">ADMIN LOGIN</a>
 
 </center>
 </form>

@@ -15,52 +15,52 @@ public class Appointment{
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int appointmentid;
+	private int appointmentId;
+	@Column
+   private String patientName;
    @Column
-   private String patientname;
+   private long mobileNumber;
    @Column
-   private long MobileNumber;
-   @Column
-	private String doctorname;
+	private String doctorName;
 	@Column
 	private Date date;
 	 @Column
 	   private String Address;
 
 	public Appointment() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public int getAppointmentid() {
-		return appointmentid;
+	public int getAppointmentId() {
+		return appointmentId;
 	}
 
-	public void setAppointmentid(int appointmentid) {
-		this.appointmentid = appointmentid;
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
 	}
 
-	public String getPatientname() {
-		return patientname;
+	public String getPatientName() {
+		return patientName;
 	}
 
-	public void setPatientname(String patientname) {
-		this.patientname = patientname;
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 
 	public long getMobileNumber() {
-		return MobileNumber;
+		return mobileNumber;
 	}
 
 	public void setMobileNumber(long mobileNumber) {
-		MobileNumber = mobileNumber;
+		this.mobileNumber = mobileNumber;
 	}
 
-	public String getDoctorname() {
-		return doctorname;
+	public String getDoctorName() {
+		return doctorName;
 	}
 
-	public void setDoctorname(String doctorname) {
-		this.doctorname = doctorname;
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
 	}
 
 	public Date getDate() {
@@ -81,12 +81,11 @@ public class Appointment{
 
 	@Override
 	public String toString() {
-		return "Appointment [appointmentid=" + appointmentid + ", patientname=" + patientname + ", MobileNumber="
-				+ MobileNumber + ", doctorname=" + doctorname + ", date=" + date + ", Address=" + Address + "]";
+		return "Appointment [appointmentId=" + appointmentId + ", patientName=" + patientName + ", mobileNumber="
+				+ mobileNumber + ", doctorName=" + doctorName + ", date=" + date + ", Address=" + Address + "]";
 	}
 
 	
-
 
 
 

@@ -14,8 +14,8 @@
 
 <h1>Patients Login</h1>
 <fieldset style="width:600px">
-<form action="patientloginusername" method="post" >
- USER NAME:<input type="text" name="username" placeholder="Enter UserName" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+<form action="patientValidation" method="post" >
+ USER NAME:<input type="text" name="username" placeholder="Enter username" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
 
  <br><br>
  
@@ -30,7 +30,7 @@
  
 <hr>
 </form>
- <a  href="pregistration"><button>Create new Account</button></a>
+ <a  href="patientRegistration"><button>Create new Account</button></a>
 
 </fieldset>
 </center>

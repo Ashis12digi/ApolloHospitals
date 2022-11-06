@@ -21,17 +21,17 @@
 
 
 
-<form action="/updateUser" method="post">
+<form action="/updatePatient" method="post">
 <div>
    <input type="hidden" name="id" cssClass="form-control" id="id"  value="${userdata.id}">
    
     <label>Patient Name</label>
-    <input name="patientname" cssClass="form-control" id="patientname" value="${userdata.patientname}" />
+    <input name="patientName" cssClass="form-control" id="patientName" value="${userdata.patientName}" />
    </div><br>
    
    <div class="form-group">
     <label>User Name</label>
-    <input name="username" cssClass="form-control" id="username"  value="${userdata.username}"/>
+    <input name="userName" cssClass="form-control" id="username"  value="${userdata.username}"/>
    </div><br>
    
    <div class="form-group">
@@ -41,12 +41,12 @@
    
     <div class="form-group">
     <label>EmailId</label>
-    <input name="emailid" cssClass="form-control" id="emailid" value="${userdata.emailid}"/>
+    <input name="emailId" cssClass="form-control" id="emailId" value="${userdata.emailId}"/>
    </div><br>
    
    <div class="form-group">
      <label>DOB</label>
-    <input  type="text" name="dateofbirth" cssClass="form-control" id="dateofbirth" value="${userdata.dateofbirth}" />
+    <input  type="text" name="dateOfBirth" cssClass="form-control" id="dateOfBirth" value="${userdata.dateOfBirth}" />
    </div><br>
    
   
@@ -58,12 +58,12 @@
    
    <div class="form-group">
     <label>Blood Group</label>
-    <input name="bloodgroup" cssClass="form-control" id="bloodgroup" value="${userdata.bloodgroup}"/>
+    <input name="bloodGroup" cssClass="form-control" id="bloodGroup" value="${userdata.bloodGroup}"/>
    </div><br>
    
    <div class="form-group">
     <label>Mobile Number</label>
-    <input name="mobilenumber" cssClass="form-control" id="mobilenumber" value="${userdata.mobilenumber}"/>
+    <input name="mobileNumber" cssClass="form-control" id="mobileNumber" value="${userdata.mobileNumber}"/>
    </div><br>
    
    <div class="form-group">

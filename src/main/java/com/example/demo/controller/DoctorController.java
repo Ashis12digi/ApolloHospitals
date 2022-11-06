@@ -43,47 +43,42 @@ public class DoctorController {
 	
 	Doctor doctorDetails;
 
-	@RequestMapping("/doctorlogin")
+	@RequestMapping("/doctorLogin")
     public String login() {
       return  doctorService.login();
     }
 
-	  @RequestMapping("/dregistration")
+	  @RequestMapping("/doctorRegistration")
 	  public String registration() {
 	   return doctorService.registration();
 	  }
 
-		@PostMapping("/DRregsuccess")
+		@PostMapping("/doctorViewDetails")
 		public String viewDetails(
-	            @RequestParam("name") String name,
+	            @RequestParam("doctorName") String doctorName,
 	            @RequestParam("username") String username,
 				@RequestParam("password")String password,
 				@RequestParam("location")  String location,
 				@RequestParam("gender")  String gender,
-				@RequestParam("emailid")  String emailid,
+				@RequestParam("emailId")  String emailId,
 				@RequestParam("timing")  String timing,
 				@RequestParam("fees")  int fees,
-				@RequestParam("mobilenumber")  String mobilenumber,
+				@RequestParam("mobileNumber")  String mobileNumber,
 				@RequestParam("info")  String info,
 				@RequestParam("experience")  String experience,
 				ModelMap modelMap
 				
 				)
 		{
-			return doctorService.viewDetails(name,username, password, location, gender, emailid,timing,fees, mobilenumber,info, experience, modelMap);
+			return doctorService.viewDetails(doctorName,username, password, location, gender, emailId,timing,fees, mobileNumber,info, experience, modelMap);
 		}
-		
-		@RequestMapping("/dlogin")
-		  public String doctorHome() {
-		   return doctorService.doctorHome();
-		  }
 			
 		@RequestMapping("/doctorAppointments")
 		public String showDoctorAppointments(Model model) {
 			return "doctorAppointments";
 		}
 	
-		  @GetMapping("/doctorloginusername")
+		  @GetMapping("/doctorLoginValidation")
 	    public String getDoctorLogin(@ModelAttribute("doctor")  Doctor doctor,HttpServletRequest request ) {
 	    	Doctor doctorLogin=doctorService.getDoctorLogin(doctor.getUsername(),doctor.getPassword());
 	    	if(Objects.nonNull(doctorLogin)) {
@@ -91,20 +86,14 @@ public class DoctorController {
 	    		return "doctorHome";
 	    	}
 	    	else {
-	    		return "adminloginerror";
+	    		return "adminLoginError";
 	    	}
 	    }
 		  
-	   @GetMapping("/fetchalldoctor")
+	   @GetMapping("/fetchAllDoctors")
 		  public String displayDoctor(ModelMap model) {
 			return doctorService.displayDoctor(model);  
 		  }
-	   
-	   @GetMapping("/deletedoctor")
-	   public String deleteDoctor() {
-		return "deleteDoctor";
-		   
-	   }
 
 	   @GetMapping("/fetch")
 		  public String doctor(ModelMap model) {
@@ -119,15 +108,15 @@ public class DoctorController {
 	      
 	     }
 	
-	   @GetMapping("/doctorprofile")
+	   @GetMapping("/doctorProfile")
 	    public String profile(ModelMap map) {
 	        map.put("result", doctorDetails);
-	        return "doctorprofile";
+	        return "doctorProfile";
 	  	    }
 	   
 	    @RequestMapping(value="/editDoctor", method=RequestMethod.GET)
 	      public ModelAndView viewAll(@RequestParam("id") int id,ModelMap map) {
-	       ModelAndView modelAndView=new ModelAndView("/updateDoctordetails");
+	       ModelAndView modelAndView=new ModelAndView("/updateDoctorDetails");
 	      Doctor list=doctorService.DoctorUpdateFetch(id);
 	      map.put("doctordata", list);
 	      return modelAndView;
@@ -135,7 +124,7 @@ public class DoctorController {
 	    
 	    @PostMapping("/updateDoctor")
 	    public ModelAndView updateTable(HttpServletRequest request,ModelMap map) throws Exception {
-	         ModelAndView modelAndView=new ModelAndView("/doctorprofile");
+	         ModelAndView modelAndView=new ModelAndView("/doctorProfile");
 	        Doctor doctor= doctorService.doctorUpdate(request);
 	        map.put("result", doctor);
 	         return modelAndView;

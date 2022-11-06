@@ -14,5 +14,5 @@ import com.example.demo.pojo.ServiceFacility;
 
 @Repository
 public interface PrescriptionRepository extends CrudRepository<Prescription, Integer> {
-	List<Prescription> findAllByPatientname(String patientname);
+	List<Prescription> findAllByPatientName(String patientName);
 }

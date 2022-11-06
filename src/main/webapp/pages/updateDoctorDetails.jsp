@@ -26,7 +26,7 @@
    <input type="hidden" name="id" cssClass="form-control" id="id"  value="${doctordata.id}">
    
     <label>Doctor Name</label>
-    <input name="name" cssClass="form-control" id="name" value="${doctordata.name}" />
+    <input name="doctorName" cssClass="form-control" id="doctorName" value="${doctordata.doctorName}" />
    </div><br>
    
    <div class="form-group">
@@ -52,7 +52,7 @@
    
    <div class="form-group">
     <label>Email Id</label>
-    <input name="emailid" cssClass="form-control" id="emailid" value="${doctordata.emailid}"/>
+    <input name="emailId" cssClass="form-control" id="emailid" value="${doctordata.emailId}"/>
    </div><br>
    
    <div class="form-group">
@@ -69,7 +69,7 @@
    
    <div class="form-group">
     <label>Mobile Number</label>
-    <input name="mobilenumber" cssClass="form-control" id="mobilenumber" value="${doctordata.mobilenumber}" />
+    <input name="mobileNumber" cssClass="form-control" id="mobileNumber" value="${doctordata.mobileNumber}" />
    </div><br>
    
    <div class="form-group">

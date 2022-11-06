@@ -35,17 +35,17 @@
   <tr>
   
    <td>
-${appointment.appointmentid}
+${appointment.appointmentId}
 </td>
   
   <td>
-${appointment.patientname}
+${appointment.patientName}
 </td>
     
 
       
     <td>
-${appointment.doctorname}
+${appointment.doctorName}
 </td>
     
       

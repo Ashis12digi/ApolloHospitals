@@ -14,11 +14,9 @@ public class Prescription {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int prescriptionid;
-
+	private int prescriptionId;
 	@Column
-	private String patientname;
-	
+	private String patientName;
 	@Column
 	private String description;
 
@@ -26,22 +24,20 @@ public class Prescription {
 		
 	}
 
-	
-
-	public int getPrescriptionid() {
-		return prescriptionid;
+	public int getPrescriptionId() {
+		return prescriptionId;
 	}
 
-	public void setPrescriptionid(int prescriptionid) {
-		this.prescriptionid = prescriptionid;
+	public void setPrescriptionId(int prescriptionId) {
+		this.prescriptionId = prescriptionId;
 	}
 
-	public String getPatientname() {
-		return patientname;
+	public String getPatientName() {
+		return patientName;
 	}
 
-	public void setPatientname(String patientname) {
-		this.patientname = patientname;
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 
 	public String getDescription() {
@@ -54,9 +50,11 @@ public class Prescription {
 
 	@Override
 	public String toString() {
-		return "Prescription [prescriptionid=" + prescriptionid + ", patientname=" + patientname + ", description="
+		return "Prescription [prescriptionId=" + prescriptionId + ", patientName=" + patientName + ", description="
 				+ description + "]";
 	}
+
+	
 
 	
 	

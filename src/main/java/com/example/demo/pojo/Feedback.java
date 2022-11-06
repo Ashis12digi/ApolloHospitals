@@ -16,24 +16,14 @@ public class Feedback {
 	@Id
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int patientid;
+	private int patientId;
 	private String name;
 	private String details;
-	public Feedback(int patientid, String name, String details) {
-		super();
-		this.patientid = patientid;
-		this.name = name;
-		this.details = details;
+	public int getPatientId() {
+		return patientId;
 	}
-	
-	public Feedback() {
-		// TODO Auto-generated constructor stub
-	}
-	public int getPatientid() {
-		return patientid;
-	}
-	public void setPatientid(int patientid) {
-		this.patientid = patientid;
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
 	}
 	public String getName() {
 		return name;
@@ -49,8 +39,9 @@ public class Feedback {
 	}
 	@Override
 	public String toString() {
-		return "Feedback [patientid=" + patientid + ", name=" + name + ", details=" + details + "]";
+		return "Feedback [patientId=" + patientId + ", name=" + name + ", details=" + details + "]";
 	}
+	
 	
 	
 

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.example.demo.pojo.ServiceFacility;
 
 public interface ServiceFacilityServiceInterface {
-	List<ServiceFacility> serviceUpdate(HttpServletRequest request) ;
+	List<ServiceFacility> serviceUpdate(int id,String serviceName) ;
 	
 
 }

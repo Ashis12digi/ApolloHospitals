@@ -18,10 +18,10 @@
  
 <fieldset style="width:600px">
 <form action="appointment" method="post" >
-Enter Full Name:<input type="text" name="patientname" required="required">
+Enter Full Name:<input type="text" name="patientName" required="required">
   <br><br>
 
-Enter Mobile Number:<input type="number" name="MobileNumber"
+Enter Mobile Number:<input type="number" name="mobileNumber"
  pattern("^((\\+91-?) |0)?[0-9]{10}$")
 pattern="[789][0-9]{9}"
  title="Phone number with 7-9 and remaing 9 digit with 0-9"
@@ -30,7 +30,7 @@ pattern="[789][0-9]{9}"
   <br><br>
   
  
-Doctor Name:<input type="text" name="doctorname" required="required">
+Doctor Name:<input type="text" name="doctorName" required="required">
 
  
   <br><br>

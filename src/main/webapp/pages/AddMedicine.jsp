@@ -14,12 +14,12 @@
     <legend>Medicine Details</legend>
     <label>
     Medicine Id
-      <input type="text" name=medicineid required>
+      <input type="text" name=medicineId required>
     </label>
     <br><br>
     <label>
     Medicine Name:
-      <input type="text" name="medicinename" required>
+      <input type="text" name="medicineName" required>
     </label>
     <br><br>
    
@@ -31,7 +31,7 @@
     <br><br>
     <label>
     Medicine Cost:
-      <input type="text" name="medicinecost" required>
+      <input type="text" name="medicineCost" required>
     </label>
    <br><br>
     

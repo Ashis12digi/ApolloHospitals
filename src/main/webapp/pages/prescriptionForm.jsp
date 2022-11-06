@@ -17,7 +17,7 @@
    <h1>Hospital</h1>
     <label>
     Patient Name:
-      <input type="text" name="patientname" required>
+      <input type="text" name="patientName" required>
     </label>
     <br><br>
     <div class="two-cols">

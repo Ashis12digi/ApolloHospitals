@@ -31,33 +31,31 @@ public class MedicineService implements MedicineServiceInterface{
 	public MedicineService(MedicineRepository medicineRepository) {
 		this.medicineRepository = medicineRepository;
 	}
-
-	Medicine medicine;
 	
 	public String medicineForm() {
-		return "medicineitem";
+		return "medicineItem";
 		
 	}
 	
-	public String updateMedicineInventory( String medicinename,String brand, String madein, int quantity,double medicinecost,
+	public String updateMedicineInventory( String medicineName,String brand, String madeIn, int quantity,double medicineCost,
 		ModelMap modelMap) {
 		
 		Medicine medicinestore= new Medicine();
-		medicinestore.setMedicinename(medicinename);
+		medicinestore.setMedicineName(medicineName);
 		medicinestore.setBrand(brand);
-		medicinestore.setMadein(madein);
+		medicinestore.setMadeIn(madeIn);
 		medicinestore.setQuantity(quantity);
-		medicinestore.setMedicinecost(medicinecost);
+		medicinestore.setMedicineCost(medicineCost);
 		
 		medicineRepository.save(medicinestore); 
 	
-		  modelMap.put("medicinename", medicinename); 
+		  modelMap.put("medicineName", medicineName); 
 		  modelMap.put("brand", brand);
-		  modelMap.put("madein", madein);
+		  modelMap.put("madeIn", madeIn);
 		  modelMap.put("quantity", quantity); 
-		  modelMap.put("medicinecost", medicinecost);
+		  modelMap.put("medicineCost", medicineCost);
 		   
-		  return "displaymedicine";
+		  return "displayMedicine";
 	}
 
 public String medicine(ModelMap model) {
@@ -74,36 +72,35 @@ public void deleteMedicine(int medicineId) {
 
 
 public String medicineFormDetails() {
-	return "Inventory";
+	return "inventory";
 }
 
 public String listOfMedicine(ModelMap model) {
 	 List<Medicine>medicine=new ArrayList<Medicine>();
 	 medicineRepository.findAll().forEach(i->medicine.add(i));
 	 model.addAttribute("result", medicine);
-	return "ListOfMedicine";
+	return "listOfMedicine";
 }
 
-public Medicine medicineUpdate(int medicineId) {
-	medicine=medicineRepository.findById(medicineId);
+public Medicine medicineUpdateFetch(int medicineId) {
+Medicine medicine=medicineRepository.findById(medicineId);
 return medicine;
 }
 
-public Medicine medicineUpdate(HttpServletRequest request) {
+public List<Medicine> medicineUpdate(HttpServletRequest request) {
 Medicine medicine=medicineRepository.findById(Integer.parseInt(request.getParameter("medicineId")));
-medicine.setMedicineId(medicine.getMedicineId());
-medicine.setMedicinename(request.getParameter("medicinename"));
-medicine.setMedicinename(request.getParameter("brand"));
-medicine.setMedicinename(request.getParameter("madein"));
-medicine.setMedicinename(request.getParameter("quantity"));
+medicine.setMedicineName(request.getParameter("medicineName"));
+medicine.setBrand(request.getParameter("brand"));
+medicine.setMadeIn(request.getParameter("madeIn"));
+medicine.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 medicineRepository.save(medicine);
 List<Medicine> list= new ArrayList();
 medicineRepository.findAll().forEach(x->list.add(x));
-return medicine;
+return list;
 }
 
    public Medicine findMedicine(int medicineId) {
-	Medicine   medicine=  medicineRepository.findByMedicineId(medicineId);
+	Medicine  medicine=  medicineRepository.findByMedicineId(medicineId);
 	   return medicine;
    }
 

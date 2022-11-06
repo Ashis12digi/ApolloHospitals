@@ -96,22 +96,22 @@
 <c:forEach items="${result}" var="x">  
   <tr>
     <td>${x.id}</td>
-    <td>${x.patientname}</td>  
+    <td>${x.patientName}</td>  
  
     <td>${x.username}</td>
     <td>${x.password}</td>
    
-    <td>${x.emailid}</td>
-    <td>${x.dateofbirth}</td>
+    <td>${x.emailId}</td>
+    <td>${x.dateOfBirth}</td>
  
     <td>${x.gender}</td>
-      <td>${x.bloodgroup}</td>
-      <td>${x.mobilenumber}</td>
+      <td>${x.bloodGroup}</td>
+      <td>${x.mobileNumber}</td>
        <td>${x.address}</td>
        
          
      <td>
-       <spring:url value="/doctor/deletePatient/${x.id}" var="deleteURL" />
+       <spring:url value="/patient/deletePatient/${x.id}" var="deleteURL" />
        <a class="btn btn-danger" href="${deleteURL}" role="button" >Delete</a>
       </td>
       

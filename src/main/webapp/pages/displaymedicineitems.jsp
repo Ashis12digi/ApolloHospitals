@@ -20,14 +20,14 @@
 
 <h4>  Medicine ID  :${medicineId }</h4>
 
-<h4>  Medicine Name  :${medicinename }</h4>
+<h4>  Medicine Name  :${medicineName }</h4>
 
 <h4>  Medicine Brand  :${brand }</h4>
 
-<h4> Medicine Type  :${madein }</h4>
+<h4> Medicine Type  :${madeIn }</h4>
 
 <h4>  Quantity  :${quantity }</h4>
-<h4> Medicine Cost  :${medicinecost }</h4>
+<h4> Medicine Cost  :${medicineCost }</h4>
 
 
 </center>

@@ -27,7 +27,7 @@ public class FeedbackController {
 		  return feedbackService.FeedbackForm();
 		  }
 	  
-		@PostMapping("/feedbackdisplay")
+		@PostMapping("/feedbackDisplay")
 		public String viewFeedback(
 				
 			 @RequestParam (required=false,name="name") String name,

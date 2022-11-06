@@ -45,7 +45,7 @@
 
 
 <c:forEach items="${result}" var="x">  
- <form action="Searchstatus1" >
+ <form action="searchStatusService" >
  
   <input type= "hidden"  name="serviceId" value="${x.serviceId}">
 <input type= "hidden"  name="serviceName" value="${x.serviceName}">

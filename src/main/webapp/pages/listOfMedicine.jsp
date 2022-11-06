@@ -7,46 +7,64 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Patient List</title>
+<title>Display Medicine</title>
 <link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
+
+
 </head>
 <body>
 
- <form action="/">
-<input type="submit" value="GoBack">
-</form>
- 
 
 <center>
-<h2>Profile Summary</h2>
 
 
 
 
-<h4>  Patient Name  :${result.patientname}</h4>
-
-<h4>  Patient Username  :${result.username}</h4>
-<h4>  Patient password  :${result.password}</h4>
-
-<h4>  Patient Email Id  :${result.emailid}</h4>
-<h4>  Patient DOB  :${result.dateofbirth}</h4>
-
-<h4>  Patient Gender  :${result.gender}</h4>
-
-<h4>  Patient Blood Group  :${result.bloodgroup}</h4>
-
-<h4>  Patient Mobile Number  :${result.mobilenumber}</h4>
-
-<h4>  Patient Address  :${result.address}</h4>
-
-  <a class="btn btn-info" href="/editUser?id=${result.id}"><h2>Update</h2></a>
-
-<h4>
+<h1> The Medicine Details are:</h1>
+<fieldset style="width: 1000px">
 
 
 
-</center>
+<table border = "1" width = "100%">
+<thead>
+<tr>
+<th >Medicine Id</th>
+<th>Medicine Name</th>
+<th>Made In</th>
+<th>Medicine Cost/Piece</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+<c:forEach items="${result}" var="x">  
+  <tr>
+    <td>${x.medicineId}</td>
+    <td>${x.medicineName}</td>  
+   <td>${x.madeIn}</td> 
+    
+      <td>${x.medicineCost}</td> 
+
+</c:forEach>
+
+
+
+
+</tbody>
+</table>
+
+
+ <form action="searchMedicine" method="post" >
+
+Enter the Medicine Id <input required="required" type = "number" placeholder="Enter Medicine id" name=medicineId> <br><br>
+ <input type="submit" value="Enter"></input>
+</form>
+
+
+
 </body>
 </html>

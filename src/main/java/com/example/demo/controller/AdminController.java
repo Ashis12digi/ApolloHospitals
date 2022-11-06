@@ -24,38 +24,34 @@ import com.example.demo.service.DoctorService;
 @Controller
 @Component
 public class AdminController {
+	
 	AdminService adminService;
 	
 	public AdminController(AdminService adminService) {
 		this.adminService = adminService;
 	}
 
-	@RequestMapping("/alogin")
+	@RequestMapping("/adminLogin")
     public String login() {
       return  adminService.login();
     }
 	
-	@RequestMapping("/aregist")
+	@RequestMapping("/adminRegistration")
     public String registration() {
       return  adminService.registration();
     }
 	
-	@PostMapping("/aregist")
+	@PostMapping("/adminViewDetails")
 	public String viewDetails(
-            @RequestParam("name") String name,
-            @RequestParam("username") String username,
+            @RequestParam("adminName") String adminName,
+            @RequestParam("userName") String userName,
 			@RequestParam("password")String password,
 			@RequestParam("gender")  String gender,
-			@RequestParam("emailid")  String emailid,
-			@RequestParam("mobilenumber")  long mobilenumber,
+			@RequestParam("emailId")  String emailId,
+			@RequestParam("mobileNumber")  long mobileNumber,
 			ModelMap modelMap)
 	{
-		return adminService.viewDetails(name,username, password, gender, emailid, mobilenumber, modelMap);
-	}
-	
-	@GetMapping("/fetchallpatients")
-	public @ResponseBody List<Patients>allPatients(){
-		return adminService.allPatients();
+		return adminService.viewDetails(adminName,userName, password, gender, emailId, mobileNumber, modelMap);
 	}
 	
     @GetMapping("/fetchAllDoctor")
@@ -63,18 +59,18 @@ public class AdminController {
 		return adminService.allDoctor();
 	}
 	
-    @GetMapping("/adminloginusername")
+    @GetMapping("/adminLoginValidation")
     public String getLogin(@ModelAttribute("admin") Admin admin) {
-    	Admin adminUserNameAndPassword=adminService.getLogin(admin.getUsername(),admin.getPassword());
+    	Admin adminUserNameAndPassword=adminService.getLogin(admin.getUserName(),admin.getPassword());
     	if(Objects.nonNull(adminUserNameAndPassword)) {
-    		return "AdminHome";
+    		return "adminHome";
     	}
     	else {
-    		return "adminloginerror";
+    		return "adminLoginError";
     	}
     }
 
-    @RequestMapping("/contactus")
+    @RequestMapping("/contactUs")
     public String contactUs() {
       return  adminService.contactUs();
     }

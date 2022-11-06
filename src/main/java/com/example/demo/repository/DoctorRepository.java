@@ -10,8 +10,8 @@ import com.example.demo.pojo.Patients;
 
 @Repository
 public interface DoctorRepository extends CrudRepository<Doctor, Integer>{
-	Doctor findByUsernameAndPassword(String username, String password);
-	Doctor findByusername(String username);
+	Doctor findByUsernameAndPassword(String userName, String password);
+	Doctor findByusername(String userName);
 	Doctor findById(int id);
 	
 	

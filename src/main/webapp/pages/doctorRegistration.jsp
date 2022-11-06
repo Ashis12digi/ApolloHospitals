@@ -20,14 +20,14 @@
 
  <h2>Doctor Registration</h2>
 <fieldset style="width:600px">
-<form action="DRregsuccess" method="post" >
- NAME:<input type="text" name="name" placeholder="Enter Name " required="required" >
+<form action="doctorViewDetails" method="post" >
+ NAME:<input type="text" name="doctorName" placeholder="Enter Name " required="required" >
 
  <br><br>
  
  <tr>
  USERNAME:
-<input type="text" name="username" placeholder="Enter username " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+<input type="text" name="username" placeholder="Enter userName " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 </tr>
  
  <br><br>
@@ -52,7 +52,7 @@
   
   <tr>
 EMAIL  ID:
-<input type="text" name="emailid" placeholder="Enter Email ID " required="required">
+<input type="text" name="emailId" placeholder="Enter Email ID " required="required">
 </tr>
 
 
@@ -69,7 +69,7 @@ FEES:
   <br><br>
   <tr>
  MOBILE NUMBER:
-<input type="text" name="mobilenumber" placeholder="Enter Moboile Number"  pattern("^((\\+91-?) |0)?[0-9]{10}$")
+<input type="text" name="mobileNumber" placeholder="Enter Moboile Number"  pattern("^((\\+91-?) |0)?[0-9]{10}$")
 pattern="[789][0-9]{9}"
  title="Phone number with 7-9 and remaing 9 digit with 0-9"
  required="required">

@@ -25,27 +25,26 @@ public class PrescriptionService {
    public PrescriptionService(PrescriptionRepository prescriptionRepository) {
 		this.prescriptionRepository = prescriptionRepository;
 	}
-   
-
+  
 	public String prescriptionForm() {
 		
-		return "prescriptionform";
+		return "prescriptionForm";
 	}
 
-	public String viewPrescription(	String  patientname,String description,ModelMap modelMap) {
+	public String viewPrescription(	String  patientName,String description,ModelMap modelMap) {
 		Prescription prescription=new Prescription();
-		prescription.setPatientname(patientname);
+		prescription.setPatientName(patientName);
 		  prescription.setDescription(description);
 			this.prescriptionRepository.save(prescription);
 			
-			modelMap.put("patientname", patientname);
+			modelMap.put("patientName", patientName);
            modelMap.put("description", description);
 		return "viewPrescription";
 	}
 
 
 	public List<Prescription> findHistory(String patientDetailsName) {
-	List<Prescription> result=	prescriptionRepository.findAllByPatientname(patientDetailsName);
+	List<Prescription> result=	prescriptionRepository.findAllByPatientName(patientDetailsName);
 		return result;
 	}
 	

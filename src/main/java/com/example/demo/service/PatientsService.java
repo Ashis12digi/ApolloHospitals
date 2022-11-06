@@ -32,63 +32,51 @@ public class PatientsService implements PatientServiceInterface{
 	public PatientsService(PatientsRepository patientsRepository) {
 	this.patientsRepository = patientsRepository;
 }
-
-	Patients patients;
 	
 	public String entry() {
 		return "index";
 	}
 
 	public String login() {
-		return "PatientsLogin";
+		return "patientsLogin";
 	}
 
 	public String registration() {
 		return "PatientsRegistration";
 	}
 
-	public String viewDetails(
-		 String patientname,
-	     String username,
-		 String password,
-		 String emailid,
-	     Date dateofbirth,
-	     String gender,
-		 String bloodgroup,
-		 String mobilenumber,
-		 String address,
-			ModelMap modelMap) {
+	public String viewDetails( String patientName, String username, String password, String emailId, Date dateOfBirth,
+	     String gender,String bloodGroup, String mobileNumber, String address,	ModelMap modelMap) {
 		
 		Patients patients=new Patients();
 		patients.setId(patients.getId());
-		patients.setPatientname(patientname);
+		patients.setPatientName(patientName);
 		patients.setUsername(username);
 		patients.setPassword(password);
-		patients.setEmailid(emailid);
-		patients.setDateofbirth(dateofbirth);
+		patients.setEmailId(emailId);
+		patients.setDateOfBirth(dateOfBirth);
 		patients.setGender(gender);
-		patients.setBloodgroup(bloodgroup);
-		patients.setMobilenumber(mobilenumber);
+		patients.setBloodGroup(bloodGroup);
+		patients.setMobileNumber(mobileNumber);
 		patients.setAddress(address);
 		this.patientsRepository.save(patients);
 		
-
   	modelMap.put("id", patients.getId());
-	modelMap.put("patientname",patientname);
+	modelMap.put("patientName",patientName);
 	modelMap.put("username",username);
 	modelMap.put("password", password);
-	modelMap.put("emailid", emailid);
-	modelMap.put("dateofbirth", dateofbirth);
+	modelMap.put("emailId", emailId);
+	modelMap.put("dateOfBirth", dateOfBirth);
 	modelMap.put("gender", gender);
-	modelMap.put("bloodgroup", bloodgroup);
-	modelMap.put("mobilenumber", mobilenumber);
+	modelMap.put("bloodGroup", bloodGroup);
+	modelMap.put("mobileNumber", mobileNumber);
 	modelMap.put("address", address);
-	return "Reg_Success";
+	return "PatientRegistrationSuccess";
 	
 	}
 
-	public Patients getPatientLogin(String username, String password) {
-		Patients patient=patientsRepository.findByUsernameAndPassword(username,password);
+	public Patients getPatientLogin(String userName, String password) {
+		Patients patient=patientsRepository.findByUsernameAndPassword(userName,password);
 		return patient;
 	}
 
@@ -105,8 +93,8 @@ public String patient(ModelMap model) {
 	 return "displayAllPatient";
 }
 
-public Patients getData(String username) {
-	Patients patient= patientsRepository.findByusername(username);
+public Patients getData(String userName) {
+	Patients patient= patientsRepository.findByUsername(userName);
 			return  patient;
 }
 
@@ -117,26 +105,25 @@ public void deletePatient(int id) {
 
 
 public Patients patientUpdateFactching(int id) {
-	patients=patientsRepository.findById(id);
-	System.out.println(patients);
+	Patients patients=patientsRepository.findById(id);
+	
 	return patients;
 }
-
 
 public Patients patientUpdate(HttpServletRequest request) throws Exception {
 	Patients patientsId= patientsRepository.findById(Integer.parseInt(request.getParameter("id")));
     Patients patients= new Patients();
     patients.setId(patientsId.getId());
-    patients.setPatientname(request.getParameter("patientname"));
-    patients.setUsername(request.getParameter("username"));
+    patients.setPatientName(request.getParameter("patientName"));
+    patients.setUsername(request.getParameter("userName"));
     patients.setPassword(request.getParameter("password"));
-    patients.setEmailid(request.getParameter("emailid"));
-    String date=request.getParameter("dateofbirth");
-    Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(date);  
-    patients.setDateofbirth(date1);
+    patients.setEmailId(request.getParameter("emailId"));
+    String date=request.getParameter("dateOfBirth");
+    Date dateFormat=new SimpleDateFormat("yyyy-MM-dd").parse(date);  
+    patients.setDateOfBirth(dateFormat);
     patients.setGender(request.getParameter("gender"));
-    patients.setBloodgroup(request.getParameter("bloodgroup"));
-   patients.setMobilenumber(request.getParameter("mobilenumber"));
+    patients.setBloodGroup(request.getParameter("bloodGroup"));
+   patients.setMobileNumber(request.getParameter("mobileNumber"));
     patients.setAddress(request.getParameter("address"));
     this.patientsRepository.save(patients);
 	

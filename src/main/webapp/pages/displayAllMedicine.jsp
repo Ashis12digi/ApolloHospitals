@@ -90,11 +90,11 @@
 <c:forEach items="${result}" var="x">  
   <tr>
     <td>${x.medicineId}</td>
-    <td>${x.medicinename}</td>  
+    <td>${x.medicineName}</td>  
    <td>${x.brand}</td> 
-   <td>${x.madein}</td> 
+   <td>${x.madeIn}</td> 
     <td>${x.quantity}</td>
-    <td>${x.medicinecost}</td>
+    <td>${x.medicineCost}</td>
  <td>     <a class="btn btn-info" href="/editMedicine?medicineId=${x.medicineId}"><h4>Update</h4></a></td>
       
       

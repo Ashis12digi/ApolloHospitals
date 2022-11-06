@@ -34,9 +34,9 @@
   <tr>
 
    <td>${result.medicineId} </td> 
-    <td>${result.medicinename}</td>  
-	<td>${result.madein}</td>
-	<td>${result.medicinecost}</td>
+    <td>${result.medicineName}</td>  
+	<td>${result.madeIn}</td>
+	<td>${result.medicineCost}</td>
 	</tr>
 	
 </tbody>
@@ -44,7 +44,8 @@
 
 </fieldset>
 <br><br>
-<form action="medicinepayment" >
+<form action="medicinePayment" method="post">
+<input type="hidden" name= "medicineId" value="${result.medicineId}">
  <input type="submit" value="Confirm"></input>
 </form><br><br>
 

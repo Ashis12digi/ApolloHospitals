@@ -12,7 +12,7 @@
 
 
 <center>
-<form action="feedbackdisplay" id="ft-form" method="POST" accept-charset="UTF-8">
+<form action="feedbackDisplay" id="ft-form" method="POST" accept-charset="UTF-8">
   <fieldset>
     <legend>Feedback Details</legend>
    

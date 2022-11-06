@@ -17,7 +17,7 @@
 <center>
 <h3>Doctor Profile Details</h3>
 
-<h4>  Doctor Name  :${result.name}</h4>
+<h4>  Doctor Name  :${result.doctorName}</h4>
 
 <h4>  Doctor Username  :${result.username}</h4>
 
@@ -28,11 +28,11 @@
 
 <h4>  Doctor Gender  :${result.gender}</h4>
 
-<h4>  Doctor EmailId  :${result.emailid}</h4>
+<h4>  Doctor EmailId  :${result.emailId}</h4>
 
 <h4>  Doctor Timing  :${result.timing}</h4>
 <h4>  Doctor Fees  :${result.fees}</h4>
-<h4>  Doctor Mobile Number  :${result.mobilenumber}</h4>
+<h4>  Doctor Mobile Number  :${result.mobileNumber}</h4>
 <h4>  Doctor Info  :${result.info}</h4>
 <h4>  Doctor Experience  :${result.experience}</h4>
 

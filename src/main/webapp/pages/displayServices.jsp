@@ -16,9 +16,9 @@
 
 <h3>Service Details: </h3>
 
-<h4> Service ID  :${serviceid }</h4>
+<h4> Service ID  :${serviceId }</h4>
 
-<h4>Patient Name  :${patientname }</h4>
+<h4>Patient Name  :${patientName }</h4>
 <h4> Service Details  :${servicedetails }</h4>
 <h4>Service Amount  :${amount }</h4>
 

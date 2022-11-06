@@ -1,10 +1,11 @@
-package com.example.demo.controller;
+ package com.example.demo.controller;
 
 import java.sql.Date;
 import java.text.ParseException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.repository.MedicineRepository;
 import com.example.demo.service.MedicineService;
+
+import java.util.*;
+
 import com.example.demo.pojo.Medicine;
 import com.example.demo.pojo.ServiceFacility;
 
@@ -31,8 +35,6 @@ public class MedicineController {
     public MedicineController(MedicineService medicineService) {
 		this.medicineService = medicineService;
 	}
-
-	Medicine medicine;
 	
   @RequestMapping("/medicineitems")
 	  public String medicineform() {
@@ -47,18 +49,18 @@ public class MedicineController {
 		
 		@PostMapping("/update/Inventory")
 		public String updateMedicineInventory(
-				 @RequestParam (required=false,name="medicinename") String medicinename,
+				 @RequestParam (required=false,name="medicineName") String medicineName,
 					@RequestParam( required=false,name="brand")  String brand,
-					@RequestParam( required=false,name="madein")  String madein,
+					@RequestParam( required=false,name="madeIn")  String madeIn,
 					@RequestParam( required=false,name="quantity")  int quantity,
-					@RequestParam( required=false,name="medicinecost")  double medicinecost,
+					@RequestParam( required=false,name="medicineCost")  double medicineCost,
 				ModelMap modelMap
 				) {
 			
-			return medicineService.updateMedicineInventory( medicinename, brand, madein,quantity,medicinecost, modelMap);
+			return medicineService.updateMedicineInventory( medicineName, brand, madeIn,quantity,medicineCost, modelMap);
 		}
 		
-		 @GetMapping("/fetchmedicine")
+		 @GetMapping("/fetchMedicine")
 		  public String Medicine(ModelMap model) {
 			return medicineService.medicine(model);
 			  
@@ -67,17 +69,17 @@ public class MedicineController {
 		 @RequestMapping(value="/doctor/deleteMedicine/{medicineId}", method=RequestMethod.GET)
 	     public ModelAndView delete(@PathVariable("medicineId") int medicineId) { 
 			 medicineService.deleteMedicine(medicineId);
-	      return new ModelAndView("/DeleteMedicine");
+	      return new ModelAndView("/deleteMedicine");
 	      
 	     }
 			 
-@GetMapping("/listofMedicine")
+@GetMapping("/listOfMedicine")
  public String listOfMedicine(ModelMap model) {
 	return medicineService.listOfMedicine(model);
 	  
  }
 	
-@PostMapping("/SearchMedicine")
+@PostMapping("/searchMedicine")
 public String serviceStatus(@RequestParam ("medicineId") int medicineId, HttpServletRequest request,ModelMap map){
 	Medicine medicine= medicineService.findMedicine(medicineId);
 		map.put("result", medicine);
@@ -85,44 +87,45 @@ public String serviceStatus(@RequestParam ("medicineId") int medicineId, HttpSer
 	
 }
 
-@GetMapping("medicinepayment")
-public String medicineConfirmData(ModelMap map) {
+@PostMapping("medicinePayment")
+public String medicineConfirmData(ModelMap map,	@RequestParam("medicineId") int medicineId) {
+	
+	Medicine medicine= medicineService.findMedicine(medicineId); 
 	map.put("medicineId", medicine.getMedicineId());
-	map.put("medicinename", medicine.getMedicinename());
+	map.put("medicineName", medicine.getMedicineName());
 	map.put("quantity", medicine.getQuantity());
-	map.put("medicinecost", medicine.getMedicinecost());
-		
+	map.put("medicineCost", medicine.getMedicineCost());
 	return "confirmMedicine";
 	
 }
 
-@RequestMapping("/paymentmedicine")
+@RequestMapping("/paymentMedicine")
 	public String medicinePayment(
 			@RequestParam("number") double number, 
-			@RequestParam("medicinecost") double medicinecost, HttpServletRequest request, ModelMap map) {
-		double total=number*medicinecost;
+			@RequestParam("medicineCost") double medicineCost, HttpServletRequest request, ModelMap map) {
+		double total=number*medicineCost;
 		map.put("Total", total);
 		return "medicineAmount";
 	}
 	
-@RequestMapping("/paymentdonemedicine")
+@RequestMapping("/paymentDoneMedicine")
 public String paymentDone() {
-return "servicepaymentdone";
+return "servicePaymentDone";
 }
 
 @RequestMapping(value="/editMedicine", method=RequestMethod.GET)
 public ModelAndView viewAll(@RequestParam("medicineId") int medicineId,ModelMap map) {
-ModelAndView modelAndView=new ModelAndView("/updatemedicinedetails");
-Medicine list=medicineService.medicineUpdate(medicineId);
+ModelAndView modelAndView=new ModelAndView("/updateMedicineDetails");
+Medicine list=medicineService.medicineUpdateFetch(medicineId);
 map.put("medicinedata", list);
 return modelAndView; 
 }
 
 @PostMapping("/updateMedicine") 
 public ModelAndView updateTable(HttpServletRequest request,ModelMap map){
-ModelAndView modelAndView=new ModelAndView("/displayAllMedicin");
-Medicine mediicne= medicineService.medicineUpdate(request);
-map.put("result", mediicne);
+ModelAndView modelAndView=new ModelAndView("/displayAllMedicine");
+List<Medicine> medicineList= medicineService.medicineUpdate(request);
+map.put("result", medicineList);
 return modelAndView; 
 }
 

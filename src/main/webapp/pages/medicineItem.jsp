@@ -20,7 +20,7 @@
    
     <label>
     Medicine Name:
-      <input type="text" name="medicinename" required>
+      <input type="text" name="medicineName" required>
     </label>
     <br><br>
     <label>
@@ -30,7 +30,7 @@
     <br><br>
     <label>
     Made in:
-      <input type="text" name="madein" required>
+      <input type="text" name="madeIn" required>
     </label>
     <br><br>
     <label>
@@ -40,7 +40,7 @@
     <br><br>
     <label>
     Medicine Cost:
-      <input type="text" name="medicinecost" required>
+      <input type="text" name="medicineCost" required>
     </label>
    <br><br>
     

@@ -25,8 +25,8 @@
 
 <c:forEach items="${service}" var="x">  
   <tr>
-    <td>${x.prescriptionid}</td>
-    <td>${x.patientname}</td>  
+    <td>${x.prescriptionId}</td>
+    <td>${x.patientName}</td>  
  
     <td>${x.description}</td>
     

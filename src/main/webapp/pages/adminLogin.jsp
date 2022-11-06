@@ -4,20 +4,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Doctor Login</title>
-
-<style >
-
-</style>
-
+<title>Admin Login</title>
 </head>
 <body>
+
+
 <center>
 
-<h1>Doctor Login</h1>
+<h1>Admin Login</h1>
 <fieldset style="width:600px">
-<form action="doctorloginusername" >
- USER NAME:<input type="text" name="username" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+<form action="adminLoginValidation" >
+ USER NAME:<input type="text" name="userName" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
 
  <br><br>
  
@@ -28,12 +25,12 @@
  
  <br><br>
     <input type="submit" value="Login">
-
+ 
+ 
  
 <hr>
 </form>
-   <a  href="dregistration"><button>Create new Account</button></a>
-
+   <a  href="adminRegistration"><button>Create new Account</button></a>
 </fieldset>
 </center>
 

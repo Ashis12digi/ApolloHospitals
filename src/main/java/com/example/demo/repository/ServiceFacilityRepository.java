@@ -15,6 +15,6 @@ import com.example.demo.pojo.ServiceFacility;
 public interface ServiceFacilityRepository extends CrudRepository<ServiceFacility, Integer> {
 	ServiceFacility findByServiceId(int serviceId);
 	List<ServiceFacility> findAllByServiceName(String serviceName);
-	ServiceFacility findById(int id);
+	ServiceFacility findById(int serviceId);
 
 }

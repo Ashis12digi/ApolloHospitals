@@ -53,8 +53,8 @@ body {
 </center>
 <div class="topnav">
   <a class="active" href="/">Home</a>
-   <a href="fetchAllServicesindex">Lab Facility</a>
-  <a href="listofMedicine">Medicine</a>
+   <a href="fetchAllServicesIndex">Lab Facility</a>
+  <a href="listOfMedicine">Medicine</a>
   
  </div>
 

@@ -21,8 +21,8 @@
 
  <h2>Patients Registration</h2>
 <fieldset style="width:600px">
-<form action="regsuccess" method="post" >
- NAME:<input type="text" name="patientname" required="required">
+<form action="viewDetails" method="post" >
+ NAME:<input type="text" name="patientName" required="required">
 
  <br><br>
  <tr>
@@ -38,13 +38,13 @@
  <br><br>
  <tr>
  EMAIL ID:
-<input type="text" name="emailid" required="required">
+<input type="text" name="emailId" required="required">
 </tr>
  <br><br>
 
 <tr>
 DATE OF BIRTH:
-<input type="text" name="dateofbirth" placeholder=" MM/dd/yyyy " required="required">
+<input type="text" name="dateOfBirth" placeholder=" MM/dd/yyyy " required="required">
 </tr>
 
 
@@ -55,13 +55,13 @@ DATE OF BIRTH:
  <br><br>
   <tr>
 BLOOD GROUP:
-<input type="text" name="bloodgroup">
+<input type="text" name="bloodGroup">
 </tr>
  <br><br>
  
   <tr>
  MOBILE NUMBER:
-<input type="text" name="mobilenumber" 
+<input type="text" name="mobileNumber" 
  pattern("^((\\+91-?) |0)?[0-9]{10}$")
 pattern="[789][0-9]{9}"
  title="Phone number with 7-9 and remaing 9 digit with 0-9"

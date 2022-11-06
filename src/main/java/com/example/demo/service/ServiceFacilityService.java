@@ -34,7 +34,7 @@ public class ServiceFacilityService implements ServiceFacilityServiceInterface{
 	ServiceFacility serviceFacility;
 
 	public String serviceFacilityDetails() {
-		return "ServiceFacilityform";
+		return "serviceFacilityForm";
 		
 	}
 
@@ -59,7 +59,7 @@ public class ServiceFacilityService implements ServiceFacilityServiceInterface{
 }
 
 	public String facilityDetails() {
-		return "servicefacility";
+		return "serviceFacility";
 	}
   
 	public String serviceDisplayIndex(ModelMap model) {
@@ -93,16 +93,15 @@ public class ServiceFacilityService implements ServiceFacilityServiceInterface{
 	}
 	
 	  public ServiceFacility ServiceUpdateFactching(int serviceId) {
-	  serviceFacility=serviceFacilityRepository.findById(serviceId);
-	  System.out.println(serviceFacility); 
+	  serviceFacility=serviceFacilityRepository.findById(serviceId); 
 	  return serviceFacility;
 	  }
 	 
 
-	  public List<ServiceFacility> serviceUpdate(HttpServletRequest request)  {
-	  ServiceFacility serviceFacility=serviceFacilityRepository.findById(Integer.parseInt(request.getParameter("serviceId")));
-	  serviceFacility.setServiceId(serviceFacility.getServiceId());
-	  serviceFacility.setServiceName(request.getParameter("serviceName"));
+	  public List<ServiceFacility> serviceUpdate(int id, String serviceName)  {
+		  
+	  ServiceFacility serviceFacility=serviceFacilityRepository.findById(id);
+	  serviceFacility.setServiceName(serviceName);
 	  serviceFacilityRepository.save(serviceFacility);
 	  List<ServiceFacility> list= new ArrayList();
 	  serviceFacilityRepository.findAll().forEach(x->list.add(x));

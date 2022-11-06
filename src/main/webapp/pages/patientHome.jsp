@@ -58,7 +58,7 @@ body {
   <div class="topnav">
   <a class="active" href="/">Home</a>
  
- <a href="patientprofile">Profile</a>
+ <a href="patientProfile">Profile</a>
      <a href="appointmentHistory">Appointment History</a>
  <a href="history"> Prescription History</a>
 <a href="displayServiceFacilityIndex">Services</a>

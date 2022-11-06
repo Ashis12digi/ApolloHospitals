@@ -17,10 +17,10 @@
 
 <h3>Appointment Details: </h3>
 
-<h4> Appointment ID  :${appointmentid }</h4>
-<h4> Patient Name   :${patientname }</h4>
-<h4> Mobile Number :${MobileNumber }</h4>
-<h4> Doctor Name  :${doctorname }</h4>
+<h4> Appointment ID  :${appointmentId }</h4>
+<h4> Patient Name   :${patientName }</h4>
+<h4> Mobile Number :${mobileNumber }</h4>
+<h4> Doctor Name  :${doctorName }</h4>
 <h4> Appointment date  :${date }</h4>
 <h4> Address  :${Address }</h4>
 <h4>Please visit the hospital on the above date to take the best facility</h4>

@@ -14,18 +14,16 @@ public class Medicine {
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int medicineId;
-	private String medicinename;
+	private String medicineName;
 	private String brand;
-	private String madein;
+	private String madeIn;
 	private int quantity;
-	private double medicinecost;
+	private double medicineCost;
 	
 	
 	public Medicine() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
-
 
 
 	public int getMedicineId() {
@@ -38,13 +36,13 @@ public class Medicine {
 	}
 
 
-	public String getMedicinename() {
-		return medicinename;
+	public String getMedicineName() {
+		return medicineName;
 	}
 
 
-	public void setMedicinename(String medicinename) {
-		this.medicinename = medicinename;
+	public void setMedicineName(String medicineName) {
+		this.medicineName = medicineName;
 	}
 
 
@@ -58,13 +56,13 @@ public class Medicine {
 	}
 
 
-	public String getMadein() {
-		return madein;
+	public String getMadeIn() {
+		return madeIn;
 	}
 
 
-	public void setMadein(String madein) {
-		this.madein = madein;
+	public void setMadeIn(String madeIn) {
+		this.madeIn = madeIn;
 	}
 
 
@@ -78,22 +76,25 @@ public class Medicine {
 	}
 
 
-	public double getMedicinecost() {
-		return medicinecost;
+	public double getMedicineCost() {
+		return medicineCost;
 	}
 
 
-	public void setMedicinecost(double medicinecost) {
-		this.medicinecost = medicinecost;
+	public void setMedicineCost(double medicineCost) {
+		this.medicineCost = medicineCost;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Medicine [medicineId=" + medicineId + ", medicinename=" + medicinename + ", brand=" + brand
-				+ ", madein=" + madein + ", quantity=" + quantity + ", medicinecost=" + medicinecost + "]";
+		return "Medicine [medicineId=" + medicineId + ", medicineName=" + medicineName + ", brand=" + brand
+				+ ", madeIn=" + madeIn + ", quantity=" + quantity + ", medicineCost=" + medicineCost + "]";
 	}
-	
+
+  
+
+
 	
 
 

@@ -9,7 +9,7 @@
 <body>
 <body>
 <center>
-<form action="paymentdone" method ="post">
+<form action="paymentDone" method ="post">
 <h2>Thank you for chossing our service facility</h2>
 
 

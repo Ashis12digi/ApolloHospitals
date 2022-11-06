@@ -13,9 +13,9 @@ import com.example.demo.pojo.Patients;
 @Repository
 public interface PatientsRepository extends CrudRepository<Patients, Integer>{
 
-	Patients findByUsernameAndPassword(String username, String password);
-    Patients findByusername(String username);
-	Patients findByEmailid(String emailid);
+	Patients findByUsernameAndPassword(String userName, String password);
+    Patients findByUsername(String username);
+	Patients findByEmailId(String emailId);
 	Patients findById(int id);
 
 	

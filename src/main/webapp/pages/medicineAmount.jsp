@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 
 
 
-<form action="paymentdonemedicine" method ="post">
+<form action="paymentDoneMedicine" method ="post">
 <h2>Thank you for chossing our service facility</h2>
 <h2>Your total Amount is:</h2>
 

@@ -13,15 +13,15 @@
 
  <h2>Admin Registration</h2>
 <fieldset style="width:600px">
-<form action="aregist" method="post" >
- NAME:<input type="text" name="name" required="required">
+<form action="adminViewDetails" method="post" >
+ NAME:<input type="text" name="adminName" required="required">
 
  <br><br>
  
  
  <tr>
  USERNAME:
-<input type="text" name="username"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+<input type="text" name="userName"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 </tr>
 
  <br><br>
@@ -37,7 +37,7 @@
  <br><br>
  <tr>
  EMAIL ID:
-<input type="text" name="emailid" required="required">
+<input type="text" name="emailId" required="required">
 </tr>
 
  <br><br>
@@ -48,7 +48,7 @@
  
   <tr>
  MOBILE NUMBER:
-<input type="text" name="mobilenumber" 
+<input type="text" name="mobileNumber" 
  pattern("^((\\+91-?) |0)?[0-9]{10}$")
 pattern="[789][0-9]{9}"
  title="Phone number with 7-9 and remaing 9 digit with 0-9"

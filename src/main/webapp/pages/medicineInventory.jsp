@@ -85,11 +85,11 @@
 
 <c:forEach items="${result}" var="x">  
   <tr>
-    <td>${x.medicineid}</td>
-    <td>${x.medicinename}</td>  
+    <td>${x.medicineId}</td>
+    <td>${x.medicineName}</td>  
  
     <td>${x.quantity}</td>
-    <td>${x.medicinecost}</td>
+    <td>${x.medicineCost}</td>
     
       
      
@@ -98,7 +98,7 @@
       
        
      <td>
-       <spring:url value="/doctor/deleteMedicine/${x.medicineid}" var="deleteURL" />
+       <spring:url value="/doctor/deleteMedicine/${x.medicineId}" var="deleteURL" />
        <a class="btn btn-danger" href="${deleteURL}" role="button" >Delete</a>
       </td>
      

@@ -8,7 +8,7 @@
 </head>
 <body>
 <center>
-<h1>Deleted Successfully</h1>
+<h1>Deleted Successfully!</h1>
 
 <a href="/">Home</a>
 

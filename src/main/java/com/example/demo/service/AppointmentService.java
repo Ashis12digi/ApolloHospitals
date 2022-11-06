@@ -32,34 +32,33 @@ import com.example.demo.repository.AppointmentRepository;
 		this.appointmentRepository = appointmentRepository;
 	}
 
-
 public String AppointmentForm() 
   {
-	  return "Appointment"; 
+	  return "appointment"; 
   }
   
   
-  public String viewAppointment(  String patientname,long MobileNumber, String doctorname, Date date,String Address,
+  public String viewAppointment(  String patientName,long mobileNumber, String doctorName, Date date,String Address,
 		    ModelMap modelMap) {
 	   Appointment appointment=new Appointment();
-	   appointment.setPatientname(patientname);
-	   appointment.setMobileNumber(MobileNumber);
-	   appointment.setDoctorname(doctorname);
+	   appointment.setPatientName(patientName);
+	   appointment.setMobileNumber(mobileNumber);
+	   appointment.setDoctorName(doctorName);
 	   appointment.setDate(date);
 	   appointment.setAddress(Address);
 	   this.appointmentRepository.save(appointment);
 	
-  modelMap.put("appointmentid", appointment.getAppointmentid());
-  modelMap.put("patientname", patientname);
-  modelMap.put("MobileNumber", MobileNumber);
-  modelMap.put("doctorname", appointment.getDoctorname());
+  modelMap.put("appointmentId", appointment.getAppointmentId());
+  modelMap.put("patientName", patientName);
+  modelMap.put("mobileNumber", mobileNumber);
+  modelMap.put("doctorName", appointment.getDoctorName());
   modelMap.put("date", appointment.getDate());
   modelMap.put("Address", Address);
-	return "DisplayAppointment";
+	return "displayAppointment";
 	}
   
   public List<Appointment> findHistory(String patientDetailsName) {
-		List<Appointment> result=appointmentRepository.findAllByPatientname(patientDetailsName);
+		List<Appointment> result=appointmentRepository.findAllByPatientName(patientDetailsName);
 			return result;
 		}
 		

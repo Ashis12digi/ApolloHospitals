@@ -37,7 +37,7 @@
 
 
   <tr>
-    <td>${patientname}</td>
+    <td>${patientName}</td>
    
  
     <td>${description}</td>

@@ -64,15 +64,15 @@ body {
   <div class="topnav">
   <a class="active" href="#home">HOME</a>
  
-   <a href="fetchalldoctor">DOCTORS</a>
-   <a href="Appointmentform">BOOK APPOINTMENT</a>
+   <a href="fetchAllDoctors">DOCTORS</a>
+   <a href="appointmentForm">BOOK APPOINTMENT</a>
     
       
-       <a href="ServiceFacilityindex">MEDICAL STORE</a>
+       <a href="serviceFacilityIndex">MEDICAL STORE</a>
   
-     <a href="contactus">CONTACT US</a>
+     <a href="contactUs">CONTACT US</a>
  
-   <a  class="activereg" href="alllogin">LOGIN</a>
+   <a  class="activereg" href="allLogin">LOGIN</a>
            
   
    

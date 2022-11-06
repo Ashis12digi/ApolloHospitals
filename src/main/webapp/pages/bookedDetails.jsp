@@ -7,22 +7,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Display Medicine</title>
+<title>Display Services</title>
 <link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 
-
 </head>
 <body>
 
-
 <center>
 
-
-
-
-<h1> The Medicine Details are:</h1>
+<h1> The Service Details are:</h1>
 <fieldset style="width: 1000px">
 
 
@@ -30,39 +25,36 @@
 <table border = "1" width = "100%">
 <thead>
 <tr>
-<th >Medicine Id</th>
-<th>Medicine Name</th>
-<th>Made In</th>
-<th>Medicine Cost/Piece</th>
+<th >Service Id</th>
+<th>Patient Name</th>
+<th>Service Name</th>
+<th>Mobile Number</th>
+<th>Amount</th>
+<th>Action</th>
+
 
 </tr>
 </thead>
 <tbody>
+ 
+    <td>${serviceId}</td>
+     <td>${patientName}</td>
+    <td>${serviceName}</td>
+    <td>${mobileNumber}</td>  
+   <td>${amount}</td> 
+  
+   <td>
+   
+   <form action="/payment" method ="post">
 
-
-
-<c:forEach items="${result}" var="x">  
-  <tr>
-    <td>${x.medicineId}</td>
-    <td>${x.medicinename}</td>  
-   <td>${x.madein}</td> 
-    
-      <td>${x.medicinecost}</td> 
-
-</c:forEach>
-
-
-
-
+<input type ="submit" value="Confirm">
+</form>
+   
+   </td>
+ 
 </tbody>
 </table>
 
-
- <form action="SearchMedicine" method="post" >
-
-Enter the Medicine Id <input required="required" type = "number" placeholder="Enter Medicine id" name=medicineId> <br><br>
- <input type="submit" value="Enter"></input>
-</form>
 
 
 

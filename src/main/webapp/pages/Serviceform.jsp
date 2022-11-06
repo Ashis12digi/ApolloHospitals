@@ -18,7 +18,7 @@
  
  <tr>
  Patient Name:
-<input type="text" name="patientname" placeholder="Enter patientsname " required="required">
+<input type="text" name="patientName" placeholder="Enter patientsName " required="required">
 </tr>
  
  <br><br>

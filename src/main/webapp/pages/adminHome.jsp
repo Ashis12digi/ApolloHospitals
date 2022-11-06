@@ -54,13 +54,11 @@ body {
 
   <div class="topnav">
   <a class="active" href="/">Home</a>
- <a href="fetchpatient">Patients Details</a>
-  <a href="fetchmedicine">Medicine Inventory</a>
+ <a href="fetchPatient">Patients Details</a>
+  <a href="fetchMedicine">Medicine Inventory</a>
  
   <a href="fetchAllServices">Service Inventory</a>
   
-        
-  >
    <a href=fetch>Doctor Details</a>
   
    

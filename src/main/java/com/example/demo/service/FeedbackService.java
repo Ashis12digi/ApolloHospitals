@@ -19,24 +19,24 @@ public class FeedbackService {
 
 	public String FeedbackForm() {
 			
-			return "feedbackform";
+			return "feedbackForm";
 			
 		}
 	
 
 	public String viewFeedback(String name, String details,ModelMap modelMap) {
 		Feedback feedback= new Feedback();
-		feedback.setPatientid(feedback.getPatientid());
+		feedback.setPatientId(feedback.getPatientId());
 		feedback.setName(name);
 		feedback.setDetails(details);
 		
 	
 		  this.feedbackRepository.save(feedback);
-		  modelMap.put("patientid", feedback.getPatientid());
+		  modelMap.put("patientId", feedback.getPatientId());
 		  modelMap.put("name", name);
 		  modelMap.put("details", details);
 		  
-		  return "displayfeedback";
+		  return "displayFeedback";
 		
 	}
 

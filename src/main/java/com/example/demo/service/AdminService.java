@@ -34,62 +34,54 @@ public class AdminService {
 	}
 
 	public String login() {
-		return "AdminLogin";
+		return "adminLogin";
 	}
 
 	public String registration() {
-		return "AdminRegistration";
+		return "adminRegistration";
 	}
 
-	public String viewDetails(String name,String username,String password, String emailid, String gender, long mobilenumber,
+	public String viewDetails(String adminName,String userName,String password, String emailId, String gender, long mobileNumber,
 				ModelMap modelMap) {
 	
 		Admin admin=new Admin();
 		admin.setId(admin.getId());
-		admin.setName(name);
-		admin.setUsername(username);
+		admin.setAdminName(adminName);
+		admin.setUserName(userName);
 		admin.setPassword(password);
-		admin.setEmailid(emailid);
+		admin.setEmailId(emailId);
 		admin.setGender(gender);
-		admin.setMobilenumber(mobilenumber);
+		admin.setMobileNumber(mobileNumber);
 		this.adminRepository.save(admin);
 		
   	modelMap.put("id", admin.getId());
-	modelMap.put("name",name);
-	modelMap.put("username", username);
+	modelMap.put("adminName",adminName);
+	modelMap.put("userName", userName);
 	modelMap.put("password", password);
-	modelMap.put("emailid", emailid);
+	modelMap.put("emailId", emailId);
 	modelMap.put("gender", gender);
-	modelMap.put("mobilenumber", mobilenumber);
-	return "Adminregistsuccess";
+	modelMap.put("mobileNumber", mobileNumber);
+	return "adminRegistrationSuccessful";
 	}
 	
 	public String adminHome() {
-		return "AdminHome";
+		return "adminHome";
 	}
-
 	
-	
-	public List<Patients> allPatients() {
-		List<Patients>patient=new ArrayList<>();
-		patientsRepository.findAll().forEach(i->patient.add(i));
-		return patient;
-	}
-
 	public List<Doctor> allDoctor() {
 		List<Doctor>doctor=new ArrayList<>();
 		doctorRepository.findAll().forEach(i->doctor.add(i));
 		return doctor;
 	}
 
-	public Admin getLogin(String username, String password) {
-		Admin admin=adminRepository.findByUsernameAndPassword(username,password);
+	public Admin getLogin(String userName, String password) {
+		Admin admin=adminRepository.findByUserNameAndPassword(userName,password);
 		return admin;
 	}
 
 	
 	public String contactUs() {
-		return "ContactUs";
+		return "contactUs";
 	}
 	
 

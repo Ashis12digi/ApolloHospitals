@@ -24,22 +24,21 @@ public class Patients {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column
-	private String patientname;
-	
+	private String patientName;
 	@Column(name = "username", unique = true)
 	private String username;
 	@Column
 	private String password;
-	@Column(name = "emailid", unique = true)
-	private String emailid;
+	@Column(name = "emailId", unique = true)
+	private String emailId;
 	@Column
-	private Date dateofbirth;
+	private Date dateOfBirth;
 	@Column
 	private String gender;
 	@Column
-	private String bloodgroup;
+	private String bloodGroup;
 	@Column
-	private String mobilenumber;
+	private String mobileNumber;
 	@Column
 	private String address;
 	
@@ -55,13 +54,15 @@ public class Patients {
 		this.id = id;
 	}
 
-	public String getPatientname() {
-		return patientname;
+	public String getPatientName() {
+		return patientName;
 	}
 
-	public void setPatientname(String patientname) {
-		this.patientname = patientname;
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
+
+	
 
 	public String getUsername() {
 		return username;
@@ -79,20 +80,20 @@ public class Patients {
 		this.password = password;
 	}
 
-	public String getEmailid() {
-		return emailid;
+	public String getEmailId() {
+		return emailId;
 	}
 
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
-	public Date getDateofbirth() {
-		return dateofbirth;
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setDateofbirth(Date dateofbirth) {
-		this.dateofbirth = dateofbirth;
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public String getGender() {
@@ -103,20 +104,20 @@ public class Patients {
 		this.gender = gender;
 	}
 
-	public String getBloodgroup() {
-		return bloodgroup;
+	public String getBloodGroup() {
+		return bloodGroup;
 	}
 
-	public void setBloodgroup(String bloodgroup) {
-		this.bloodgroup = bloodgroup;
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
 	}
 
-	public String getMobilenumber() {
-		return mobilenumber;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setMobilenumber(String mobilenumber) {
-		this.mobilenumber = mobilenumber;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	public String getAddress() {
@@ -129,14 +130,14 @@ public class Patients {
 
 	@Override
 	public String toString() {
-		return "Patients [id=" + id + ", patientname=" + patientname + ", username=" + username + ", password="
-				+ password + ", emailid=" + emailid + ", dateofbirth=" + dateofbirth + ", gender=" + gender
-				+ ", bloodgroup=" + bloodgroup + ", mobilenumber=" + mobilenumber + ", address=" + address + "]";
+		return "Patients [id=" + id + ", patientName=" + patientName + ", username=" + username + ", password="
+				+ password + ", emailId=" + emailId + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender
+				+ ", bloodGroup=" + bloodGroup + ", mobileNumber=" + mobileNumber + ", address=" + address + "]";
 	}
 
 	
-	
 
+	
 	
 
 	

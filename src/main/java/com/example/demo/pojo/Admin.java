@@ -16,19 +16,23 @@ public class Admin {
 	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String name;
-	@Column(name = "username", unique = true)
-	private String username;
+	@Column(name="admin_name")
+	private String adminName;
+	
+	@Column(name="user_name", unique = true)
+	private String userName;
+	@Column(name="password")
 	private String password;
-	private String emailid;
+	@Column(name="email_id")
+	private String emailId;
+	@Column(name="gender")
 	private String gender;
-	private long mobilenumber;
+	@Column(name="mobileNumber")
+	private long mobileNumber;
 	
 	public Admin() {
-		// TODO Auto-generated constructor stub
-	}
-
 	
+	}
 
 	public int getId() {
 		return id;
@@ -38,20 +42,20 @@ public class Admin {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getAdminName() {
+		return adminName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -62,12 +66,12 @@ public class Admin {
 		this.password = password;
 	}
 
-	public String getEmailid() {
-		return emailid;
+	public String getEmailId() {
+		return emailId;
 	}
 
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public String getGender() {
@@ -78,20 +82,22 @@ public class Admin {
 		this.gender = gender;
 	}
 
-	public long getMobilenumber() {
-		return mobilenumber;
+	public long getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setMobilenumber(long mobilenumber) {
-		this.mobilenumber = mobilenumber;
+	public void setMobileNumber(long mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", emailid="
-				+ emailid + ", gender=" + gender + ", mobilenumber=" + mobilenumber + "]";
+		return "Admin [id=" + id + ", adminName=" + adminName + ", userName=" + userName + ", password=" + password
+				+ ", emailId=" + emailId + ", gender=" + gender + ", mobileNumber=" + mobileNumber + "]";
 	}
 
+	
+	
 	
 	
 	

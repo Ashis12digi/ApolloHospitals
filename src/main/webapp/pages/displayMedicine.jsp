@@ -13,15 +13,9 @@
 
 
 <h3>Medicine Details: </h3>
-
-
-<h4>  Medicine Id  :${medicineId }</h4>
-<h4>  Medicine Name  :${medicinename }</h4>
-
-
-
+<h4>  Medicine Name  :${medicineName }</h4>
 <h4>  Quantity  :${quantity }</h4>
-<h4> Medicine Cost  :${medicinecost }</h4>
+<h4> Medicine Cost  :${medicineCost }</h4>
 
 
 </center>

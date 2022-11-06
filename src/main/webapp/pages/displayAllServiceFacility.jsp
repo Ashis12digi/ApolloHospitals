@@ -53,7 +53,7 @@
 
 <div class="topnav">
   <a class="active" href="/">Home</a>
-  <a href="ServiceFacility">Add Service Facility</a>
+  <a href="serviceFacility">Add Service Facility</a>
 </div> 
 
 <center>
